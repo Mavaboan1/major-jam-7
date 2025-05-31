@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MobStats" load_steps=2 format=3 uid="uid://cdj0neerjua6y"]
+[gd_resource type="Resource" script_class="MobStats" load_steps=2 format=3 uid="uid://crkxqx07utcve"]
 
 [ext_resource type="Script" path="res://Scripts/mob_stats.gd" id="1_mlk6w"]
 

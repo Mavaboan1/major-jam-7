@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var player = get_node("/root/Main/character")
+@onready var player = get_node("/root/Main/Character")
 @export var stats: MobStats
 
 func _physics_process(delta: float) -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dr8hfsa1hj1bi"]
+[gd_scene load_steps=8 format=3 uid="uid://co46x4bld8qv"]
 
 [ext_resource type="Texture2D" uid="uid://cqimr7qrbww78" path="res://Sprites/Little Mage/Idle/Idle1.png" id="1_0y7nr"]
 [ext_resource type="Script" uid="uid://tco7a8nnpsmj" path="res://Scripts/Character.cs" id="1_jo2ib"]
