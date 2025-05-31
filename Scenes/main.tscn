@@ -1,3 +1,13 @@
-[gd_scene format=3 uid="uid://bxa871tqes7es"]
+[gd_scene load_steps=3 format=3 uid="uid://bxa871tqes7es"]
+
+[ext_resource type="PackedScene" uid="uid://dr8hfsa1hj1bi" path="res://Scenes/Character.tscn" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://yn8e3bs3pk8t" path="res://Scenes/background.tscn" id="3_8gbba"]
 
 [node name="Main" type="Node2D"]
+
+[node name="Node2D" parent="." instance=ExtResource("1_jjgbg")]
+position = Vector2(0, -1)
+
+[node name="Background" parent="." instance=ExtResource("3_8gbba")]
+z_index = -4096
+position = Vector2(-59, 4)
