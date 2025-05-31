@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b34iyn1oo2ouw"]
+
+[ext_resource type="Texture2D" uid="uid://kq00a0q8mon5" path="res://Sprites/FB00_nyknck/FB001.png" id="1_xjght"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oduel"]
+radius = 1.99
+height = 6.33
+
+[node name="Bullet" type="RigidBody2D"]
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_oduel")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.6, 0.2)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_xjght")
