@@ -1,6 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://bxa871tqes7es"]
 
 [ext_resource type="Script" uid="uid://bwg243s6su2us" path="res://Scripts/main.gd" id="1_jjgbg"]
+<<<<<<< Updated upstream
+=======
+[ext_resource type="PackedScene" uid="uid://yn8e3bs3pk8t" path="res://Scenes/background.tscn" id="2_8gbba"]
+[ext_resource type="PackedScene" uid="uid://dr8hfsa1hj1bi" path="res://Scenes/Character.tscn" id="3_jjvhh"]
+>>>>>>> Stashed changes
 
 [sub_resource type="Curve2D" id="Curve2D_7u77a"]
 _data = {
