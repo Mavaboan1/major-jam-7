@@ -1,11 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxa871tqes7es"]
+[gd_scene load_steps=5 format=3 uid="uid://bxa871tqes7es"]
 
-[ext_resource type="Script" uid="uid://bwg243s6su2us" path="res://Scripts/main.gd" id="1_jjgbg"]
-<<<<<<< Updated upstream
-=======
-[ext_resource type="PackedScene" uid="uid://yn8e3bs3pk8t" path="res://Scenes/background.tscn" id="2_8gbba"]
-[ext_resource type="PackedScene" uid="uid://dr8hfsa1hj1bi" path="res://Scenes/Character.tscn" id="3_jjvhh"]
->>>>>>> Stashed changes
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://bxpl3iflkxtcc" path="res://Scenes/background.tscn" id="2_8gbba"]
+[ext_resource type="PackedScene" uid="uid://co46x4bld8qv" path="res://Scenes/Character.tscn" id="3_jjvhh"]
 
 [sub_resource type="Curve2D" id="Curve2D_7u77a"]
 _data = {
@@ -13,23 +10,24 @@ _data = {
 }
 point_count = 5
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jjgbg"]
-
 [node name="Main" type="Node2D"]
 script = ExtResource("1_jjgbg")
 
-[node name="Path2D" type="Path2D" parent="."]
+[node name="Background" parent="." instance=ExtResource("2_8gbba")]
+position = Vector2(489, 292)
+
+[node name="Character" parent="." instance=ExtResource("3_jjvhh")]
+position = Vector2(517, 316)
+
+[node name="Path2D" type="Path2D" parent="Character"]
+position = Vector2(-258.5, -158)
+scale = Vector2(0.5, 0.5)
 curve = SubResource("Curve2D_7u77a")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+[node name="PathFollow2D" type="PathFollow2D" parent="Character/Path2D"]
 unique_name_in_owner = true
 position = Vector2(-79, -76)
 rotation = 1.57458
-
-[node name="character" type="Sprite2D" parent="."]
-position = Vector2(599, 286)
-scale = Vector2(26.5, 24.5)
-texture = SubResource("PlaceholderTexture2D_jjgbg")
 
 [node name="slimeTime" type="Timer" parent="."]
 wait_time = 0.305
