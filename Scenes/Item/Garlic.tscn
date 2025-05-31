@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwslnqr8flil0"]
+
+[ext_resource type="Script" uid="uid://x4yivfmrmy5u" path="res://Scripts/Garlic.cs" id="1_4ufji"]
+[ext_resource type="Texture2D" uid="uid://blmdi110qteht" path="res://Sprites/Circle/ezgif-65e906e8c171ef.png" id="1_v8c0f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v8c0f"]
+
+[node name="Garlic" type="Area2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_4ufji")
+
+[node name="GarlicRange" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_v8c0f")
+
+[node name="Sprite2D" type="Sprite2D" parent="GarlicRange"]
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("1_v8c0f")

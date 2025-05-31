@@ -5,7 +5,7 @@ public partial class Character : CharacterBody2D
 {
     public float moveSpeed = 150.0f;
     [Export] float Health = 100f;
-    
+
     public override void _Ready()
     {
 
@@ -37,5 +37,17 @@ public partial class Character : CharacterBody2D
 
         Velocity = velocity;
         MoveAndSlide();
+    }
+    public void PickUpItem(string itemName)
+    {
+         Node itemHandler = GetNodeOrNull("ItemController"); 
+    if (itemHandler != null)
+    {
+        itemHandler.Call("PickUpItem", itemName);
+    }
+    else
+    {
+        GD.PrintErr("ItemHandler node not found on player!");
+    }
     }
 }

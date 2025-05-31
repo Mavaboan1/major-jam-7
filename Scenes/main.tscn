@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxa871tqes7es"]
+[gd_scene load_steps=6 format=3 uid="uid://bxa871tqes7es"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_jjgbg"]
-[ext_resource type="PackedScene" uid="uid://bxpl3iflkxtcc" path="res://Scenes/background.tscn" id="2_8gbba"]
-[ext_resource type="PackedScene" uid="uid://co46x4bld8qv" path="res://Scenes/Character.tscn" id="3_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://yn8e3bs3pk8t" path="res://Scenes/background.tscn" id="2_8gbba"]
+[ext_resource type="PackedScene" uid="uid://dr8hfsa1hj1bi" path="res://Scenes/Character.tscn" id="3_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://bk68am1ffywr2" path="res://Scenes/testgiver.tscn" id="4_jjvhh"]
 
 [sub_resource type="Curve2D" id="Curve2D_7u77a"]
 _data = {
@@ -32,5 +33,8 @@ rotation = 1.57458
 [node name="slimeTime" type="Timer" parent="."]
 wait_time = 0.305
 autostart = true
+
+[node name="Testgiver" parent="." instance=ExtResource("4_jjvhh")]
+position = Vector2(252, 207)
 
 [connection signal="timeout" from="slimeTime" to="." method="_on_timer_timeout"]
