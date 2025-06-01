@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c2v7fxfwiqilo"]
 
 [ext_resource type="Texture2D" uid="uid://besnnobcu2xod" path="res://Sprites/Ice/I5050-5.png" id="1_1g1yv"]
-[ext_resource type="Script" uid="uid://cfekd5f5ct1od" path="res://Scenes/Missile.cs" id="1_u28tq"]
+[ext_resource type="Script" uid="uid://cfekd5f5ct1od" path="res://Scripts/Missile.cs" id="1_u28tq"]
 
 [node name="Missile" type="RigidBody2D"]
 gravity_scale = 0.0

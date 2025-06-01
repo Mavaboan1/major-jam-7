@@ -4,13 +4,15 @@ using System;
 public partial class Character : CharacterBody2D
 {
 
-
+	public int Experience;
 	public float moveSpeed = 150.0f;
 	[Export] float Health = 100f;
 	public Area2D hurtBox;
 	[Export] public Resource stats;
 	float damageRate;
 	public int mobs = 0;
+	[Export] public ProgressBar expBar;
+	[Export] public Control Itemmenu;
 
 
 	public override void _Ready()
@@ -22,6 +24,14 @@ public partial class Character : CharacterBody2D
 
 	public override void _Process(double delta)
 	{
+		expBar.Value = Experience;
+		if (Experience >= 500)
+		{
+			Itemmenu.Call("Active");
+			Experience -= 500;
+		}
+		getExp(1);
+
 		Vector2 velocity = Velocity;
 
 		velocity.X = 0;
@@ -82,6 +92,9 @@ public partial class Character : CharacterBody2D
 	{
 		mobs -= 1;
 	}
-    
+    public void getExp(int Exp)
+	{
+		Experience += Exp;
+	}
 
 }

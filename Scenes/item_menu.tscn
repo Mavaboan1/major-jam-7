@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdhj04qn4w4ck"]
+
+[ext_resource type="Script" uid="uid://cogektxjg0x6l" path="res://Scripts/ItemMenu.cs" id="1_rqjqw"]
+
+[node name="Item Menu" type="Control" node_paths=PackedStringArray("Item1", "Item2", "Item3")]
+process_mode = 3
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rqjqw")
+Item1 = NodePath("PanelContainer/VBoxContainer/Button")
+Item2 = NodePath("PanelContainer/VBoxContainer/Button2")
+Item3 = NodePath("PanelContainer/VBoxContainer/Button3")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 359.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Pick an item"
+alignment = 1
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "a"
+
+[node name="Button2" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "b"
+
+[node name="Button3" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "c"
