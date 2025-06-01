@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvm7odcejfd8o"]
+[gd_scene load_steps=5 format=3 uid="uid://dp5nyy2yvlhg2"]
 
-[ext_resource type="Script" uid="uid://c5kwfi3stdamr" path="res://Scripts/slime.gd" id="1_aiwxb"]
+[ext_resource type="Script" path="res://Scripts/slime.gd" id="1_aiwxb"]
 [ext_resource type="Resource" uid="uid://crkxqx07utcve" path="res://Resource/slime_stats.tres" id="2_paq7w"]
 [ext_resource type="Texture2D" uid="uid://db38xxq2kei7w" path="res://Sprites/Enemy_001.png" id="3_f4si1"]
 

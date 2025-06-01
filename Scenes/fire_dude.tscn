@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://briruqxoqtaj6"]
+[gd_scene load_steps=6 format=3 uid="uid://dkh5n5xcsy0kk"]
 
-[ext_resource type="Script" uid="uid://d1yy87o5chxx2" path="res://Scripts/fire_dude.gd" id="1_enext"]
+[ext_resource type="Script" path="res://Scripts/fire_dude.gd" id="1_enext"]
 [ext_resource type="Resource" uid="uid://c7wejevd7aw00" path="res://Resource/fire_dude_stats.tres" id="2_lmdja"]
 [ext_resource type="Texture2D" uid="uid://bmk3bgdrsgpoe" path="res://Sprites/Enemy_041.png" id="2_xytnp"]
 

@@ -4,8 +4,6 @@ using System;
 public partial class Character : CharacterBody2D
 {
 
-	public float moveSpeed = 150.0f;
-	[Export] float Health = 100f;
 
 	public float moveSpeed = 150.0f;
 	[Export] float Health = 100f;
