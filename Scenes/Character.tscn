@@ -27,8 +27,8 @@ radius = 7.0
 height = 20.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4b18b"]
-radius = 32.0
-height = 64.0
+radius = 8.0
+height = 22.0
 
 [node name="Character" type="CharacterBody2D" node_paths=PackedStringArray("expBar", "Itemmenu", "HealthBar")]
 scale = Vector2(2, 2)
