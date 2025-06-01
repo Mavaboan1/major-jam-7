@@ -12,7 +12,6 @@ script = ExtResource("1_ktscb")
 [node name="Icicle 1" type="Sprite2D" parent="Node2D"]
 position = Vector2(640, 0)
 rotation = 1.5708
-scale = Vector2(1, 1)
 texture = ExtResource("2_j1ta2")
 
 [node name="Node2D2" type="Node2D" parent="."]
@@ -20,7 +19,6 @@ texture = ExtResource("2_j1ta2")
 [node name="Icicle 2" type="Sprite2D" parent="Node2D2"]
 position = Vector2(-640, 0)
 rotation = -1.5708
-scale = Vector2(1, 1)
 texture = ExtResource("2_j1ta2")
 
 [node name="Node2D3" type="Node2D" parent="."]
@@ -28,12 +26,10 @@ texture = ExtResource("2_j1ta2")
 [node name="Icicle 3" type="Sprite2D" parent="Node2D3"]
 position = Vector2(0, 640)
 rotation = -3.14159
-scale = Vector2(1, 1)
 texture = ExtResource("2_j1ta2")
 
 [node name="Node2D4" type="Node2D" parent="."]
 
 [node name="Icicle 4" type="Sprite2D" parent="Node2D4"]
 position = Vector2(0, -640)
-scale = Vector2(1, 1)
 texture = ExtResource("2_j1ta2")

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2v7fxfwiqilo"]
+
+[ext_resource type="Texture2D" uid="uid://besnnobcu2xod" path="res://Sprites/Ice/I5050-5.png" id="1_1g1yv"]
+[ext_resource type="Script" uid="uid://cfekd5f5ct1od" path="res://Scenes/Missile.cs" id="1_u28tq"]
+
+[node name="Missile" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_u28tq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(7.10543e-15, -8.88178e-16)
+rotation = 3.14159
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("1_1g1yv")

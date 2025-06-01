@@ -40,14 +40,19 @@ public partial class Character : CharacterBody2D
     }
     public void PickUpItem(string itemName)
     {
-         Node itemHandler = GetNodeOrNull("ItemController"); 
-    if (itemHandler != null)
+        Node itemHandler = GetNodeOrNull("ItemController");
+        if (itemHandler != null)
+        {
+            itemHandler.Call("PickUpItem", itemName);
+        }
+        else
+        {
+            GD.PrintErr("ItemHandler node not found on player!");
+        }
+    }
+    public void SpeedUp()
     {
-        itemHandler.Call("PickUpItem", itemName);
+        moveSpeed += 20f;
     }
-    else
-    {
-        GD.PrintErr("ItemHandler node not found on player!");
-    }
-    }
+    
 }

@@ -28,7 +28,7 @@ public partial class Testgiver : Node2D
 
             if (player != null)
             {
-                player.Call("PickUpItem", "icicle");
+                player.Call("PickUpItem", "Magic_Missile");
                 GD.Print("Sent Icicle to Player");
             }
             else
