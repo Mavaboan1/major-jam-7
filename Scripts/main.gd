@@ -7,9 +7,5 @@ func spawn_mob():
 	add_child(slime)
 
 
-
-	
-
-
 func _on_slime_time_timeout() -> void:
 	spawn_mob()
