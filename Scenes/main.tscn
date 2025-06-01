@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxa871tqes7es"]
+[gd_scene load_steps=6 format=3 uid="uid://bxa871tqes7es"]
 
 [ext_resource type="Script" uid="uid://bwg243s6su2us" path="res://Scripts/main.gd" id="1_jjgbg"]
-[ext_resource type="PackedScene" path="res://Scenes/background.tscn" id="2_8gbba"]
+[ext_resource type="PackedScene" uid="uid://bxpl3iflkxtcc" path="res://Scenes/background.tscn" id="2_8gbba"]
 [ext_resource type="PackedScene" uid="uid://drlv4xc2cqh7k" path="res://Scenes/Character.tscn" id="3_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://briruqxoqtaj6" path="res://Scenes/fire_dude.tscn" id="4_jjvhh"]
 
 [sub_resource type="Curve2D" id="Curve2D_7u77a"]
 _data = {
@@ -32,5 +33,8 @@ rotation = 1.57458
 [node name="slimeTime" type="Timer" parent="."]
 wait_time = 0.305
 autostart = true
+
+[node name="fire_dude" parent="." instance=ExtResource("4_jjvhh")]
+position = Vector2(154, 557)
 
 [connection signal="timeout" from="slimeTime" to="." method="_on_timer_timeout"]

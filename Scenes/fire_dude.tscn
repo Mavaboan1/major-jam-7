@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://briruqxoqtaj6"]
+
+[ext_resource type="Script" uid="uid://d1yy87o5chxx2" path="res://Scripts/fire_dude.gd" id="1_enext"]
+[ext_resource type="Resource" uid="uid://c7wejevd7aw00" path="res://Resource/fire_dude_stats.tres" id="2_lmdja"]
+[ext_resource type="Texture2D" uid="uid://bmk3bgdrsgpoe" path="res://Sprites/Enemy_041.png" id="2_xytnp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4hw2d"]
+radius = 13.0
+height = 44.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_enext"]
+radius = 297.168
+
+[node name="fire_dude" type="CharacterBody2D" node_paths=PackedStringArray("shot_rotation")]
+script = ExtResource("1_enext")
+stats = ExtResource("2_lmdja")
+shot_rotation = NodePath("ShootingRotation")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -34)
+texture = ExtResource("2_xytnp")
+hframes = 4
+vframes = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, -22)
+shape = SubResource("CapsuleShape2D_4hw2d")
+
+[node name="dangerZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dangerZone"]
+position = Vector2(3, -20)
+shape = SubResource("CircleShape2D_enext")
+debug_color = Color(0.619045, 0.527824, 0.248211, 0.42)
+
+[node name="FireRate" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.3
+
+[node name="ShootingRotation" type="Node2D" parent="."]
+position = Vector2(4, -48)
+
+[node name="ShootingPoint" type="Marker2D" parent="ShootingRotation"]
+unique_name_in_owner = true
+position = Vector2(2, 0)
+
+[connection signal="body_entered" from="dangerZone" to="." method="_on_danger_zone_body_entered"]
+[connection signal="body_exited" from="dangerZone" to="." method="_on_danger_zone_body_exited"]
+[connection signal="timeout" from="FireRate" to="." method="_on_timer_timeout"]

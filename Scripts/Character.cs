@@ -47,12 +47,21 @@ public partial class Character : CharacterBody2D
 		{
 			Health -= damageRate * mobs * (float)delta;
 		}
-		GD.Print(Health);
+
+		if (Health <= 0)
+		{
+			QueueFree();
+		}
 	}
 
 	public void _on_hurt_box_body_entered(Node body)
 	{
 		mobs += 1;
+	}
+
+	public void _on_hurt_box_body_exited(Node body)
+	{
+		mobs -= 1;
 	}
 	
 
