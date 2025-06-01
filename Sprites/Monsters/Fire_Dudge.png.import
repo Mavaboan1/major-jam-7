@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bmk3bgdrsgpoe"
-path="res://.godot/imported/Enemy_041.png-6b31042959dc5bc3f78b43e39a58874b.ctex"
+path="res://.godot/imported/Fire_Dudge.png-28797f8189c2b04c2fce7f88fc58d54d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Enemy_041.png"
-dest_files=["res://.godot/imported/Enemy_041.png-6b31042959dc5bc3f78b43e39a58874b.ctex"]
+source_file="res://Sprites/Monsters/Fire_Dudge.png"
+dest_files=["res://.godot/imported/Fire_Dudge.png-28797f8189c2b04c2fce7f88fc58d54d.ctex"]
 
 [params]
 

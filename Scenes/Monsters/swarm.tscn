@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://dg3ggtus58bvx"]
+
+[ext_resource type="Texture2D" uid="uid://xex7fva1mhde" path="res://Sprites/Monsters/Swarm.png" id="1_2cbes"]
+[ext_resource type="Script" uid="uid://prav0f5pi6od" path="res://Scripts/swarm.gd" id="1_irohx"]
+[ext_resource type="Resource" uid="uid://xptb46p7hlwg" path="res://Resource/swarm.tres" id="2_ccoei"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ccoei"]
+radius = 15.0
+height = 46.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ccoei"]
+bg_color = Color(0.76201, 0.128086, 0.19317, 1)
+
+[node name="Swarm" type="Area2D"]
+top_level = true
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_irohx")
+stats = ExtResource("2_ccoei")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -21)
+texture = ExtResource("1_2cbes")
+hframes = 4
+vframes = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -21)
+shape = SubResource("CapsuleShape2D_ccoei")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -17.0
+offset_top = -52.0
+offset_right = 16.0
+offset_bottom = -46.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_ccoei")
+value = 100.0
+show_percentage = false
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

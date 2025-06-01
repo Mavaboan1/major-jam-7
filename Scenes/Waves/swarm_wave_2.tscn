@@ -1,0 +1,67 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbvjxm1dp8u16"]
+
+[ext_resource type="PackedScene" uid="uid://dg3ggtus58bvx" path="res://Scenes/Monsters/swarm.tscn" id="1_g2psc"]
+
+[node name="SwarmWave2" type="Node2D"]
+
+[node name="Swarm" parent="." instance=ExtResource("1_g2psc")]
+
+[node name="Swarm2" parent="." instance=ExtResource("1_g2psc")]
+position = Vector2(27, 26)
+
+[node name="Swarm7" parent="." instance=ExtResource("1_g2psc")]
+position = Vector2(27, -30)
+
+[node name="Swarm8" parent="." instance=ExtResource("1_g2psc")]
+position = Vector2(-27, -30)
+
+[node name="Swarm9" parent="." instance=ExtResource("1_g2psc")]
+position = Vector2(-25, 27)
+
+[node name="Swarm10" parent="." instance=ExtResource("1_g2psc")]
+position = Vector2(-61, 19)
+
+[node name="Swarm11" parent="." instance=ExtResource("1_g2psc")]
+position = Vector2(-63, -17)
+
+[node name="Swarm12" parent="." instance=ExtResource("1_g2psc")]
+position = Vector2(-14, -58)
+
+[node name="Swarm13" parent="." instance=ExtResource("1_g2psc")]
+position = Vector2(14, -58)
+
+[node name="Swarm14" parent="." instance=ExtResource("1_g2psc")]
+position = Vector2(60, -15)
+
+[node name="Swarm15" parent="." instance=ExtResource("1_g2psc")]
+position = Vector2(62, 19)
+
+[node name="Swarm16" parent="." instance=ExtResource("1_g2psc")]
+position = Vector2(13, 59)
+
+[node name="Swarm17" parent="." instance=ExtResource("1_g2psc")]
+position = Vector2(-14, 59)
+
+[node name="Swarm18" parent="." instance=ExtResource("1_g2psc")]
+position = Vector2(-46, 49)
+
+[node name="Swarm19" parent="." instance=ExtResource("1_g2psc")]
+position = Vector2(48, 51)
+
+[node name="Swarm20" parent="." instance=ExtResource("1_g2psc")]
+position = Vector2(49, -47)
+
+[node name="Swarm21" parent="." instance=ExtResource("1_g2psc")]
+position = Vector2(-48, -47)
+
+[node name="Swarm3" parent="." instance=ExtResource("1_g2psc")]
+position = Vector2(0, 31)
+
+[node name="Swarm4" parent="." instance=ExtResource("1_g2psc")]
+position = Vector2(0, -30)
+
+[node name="Swarm5" parent="." instance=ExtResource("1_g2psc")]
+position = Vector2(-33, 0)
+
+[node name="Swarm6" parent="." instance=ExtResource("1_g2psc")]
+position = Vector2(33, 0)

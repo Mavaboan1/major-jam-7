@@ -1,7 +1,7 @@
 extends Node2D
 
 func spawn_mob():
-	var slime = preload("res://Scenes/slime.tscn").instantiate()
+	var slime = preload("res://Scenes/Monsters/slime.tscn").instantiate()
 	%PathFollow2D.progress_ratio = randf()
 	slime.global_position = %PathFollow2D.global_position
 	add_child(slime)
