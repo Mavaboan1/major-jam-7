@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://bwg243s6su2us" path="res://Scripts/main.gd" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://yn8e3bs3pk8t" path="res://Scenes/background.tscn" id="2_8gbba"]
 [ext_resource type="PackedScene" uid="uid://dr8hfsa1hj1bi" path="res://Scenes/Character.tscn" id="3_jjvhh"]
-[ext_resource type="PackedScene" path="res://Scenes/testgiver.tscn" id="4_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://cwpxl4iyful4m" path="res://Scenes/testgiver.tscn" id="4_jjvhh"]
 [ext_resource type="Resource" uid="uid://crkxqx07utcve" path="res://Resource/slime_stats.tres" id="4_kry3j"]
-[ext_resource type="PackedScene" uid="uid://dkh5n5xcsy0kk" path="res://Scenes/fire_dude.tscn" id="6_21xkr"]
+[ext_resource type="PackedScene" path="res://Scenes/fire_dude.tscn" id="6_21xkr"]
 
 [sub_resource type="Curve2D" id="Curve2D_7u77a"]
 _data = {

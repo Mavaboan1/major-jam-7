@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dr8hfsa1hj1bi"]
+[gd_scene load_steps=12 format=3 uid="uid://dr8hfsa1hj1bi"]
 
 [ext_resource type="Texture2D" uid="uid://cqimr7qrbww78" path="res://Sprites/Little Mage/Idle/Idle1.png" id="1_0y7nr"]
 [ext_resource type="Script" uid="uid://tco7a8nnpsmj" path="res://Scripts/Character.cs" id="1_jo2ib"]
@@ -15,6 +15,12 @@ height = 20.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4b18b"]
 radius = 7.5
 height = 22.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4b18b"]
+bg_color = Color(0.537255, 0.627451, 0.545098, 0.0941176)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_peemv"]
+bg_color = Color(0.388235, 0.690196, 0.25098, 0.470588)
 
 [node name="Character" type="CharacterBody2D"]
 scale = Vector2(2, 2)
@@ -49,6 +55,15 @@ unique_name_in_owner = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("CapsuleShape2D_4b18b")
 debug_color = Color(0.871002, 0.294912, 0.489399, 0.42)
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -160.0
+offset_top = -90.0
+offset_right = 160.0
+offset_bottom = -63.0
+theme_override_styles/background = SubResource("StyleBoxFlat_4b18b")
+theme_override_styles/fill = SubResource("StyleBoxFlat_peemv")
+value = 5.0
 
 [connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]
 [connection signal="body_exited" from="HurtBox" to="." method="_on_hurt_box_body_exited"]
