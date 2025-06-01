@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c62kat0cqx0vo" path="res://Sprites/Little Mage/_Staffs/staff_mighty.png" id="4_vdqda"]
 [ext_resource type="PackedScene" uid="uid://b34iyn1oo2ouw" path="res://Scenes/bullet.tscn" id="4_xloa1"]
 [ext_resource type="Script" uid="uid://b45yv58enaaip" path="res://Scripts/ItemController.cs" id="7_peemv"]
-[ext_resource type="PackedScene" uid="uid://cdhj04qn4w4ck" path="res://Scenes/item_menu.tscn" id="8_peemv"]
+[ext_resource type="PackedScene" path="res://Scenes/item_menu.tscn" id="8_peemv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4b18b"]
 bg_color = Color(0.537255, 0.627451, 0.545098, 0.0941176)

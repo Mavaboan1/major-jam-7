@@ -2,7 +2,7 @@ extends Area2D
 
 var travelled_distance = 0
 @export var stats: MobStats
-var damage = stats.damage
+@onready var damage = stats.damage
 
 func _physics_process(delta: float) -> void:
 	const RANGE = 1200

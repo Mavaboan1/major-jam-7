@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bxa871tqes7es"]
+[gd_scene load_steps=7 format=3 uid="uid://bxa871tqes7es"]
 
 [ext_resource type="Script" uid="uid://bwg243s6su2us" path="res://Scripts/main.gd" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://yn8e3bs3pk8t" path="res://Scenes/background.tscn" id="2_8gbba"]
 [ext_resource type="PackedScene" uid="uid://dr8hfsa1hj1bi" path="res://Scenes/Character.tscn" id="3_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://cwpxl4iyful4m" path="res://Scenes/testgiver.tscn" id="4_jjvhh"]
-[ext_resource type="Resource" uid="uid://crkxqx07utcve" path="res://Resource/slime_stats.tres" id="4_kry3j"]
 [ext_resource type="PackedScene" uid="uid://c0d1vuarllyjh" path="res://Scenes/fire_dude.tscn" id="6_21xkr"]
 
 [sub_resource type="Curve2D" id="Curve2D_7u77a"]
@@ -27,7 +26,6 @@ position = Vector2(-703, 298)
 
 [node name="Character" parent="." instance=ExtResource("3_jjvhh")]
 position = Vector2(349, 242)
-stats = ExtResource("4_kry3j")
 
 [node name="Path2D" type="Path2D" parent="Character"]
 position = Vector2(-258.5, -158)
