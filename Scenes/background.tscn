@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cevunkaxsk302" path="res://Sprites/Tiles/Grass0 - 0.png" id="1_sn1xx"]
 
 [node name="Background" type="Node2D"]
+z_index = -2000
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

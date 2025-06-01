@@ -1,35 +1,75 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0bn2hxxipa1k"]
+[gd_scene load_steps=5 format=3 uid="uid://d0bn2hxxipa1k"]
 
 [ext_resource type="Script" uid="uid://drnnth6iftrvi" path="res://Scripts/Icicle.cs" id="1_ktscb"]
+[ext_resource type="Script" uid="uid://btjqd0mjn4c4n" path="res://Scripts/Ice_Shard.cs" id="2_i75w6"]
 [ext_resource type="Texture2D" uid="uid://c6uyboqon5s42" path="res://Sprites/Ice/I5050-7.png" id="2_j1ta2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uihth"]
+radius = 70.0001
+height = 200.0
 
 [node name="Icicle" type="Node2D"]
 scale = Vector2(0.1, 0.1)
 script = ExtResource("1_ktscb")
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Node2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("2_i75w6")
 
 [node name="Icicle 1" type="Sprite2D" parent="Node2D"]
 position = Vector2(640, 0)
 rotation = 1.5708
 texture = ExtResource("2_j1ta2")
 
-[node name="Node2D2" type="Node2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D"]
+position = Vector2(640, 0)
+shape = SubResource("CapsuleShape2D_uihth")
+
+[node name="Node2D2" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("2_i75w6")
 
 [node name="Icicle 2" type="Sprite2D" parent="Node2D2"]
 position = Vector2(-640, 0)
 rotation = -1.5708
 texture = ExtResource("2_j1ta2")
 
-[node name="Node2D3" type="Node2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D2"]
+position = Vector2(-640, 10)
+shape = SubResource("CapsuleShape2D_uihth")
+
+[node name="Node2D3" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("2_i75w6")
 
 [node name="Icicle 3" type="Sprite2D" parent="Node2D3"]
 position = Vector2(0, 640)
 rotation = -3.14159
 texture = ExtResource("2_j1ta2")
 
-[node name="Node2D4" type="Node2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D3"]
+position = Vector2(10, 640)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_uihth")
+
+[node name="Node2D4" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("2_i75w6")
 
 [node name="Icicle 4" type="Sprite2D" parent="Node2D4"]
 position = Vector2(0, -640)
 texture = ExtResource("2_j1ta2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D4"]
+position = Vector2(-10, -640)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_uihth")
+
+[connection signal="body_entered" from="Node2D" to="Node2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Node2D2" to="Node2D2" method="_on_body_entered"]
+[connection signal="body_entered" from="Node2D3" to="Node2D3" method="_on_body_entered"]
+[connection signal="body_entered" from="Node2D4" to="Node2D4" method="_on_body_entered"]

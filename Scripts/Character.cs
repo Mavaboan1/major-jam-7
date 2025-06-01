@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class Character : CharacterBody2D
 {
@@ -13,6 +14,9 @@ public partial class Character : CharacterBody2D
 	public int mobs = 0;
 	[Export] public ProgressBar expBar;
 	[Export] public Control Itemmenu;
+	[Export] public ProgressBar HealthBar;
+	private List<Node> Touchlist = new List<Node>();
+
 
 
 	public override void _Ready()
@@ -20,11 +24,15 @@ public partial class Character : CharacterBody2D
 		hurtBox = GetNode<Area2D>("%HurtBox");
 		damageRate = (float)stats.Get("damage");
 		GD.Print(damageRate);
+		HealthBar.MaxValue = Health;
+		HealthBar.Value = Health;
 	}
 
 	public override void _Process(double delta)
 	{
 		expBar.Value = Experience;
+		HealthBar.Value = Health;
+
 		if (Experience >= 500)
 		{
 			Itemmenu.Call("Active");
@@ -57,9 +65,9 @@ public partial class Character : CharacterBody2D
 
 		Velocity = velocity;
 		MoveAndSlide();
-		if (mobs >= 0)
+		if (Touchlist.Count > 0)
 		{
-			Health -= damageRate * mobs * (float)delta;
+			Health -= damageRate * Touchlist.Count * (float)delta;
 		}
 
 		if (Health <= 0)
@@ -84,19 +92,26 @@ public partial class Character : CharacterBody2D
 		moveSpeed += 20f;
 	}
 
-	public void takeDamage(int damageTaken)
+	public void takePlayerDamage(int damageTaken)
 	{
 		Health -= damageTaken;
 	}
 
 	public void _on_hurt_box_body_entered(Node body)
 	{
-		mobs += 1;
+		if (body.HasMethod("takeDamage") != false)
+		{
+			Touchlist.Add(body);
+		}
+
 	}
 
 	public void _on_hurt_box_body_exited(Node body)
 	{
-		mobs -= 1;
+		if (body.HasMethod("takeDamage") != false)
+		{
+			Touchlist.Remove(body);
+		}
 	}
     public void getExp(int Exp)
 	{

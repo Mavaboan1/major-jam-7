@@ -27,10 +27,9 @@ public partial class MagicMissile : Node2D
             {
                 if (child is Node2D spawnPoint)
                 {
-                    RigidBody2D bullet = bullet_scn.Instantiate<RigidBody2D>();
+                    Area2D bullet = bullet_scn.Instantiate<Area2D>();
                     bullet.Rotation = (float)GD.RandRange(0, Mathf.Tau);
                     bullet.GlobalPosition = spawnPoint.GlobalPosition;
-                    bullet.LinearVelocity = bullet.Transform.X * bullet_speed;
                     GetTree().Root.AddChild(bullet);
                 }
             }
@@ -38,6 +37,7 @@ public partial class MagicMissile : Node2D
             time_until_fire = 0f;
         }
     }
+    
 
     public void LevelUp()
     {

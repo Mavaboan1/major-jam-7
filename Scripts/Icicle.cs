@@ -35,6 +35,13 @@ public partial class Icicle : Node2D
         {
             bool shouldBeActive = i < activeCount;
             connectedNodes[i].Visible = shouldBeActive; // hides/shows node + all its children
+
+            var collider = connectedNodes[i].GetNodeOrNull<CollisionShape2D>("CollisionShape2D");
+            if (collider != null)
+            {
+                collider.Disabled = !shouldBeActive;
+            }
+
         }
     }
 }

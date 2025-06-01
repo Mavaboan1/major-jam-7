@@ -1,14 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://b34iyn1oo2ouw"]
+[gd_scene load_steps=4 format=3 uid="uid://b34iyn1oo2ouw"]
 
+[ext_resource type="Script" uid="uid://b8ww6xa14b4tf" path="res://Scripts/Bullet.cs" id="1_oduel"]
 [ext_resource type="Texture2D" uid="uid://kq00a0q8mon5" path="res://Sprites/FB00_nyknck/FB001.png" id="1_xjght"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oduel"]
 radius = 1.99
 height = 6.33
 
-[node name="Bullet" type="RigidBody2D"]
+[node name="Bullet" type="Area2D"]
+collision_layer = 0
 collision_mask = 2
-gravity_scale = 0.0
+script = ExtResource("1_oduel")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
@@ -18,3 +20,5 @@ shape = SubResource("CapsuleShape2D_oduel")
 position = Vector2(-1.6, 0.2)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_xjght")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

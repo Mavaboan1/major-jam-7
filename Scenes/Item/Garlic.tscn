@@ -5,13 +5,26 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v8c0f"]
 
-[node name="Garlic" type="Area2D"]
+[node name="Garlic" type="Area2D" node_paths=PackedStringArray("timer")]
+position = Vector2(-1, 0)
 scale = Vector2(2, 2)
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_4ufji")
+timer = NodePath("Timer")
 
 [node name="GarlicRange" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_v8c0f")
 
 [node name="Sprite2D" type="Sprite2D" parent="GarlicRange"]
+z_index = -1
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("1_v8c0f")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

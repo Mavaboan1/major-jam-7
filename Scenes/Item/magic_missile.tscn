@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cxnlxqfopj4x"]
 
-[ext_resource type="Script" uid="uid://dd740moe1f55r" path="res://Scenes/Item/MagicMissile.cs" id="1_tqslb"]
+[ext_resource type="Script" uid="uid://dd740moe1f55r" path="res://Scripts/MagicMissile.cs" id="1_tqslb"]
 [ext_resource type="PackedScene" uid="uid://c2v7fxfwiqilo" path="res://Scenes/missile.tscn" id="2_obe2f"]
 
 [node name="Magic Missile" type="Node2D"]
