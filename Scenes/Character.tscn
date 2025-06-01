@@ -1,13 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://dr8hfsa1hj1bi"]
+[gd_scene load_steps=14 format=3 uid="uid://dr8hfsa1hj1bi"]
 
 [ext_resource type="Texture2D" uid="uid://cqimr7qrbww78" path="res://Sprites/Little Mage/Idle/Idle1.png" id="1_0y7nr"]
 [ext_resource type="Script" uid="uid://tco7a8nnpsmj" path="res://Scripts/Character.cs" id="1_jo2ib"]
+[ext_resource type="Resource" uid="uid://crkxqx07utcve" path="res://Resource/slime_stats.tres" id="2_4b18b"]
 [ext_resource type="Script" uid="uid://dwkuvsi3qmucy" path="res://Scripts/Rotatepoint.cs" id="3_v7dgu"]
 [ext_resource type="Script" uid="uid://6elx3sl74lwu" path="res://Scripts/BulletPoint.cs" id="4_4b18b"]
 [ext_resource type="Texture2D" uid="uid://c62kat0cqx0vo" path="res://Sprites/Little Mage/_Staffs/staff_mighty.png" id="4_vdqda"]
 [ext_resource type="PackedScene" uid="uid://b34iyn1oo2ouw" path="res://Scenes/bullet.tscn" id="4_xloa1"]
 [ext_resource type="Script" uid="uid://b45yv58enaaip" path="res://Scripts/ItemController.cs" id="7_peemv"]
-[ext_resource type="PackedScene" uid="uid://cdhj04qn4w4ck" path="res://Scenes/item_menu.tscn" id="8_peemv"]
+[ext_resource type="PackedScene" path="res://Scenes/item_menu.tscn" id="8_peemv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4b18b"]
 bg_color = Color(0.537255, 0.627451, 0.545098, 0.0941176)
@@ -23,11 +24,10 @@ height = 20.0
 radius = 7.5
 height = 22.0
 
-[node name="Character" type="CharacterBody2D" node_paths=PackedStringArray("expBar", "Itemmenu")]
+[node name="Character" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_jo2ib")
-expBar = NodePath("ProgressBar")
-Itemmenu = NodePath("Camera2D/Item Menu")
+stats = ExtResource("2_4b18b")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 offset_left = -160.0
