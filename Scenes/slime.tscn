@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dp5nyy2yvlhg2"]
+[gd_scene load_steps=5 format=3 uid="uid://bqo83mekr2cml"]
 
 [ext_resource type="Script" path="res://Scripts/slime.gd" id="1_aiwxb"]
 [ext_resource type="Resource" uid="uid://crkxqx07utcve" path="res://Resource/slime_stats.tres" id="2_paq7w"]
