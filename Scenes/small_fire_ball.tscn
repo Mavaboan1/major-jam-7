@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b03ff8qgy1xag"]
+[gd_scene load_steps=5 format=3 uid="uid://b03ff8qgy1xag"]
 
-[ext_resource type="Script" path="res://Scripts/small_fire_ball.gd" id="1_gif72"]
+[ext_resource type="Script" uid="uid://df5fp42idt0ws" path="res://Scripts/small_fire_ball.gd" id="1_gif72"]
 [ext_resource type="Texture2D" uid="uid://bj1vmgan1obkk" path="res://Sprites/Fireball_Small.png" id="2_7r0hi"]
+[ext_resource type="Resource" path="res://Resource/fire_dude_stats.tres" id="2_h6q0y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_py070"]
 radius = 12.0416
@@ -11,15 +12,16 @@ top_level = true
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_gif72")
+stats = ExtResource("2_h6q0y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_py070")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-14, 1)
 texture = ExtResource("2_7r0hi")
 hframes = 7
 vframes = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 0)
-shape = SubResource("CircleShape2D_py070")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

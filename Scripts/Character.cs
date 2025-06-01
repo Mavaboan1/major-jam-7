@@ -83,6 +83,12 @@ public partial class Character : CharacterBody2D
 	{
 		moveSpeed += 20f;
 	}
+
+	public void takeDamage(int damage)
+	{
+		Health -= damage;
+	}
+
 	public void _on_hurt_box_body_entered(Node body)
 	{
 		mobs += 1;
