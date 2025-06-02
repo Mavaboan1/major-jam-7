@@ -12,7 +12,7 @@ func _ready() -> void:
 	health_bar.value = stats.max_health
 	$AnimatedSprite2D.play("wait")
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var direction = global_position.direction_to(player.global_position)
 	velocity = direction * speed
 	move_and_slide()

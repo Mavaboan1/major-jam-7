@@ -17,7 +17,7 @@ func _ready() -> void:
 	health_bar.max_value = stats.max_health
 	health_bar.value = stats.max_health
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var direction = global_position.direction_to(player.global_position)
 	velocity = direction * speed
 	move_and_slide()

@@ -5,27 +5,28 @@
 [node name="SwarmWave1" type="Node2D"]
 
 [node name="Swarm" parent="." instance=ExtResource("1_8xnfg")]
+position = Vector2(1, -2)
 
 [node name="Swarm2" parent="." instance=ExtResource("1_8xnfg")]
-position = Vector2(14, 25)
+position = Vector2(15, 25)
 
 [node name="Swarm3" parent="." instance=ExtResource("1_8xnfg")]
-position = Vector2(-14, 25)
+position = Vector2(-13, 25)
 
 [node name="Swarm4" parent="." instance=ExtResource("1_8xnfg")]
-position = Vector2(0, 50)
+position = Vector2(1, 50)
 
 [node name="Swarm5" parent="." instance=ExtResource("1_8xnfg")]
-position = Vector2(-29, 0)
+position = Vector2(-28, 0)
 
 [node name="Swarm6" parent="." instance=ExtResource("1_8xnfg")]
-position = Vector2(-14, -25)
+position = Vector2(-13, -25)
 
 [node name="Swarm7" parent="." instance=ExtResource("1_8xnfg")]
-position = Vector2(29, 0)
+position = Vector2(30, 0)
 
 [node name="Swarm8" parent="." instance=ExtResource("1_8xnfg")]
-position = Vector2(14, -25)
+position = Vector2(15, -25)
 
 [node name="Swarm9" parent="." instance=ExtResource("1_8xnfg")]
-position = Vector2(0, -50)
+position = Vector2(1, -50)

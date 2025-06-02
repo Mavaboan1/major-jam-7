@@ -1,0 +1,107 @@
+[gd_scene load_steps=11 format=3 uid="uid://ccphsn4x2mp5x"]
+
+[ext_resource type="Script" uid="uid://ixko1im2bjbp" path="res://Scripts/weirdos.gd" id="1_fkpmg"]
+[ext_resource type="Texture2D" uid="uid://i8i6ukr2yif0" path="res://Sprites/Monsters/Weirdos.png" id="2_4bt5e"]
+[ext_resource type="Resource" uid="uid://bjl1ipgu2h6q7" path="res://Resource/weirdos.tres" id="2_typ2f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_typ2f"]
+atlas = ExtResource("2_4bt5e")
+region = Rect2(0, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cf0rw"]
+atlas = ExtResource("2_4bt5e")
+region = Rect2(72, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ruis0"]
+atlas = ExtResource("2_4bt5e")
+region = Rect2(144, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fa5rh"]
+atlas = ExtResource("2_4bt5e")
+region = Rect2(216, 0, 72, 72)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1nxfm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_typ2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cf0rw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ruis0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fa5rh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e8pmo"]
+radius = 25.02
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cf0rw"]
+bg_color = Color(0.76201, 0.128086, 0.19317, 1)
+
+[node name="weirdos" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_fkpmg")
+stats = ExtResource("2_typ2f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -33)
+sprite_frames = SubResource("SpriteFrames_1nxfm")
+frame = 3
+frame_progress = 0.0763183
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -27)
+shape = SubResource("CircleShape2D_e8pmo")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -18.0
+offset_top = -63.0
+offset_right = 21.0
+offset_bottom = -58.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_cf0rw")
+value = 100.0
+show_percentage = false
+
+[node name="DeathMarkers" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="DeathMarkers"]
+position = Vector2(-30, 10)
+rotation = 2.19776
+
+[node name="Marker2D2" type="Marker2D" parent="DeathMarkers"]
+position = Vector2(30, 10)
+rotation = 1.00944
+
+[node name="Marker2D3" type="Marker2D" parent="DeathMarkers"]
+position = Vector2(-50, -25)
+rotation = 3.14486
+
+[node name="Marker2D4" type="Marker2D" parent="DeathMarkers"]
+position = Vector2(0, 20)
+rotation = 1.55533
+
+[node name="Marker2D5" type="Marker2D" parent="DeathMarkers"]
+position = Vector2(50, -25)
+rotation = 0.00872173
+
+[node name="Marker2D6" type="Marker2D" parent="DeathMarkers"]
+position = Vector2(0, -65)
+rotation = -1.52594
+
+[node name="Marker2D7" type="Marker2D" parent="DeathMarkers"]
+position = Vector2(30, -50)
+rotation = -0.690178
+
+[node name="Marker2D8" type="Marker2D" parent="DeathMarkers"]
+position = Vector2(-30, -50)
+rotation = -2.3417

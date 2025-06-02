@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c0d1vuarllyjh"]
 
-[ext_resource type="Script" path="res://Scripts/fire_dude.gd" id="1_3evdg"]
-[ext_resource type="Resource" path="res://Resource/fire_dude_stats.tres" id="2_5wg7d"]
+[ext_resource type="Script" uid="uid://d1yy87o5chxx2" path="res://Scripts/fire_dude.gd" id="1_3evdg"]
+[ext_resource type="Resource" uid="uid://c7wejevd7aw00" path="res://Resource/fire_dude_stats.tres" id="2_5wg7d"]
 [ext_resource type="Texture2D" uid="uid://bmk3bgdrsgpoe" path="res://Sprites/Monsters/Fire_Dudge.png" id="3_s1jhi"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4hw2d"]
