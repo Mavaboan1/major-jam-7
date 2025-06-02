@@ -23,7 +23,6 @@ public partial class Character : CharacterBody2D
 	{
 		hurtBox = GetNode<Area2D>("%HurtBox");
 		damageRate = (float)stats.Get("damage");
-		GD.Print(damageRate);
 		HealthBar.MaxValue = Health;
 		HealthBar.Value = Health;
 	}
