@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxa871tqes7es"]
+
+[ext_resource type="Script" uid="uid://bwg243s6su2us" path="res://Scripts/main.gd" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://yn8e3bs3pk8t" path="res://Scenes/background.tscn" id="2_8gbba"]
+[ext_resource type="PackedScene" uid="uid://dr8hfsa1hj1bi" path="res://Scenes/Character.tscn" id="3_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://cwpxl4iyful4m" path="res://Scenes/testgiver.tscn" id="4_jjvhh"]
+
+[sub_resource type="Curve2D" id="Curve2D_7u77a"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -79, -76, 0, 0, 0, 0, -82, 716, 0, 0, 0, 0, 1218, 719, 0, 0, 0, 0, 1214, -72, 0, 0, 0, 0, -79, -76)
+}
+point_count = 5
+
+[node name="Main" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("2_8gbba")]
+position = Vector2(489, 292)
+
+[node name="Enemy" type="Node2D" parent="."]
+position = Vector2(735, 303)
+script = ExtResource("1_jjgbg")
+
+[node name="Character" parent="." instance=ExtResource("3_jjvhh")]
+position = Vector2(349, 242)
+
+[node name="Path2D" type="Path2D" parent="Character"]
+position = Vector2(-258.5, -158)
+scale = Vector2(0.5, 0.5)
+curve = SubResource("Curve2D_7u77a")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Character/Path2D"]
+unique_name_in_owner = true
+position = Vector2(-79, -76)
+rotation = 1.57458
+
+[node name="slimeTime" type="Timer" parent="."]
+autostart = true
+
+[node name="Testgiver" parent="." instance=ExtResource("4_jjvhh")]
+position = Vector2(252, 207)
+
+[connection signal="timeout" from="slimeTime" to="Enemy" method="_on_slime_time_timeout"]

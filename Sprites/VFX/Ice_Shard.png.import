@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://db38xxq2kei7w"
-path="res://.godot/imported/Enemy_001.png-7dfaa8aa5455e5437c2f9a2b1009a5ee.ctex"
+uid="uid://40tifdqcpeku"
+path="res://.godot/imported/Ice_Shard.png-d81db61d4286a675c03651c64c5e265d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Enemy_001.png"
-dest_files=["res://.godot/imported/Enemy_001.png-7dfaa8aa5455e5437c2f9a2b1009a5ee.ctex"]
+source_file="res://Sprites/VFX/Ice_Shard.png"
+dest_files=["res://.godot/imported/Ice_Shard.png-d81db61d4286a675c03651c64c5e265d.ctex"]
 
 [params]
 

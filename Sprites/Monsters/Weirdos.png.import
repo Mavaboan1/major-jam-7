@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bj1vmgan1obkk"
-path="res://.godot/imported/Fireball_Small.png-4017612b9f8fcea4d0ed6b358409bb87.ctex"
+uid="uid://i8i6ukr2yif0"
+path="res://.godot/imported/Weirdos.png-05c3b260e074243b523609516ba07c28.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Fireball_Small.png"
-dest_files=["res://.godot/imported/Fireball_Small.png-4017612b9f8fcea4d0ed6b358409bb87.ctex"]
+source_file="res://Sprites/Monsters/Weirdos.png"
+dest_files=["res://.godot/imported/Weirdos.png-05c3b260e074243b523609516ba07c28.ctex"]
 
 [params]
 
