@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3hfyhxypbj3y"]
+
+[ext_resource type="Script" uid="uid://41kkdavby4x3" path="res://Scripts/RecoveryBelt.cs" id="1_813h4"]
+
+[node name="Recovery Belt" type="Node2D"]
+script = ExtResource("1_813h4")

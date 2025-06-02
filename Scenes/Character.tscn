@@ -58,6 +58,7 @@ max_value = 500.0
 value = 5.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
 texture = ExtResource("1_0y7nr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
