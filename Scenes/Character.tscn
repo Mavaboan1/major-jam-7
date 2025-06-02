@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://crkxqx07utcve" path="res://Resource/slime_stats.tres" id="2_4b18b"]
 [ext_resource type="Script" uid="uid://dwkuvsi3qmucy" path="res://Scripts/Rotatepoint.cs" id="3_v7dgu"]
 [ext_resource type="Script" uid="uid://6elx3sl74lwu" path="res://Scripts/BulletPoint.cs" id="4_4b18b"]
-[ext_resource type="Script" path="res://Scripts/WildMagic.cs" id="4_8au8k"]
+[ext_resource type="Script" uid="uid://bqx54houecpvb" path="res://Scripts/WildMagic.cs" id="4_8au8k"]
 [ext_resource type="Texture2D" uid="uid://c62kat0cqx0vo" path="res://Sprites/Little Mage/_Staffs/staff_mighty.png" id="4_vdqda"]
 [ext_resource type="PackedScene" uid="uid://b34iyn1oo2ouw" path="res://Scenes/bullet.tscn" id="4_xloa1"]
 [ext_resource type="Script" uid="uid://b45yv58enaaip" path="res://Scripts/ItemController.cs" id="7_peemv"]

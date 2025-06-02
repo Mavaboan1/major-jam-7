@@ -4,12 +4,13 @@ using System;
 public partial class WildMagic : Node2D
 {
     [Export] public ProgressBar WildMagicBar;
-
+    public Node wildSingleton;
 
     public override void _Ready()
     {
         WildMagicBar.MaxValue = 300f;
         WildMagicBar.Value = 0;
+        //wildSingleton = GetNode<Node>("/root/")
     }
 
     public override void _Process(double delta)
