@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dg3ggtus58bvx"]
 
 [ext_resource type="Texture2D" uid="uid://xex7fva1mhde" path="res://Sprites/Monsters/Swarm.png" id="1_2cbes"]
-[ext_resource type="Script" uid="uid://prav0f5pi6od" path="res://Scripts/swarm.gd" id="1_irohx"]
+[ext_resource type="Script" path="res://Scripts/swarm.gd" id="1_irohx"]
 [ext_resource type="Resource" uid="uid://xptb46p7hlwg" path="res://Resource/swarm.tres" id="2_ccoei"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ccoei"]
@@ -13,6 +13,7 @@ bg_color = Color(0.76201, 0.128086, 0.19317, 1)
 
 [node name="Swarm" type="Area2D"]
 scale = Vector2(0.5, 0.5)
+collision_layer = 3
 script = ExtResource("1_irohx")
 stats = ExtResource("2_ccoei")
 
