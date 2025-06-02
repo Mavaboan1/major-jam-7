@@ -7,19 +7,19 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_py070"]
 radius = 12.0416
 
-[node name="Small_fire_ball" type="Area2D"]
+[node name="Small_fire_ball" type="Area2D" groups=["Projectiles"]]
 top_level = true
-collision_layer = 0
+collision_layer = 4
 script = ExtResource("1_gif72")
 stats = ExtResource("2_h6q0y")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["Projectiles"]]
 position = Vector2(-14, 1)
 texture = ExtResource("2_7r0hi")
 hframes = 7
 vframes = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Projectiles"]]
 position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_py070")
 

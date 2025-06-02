@@ -34,13 +34,14 @@ height = 20.0
 radius = 8.0
 height = 22.0
 
-[node name="Character" type="CharacterBody2D" node_paths=PackedStringArray("expBar", "Itemmenu", "HealthBar")]
+[node name="Character" type="CharacterBody2D" node_paths=PackedStringArray("expBar", "Itemmenu", "HealthBar", "wildController")]
 scale = Vector2(2, 2)
 script = ExtResource("1_jo2ib")
 stats = ExtResource("2_4b18b")
 expBar = NodePath("ProgressBar")
-Itemmenu = NodePath("Camera2D/Item Menu")
+Itemmenu = NodePath("Camera/Item Menu")
 HealthBar = NodePath("Healthbar")
+wildController = NodePath("WildmagicController")
 
 [node name="Healthbar" type="ProgressBar" parent="."]
 offset_left = -8.0
@@ -83,15 +84,24 @@ shape = SubResource("CapsuleShape2D_jo2ib")
 script = ExtResource("4_8au8k")
 WildMagicBar = NodePath("../Wild Magic Bar")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera" type="Camera2D" parent="."]
 
-[node name="Item Menu" parent="Camera2D" instance=ExtResource("8_peemv")]
+[node name="Item Menu" parent="Camera" instance=ExtResource("8_peemv")]
 offset_left = -160.0
 offset_top = -90.0
 offset_right = -160.0
 offset_bottom = -90.0
 scale = Vector2(0.504615, 0.512443)
 metadata/_edit_use_anchors_ = true
+
+[node name="Darkness" type="ColorRect" parent="Camera"]
+visible = false
+z_index = 4096
+offset_left = -160.0
+offset_top = -89.0
+offset_right = 163.0
+offset_bottom = 94.0
+color = Color(0, 0, 0, 0.905882)
 
 [node name="Rotatepoint" type="Node2D" parent="."]
 script = ExtResource("3_v7dgu")
