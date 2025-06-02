@@ -12,15 +12,23 @@ extends CharacterBody2D
 @onready var damage = stats.damage
 @onready var fire_rate: Timer = %FireRate
 
+var knockback_timer = 0
+var knockback_force: Vector2
+
 func _ready() -> void:
 	fire_rate.wait_time = stats.attack_speed
 	health_bar.max_value = stats.max_health
 	health_bar.value = stats.max_health
 
-func _physics_process(_delta: float) -> void:
-	var direction = global_position.direction_to(player.global_position)
-	velocity = direction * speed
-	move_and_slide()
+func _physics_process(delta: float) -> void:
+	if knockback_timer > 0:
+		velocity = knockback_force
+		knockback_timer -= delta
+		move_and_slide()
+	else:
+		var direction = global_position.direction_to(player.global_position)
+		velocity = direction * stats.speed
+		move_and_slide()
 	shot_rotation.look_at(player.global_position)
 	health_bar.value = health
 	if health <= 0:
@@ -38,6 +46,10 @@ func takeDamage(damage_taken):
 
 func die():
 	queue_free()
+
+func apply_knockback(force: Vector2):
+	knockback_timer = 0.2
+	knockback_force = force
 
 func _on_danger_zone_body_entered(body: Node2D) -> void:
 	if body.global_position == player.global_position:

@@ -28,7 +28,7 @@ public partial class Wave : Area2D
 
         if (body.HasMethod("takeDamage") != false)
         {
-            body.Call("takeDamage", 5);
+            body.Call("takeDamage", 2);
 
         }
         if (body.HasMethod("apply_knockback"))

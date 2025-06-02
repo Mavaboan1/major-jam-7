@@ -22,7 +22,6 @@ public partial class Shockwave : Node2D
             var bullet = bullet_scn.Instantiate<Wave>();
             bullet.Rotation = GlobalRotation;
             bullet.GlobalPosition = GlobalPosition;
-            bullet.KnockbackForce = 100f*Level;
 
             GetTree().Root.AddChild(bullet);
             time_until_fire = 0f;
@@ -35,7 +34,7 @@ public partial class Shockwave : Node2D
     public void LevelUp()
     {
         Level += 1;
-        
-
+        bps += 0.5f;
+        fire_rate = 1 / bps;
     }
 }
