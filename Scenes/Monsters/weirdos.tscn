@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://ccphsn4x2mp5x"]
 
-[ext_resource type="Script" uid="uid://ixko1im2bjbp" path="res://Scripts/weirdos.gd" id="1_fkpmg"]
+[ext_resource type="Script" path="res://Scripts/weirdos.gd" id="1_fkpmg"]
 [ext_resource type="Texture2D" uid="uid://i8i6ukr2yif0" path="res://Sprites/Monsters/Weirdos.png" id="2_4bt5e"]
 [ext_resource type="Resource" uid="uid://bjl1ipgu2h6q7" path="res://Resource/weirdos.tres" id="2_typ2f"]
 

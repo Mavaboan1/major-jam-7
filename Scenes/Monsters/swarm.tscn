@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dg3ggtus58bvx"]
+[gd_scene load_steps=7 format=3 uid="uid://dg3ggtus58bvx"]
 
 [ext_resource type="Texture2D" uid="uid://xex7fva1mhde" path="res://Sprites/Monsters/Swarm.png" id="1_2cbes"]
-[ext_resource type="Script" path="res://Scripts/swarm.gd" id="1_irohx"]
+[ext_resource type="Script" uid="uid://prav0f5pi6od" path="res://Scripts/swarm.gd" id="1_irohx"]
 [ext_resource type="Resource" uid="uid://xptb46p7hlwg" path="res://Resource/swarm.tres" id="2_ccoei"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ccoei"]
@@ -11,9 +11,13 @@ height = 46.0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ccoei"]
 bg_color = Color(0.76201, 0.128086, 0.19317, 1)
 
-[node name="Swarm" type="Area2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xj785"]
+radius = 18.0
+height = 52.0
+
+[node name="Swarm" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
-collision_layer = 3
+collision_layer = 2
 script = ExtResource("1_irohx")
 stats = ExtResource("2_ccoei")
 
@@ -38,5 +42,12 @@ show_percentage = false
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="HurtBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, -20)
+shape = SubResource("CapsuleShape2D_xj785")
+debug_color = Color(0.86792, 0.326735, 0.359164, 0.42)
+
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]

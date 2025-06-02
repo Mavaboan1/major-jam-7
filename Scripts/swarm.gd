@@ -1,4 +1,4 @@
-extends Area2D
+extends CharacterBody2D
 
 @export var stats: MobStats
 @onready var player = get_node("/root/Main/Character")
@@ -26,11 +26,10 @@ func takeDamage(damage):
 func die():
 	queue_free()
 	
-
-func _on_body_entered(body: Node2D) -> void:
-	if body.has_method("takePlayerDamage"):
-		body.takePlayerDamage(stats.damage)
-
-
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()
+
+
+func _on_hurt_box_body_entered(body: Node2D) -> void:
+	if body.has_method("takePlayerDamage"):
+		body.takePlayerDamage(stats.damage)
