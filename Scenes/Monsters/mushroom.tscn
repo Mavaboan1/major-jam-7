@@ -187,7 +187,7 @@ radius = 36.0
 height = 76.0
 
 [node name="Mushroom" type="CharacterBody2D"]
-collision_layer = 3
+collision_layer = 2
 script = ExtResource("1_1xmbr")
 stats = ExtResource("2_aeljw")
 

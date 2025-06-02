@@ -11,10 +11,13 @@ public partial class Character : CharacterBody2D
 	public Area2D hurtBox;
 	[Export] public Resource stats;
 	float damageRate;
+	bool Slowed;
+
 	public int mobs = 0;
 	[Export] public ProgressBar expBar;
 	[Export] public Control Itemmenu;
 	[Export] public ProgressBar HealthBar;
+	[Export] public WildMagic wildController;
 	private List<Node> Touchlist = new List<Node>();
 
 
@@ -23,7 +26,6 @@ public partial class Character : CharacterBody2D
 	{
 		hurtBox = GetNode<Area2D>("%HurtBox");
 		damageRate = (float)stats.Get("damage");
-		GD.Print(damageRate);
 		HealthBar.MaxValue = Health;
 		HealthBar.Value = Health;
 	}
@@ -113,9 +115,31 @@ public partial class Character : CharacterBody2D
 			Touchlist.Remove(body);
 		}
 	}
-    public void getExp(int Exp)
+	public void getExp(int Exp)
 	{
 		Experience += Exp;
 	}
+	public void getWild(int Wild)
+	{
+		wildController.Call("GetWild", Wild);
+	}
+	public void Invert()
+	{
+		moveSpeed *= -1;
+	}
+	public void Slow()
+	{
+		if (Slowed == false)
+		{
+			moveSpeed -= 100f;
+			Slowed = true;
+		}
+		else if (Slowed == true)
+		{
+			moveSpeed += 100f;
+			Slowed = false;
+		}
+	}
+	
 
 }

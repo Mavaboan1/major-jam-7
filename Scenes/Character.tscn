@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://dr8hfsa1hj1bi"]
+[gd_scene load_steps=18 format=3 uid="uid://dr8hfsa1hj1bi"]
 
 [ext_resource type="Texture2D" uid="uid://cqimr7qrbww78" path="res://Sprites/Little Mage/Idle/Idle1.png" id="1_0y7nr"]
 [ext_resource type="Script" uid="uid://tco7a8nnpsmj" path="res://Scripts/Character.cs" id="1_jo2ib"]
 [ext_resource type="Resource" uid="uid://crkxqx07utcve" path="res://Resource/slime_stats.tres" id="2_4b18b"]
 [ext_resource type="Script" uid="uid://dwkuvsi3qmucy" path="res://Scripts/Rotatepoint.cs" id="3_v7dgu"]
 [ext_resource type="Script" uid="uid://6elx3sl74lwu" path="res://Scripts/BulletPoint.cs" id="4_4b18b"]
+[ext_resource type="Script" uid="uid://bqx54houecpvb" path="res://Scripts/WildMagic.cs" id="4_8au8k"]
 [ext_resource type="Texture2D" uid="uid://c62kat0cqx0vo" path="res://Sprites/Little Mage/_Staffs/staff_mighty.png" id="4_vdqda"]
 [ext_resource type="PackedScene" uid="uid://b34iyn1oo2ouw" path="res://Scenes/bullet.tscn" id="4_xloa1"]
 [ext_resource type="Script" uid="uid://b45yv58enaaip" path="res://Scripts/ItemController.cs" id="7_peemv"]
@@ -22,6 +23,9 @@ bg_color = Color(0.537255, 0.627451, 0.545098, 0.0941176)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_peemv"]
 bg_color = Color(0.388235, 0.690196, 0.25098, 0.470588)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p3cti"]
+bg_color = Color(0.677019, 0.000363002, 0.681733, 1)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jo2ib"]
 radius = 7.0
 height = 20.0
@@ -35,7 +39,7 @@ scale = Vector2(2, 2)
 script = ExtResource("1_jo2ib")
 stats = ExtResource("2_4b18b")
 expBar = NodePath("ProgressBar")
-Itemmenu = NodePath("Camera2D/Item Menu")
+Itemmenu = NodePath("Camera/Item Menu")
 HealthBar = NodePath("Healthbar")
 
 [node name="Healthbar" type="ProgressBar" parent="."]
@@ -57,6 +61,17 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_peemv")
 max_value = 500.0
 value = 5.0
 
+[node name="Wild Magic Bar" type="ProgressBar" parent="."]
+offset_left = -160.0
+offset_top = -62.0
+offset_right = -42.0
+offset_bottom = -54.0
+theme_override_styles/background = SubResource("StyleBoxFlat_4b18b")
+theme_override_styles/fill = SubResource("StyleBoxFlat_p3cti")
+max_value = 500.0
+value = 5.0
+show_percentage = false
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 2
 texture = ExtResource("1_0y7nr")
@@ -64,15 +79,28 @@ texture = ExtResource("1_0y7nr")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_jo2ib")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="WildmagicController" type="Node2D" parent="." node_paths=PackedStringArray("WildMagicBar")]
+script = ExtResource("4_8au8k")
+WildMagicBar = NodePath("../Wild Magic Bar")
 
-[node name="Item Menu" parent="Camera2D" instance=ExtResource("8_peemv")]
+[node name="Camera" type="Camera2D" parent="."]
+
+[node name="Item Menu" parent="Camera" instance=ExtResource("8_peemv")]
 offset_left = -160.0
 offset_top = -90.0
 offset_right = -160.0
 offset_bottom = -90.0
 scale = Vector2(0.504615, 0.512443)
 metadata/_edit_use_anchors_ = true
+
+[node name="Darkness" type="ColorRect" parent="Camera"]
+visible = false
+z_index = 4096
+offset_left = -160.0
+offset_top = -89.0
+offset_right = 163.0
+offset_bottom = 94.0
+color = Color(0, 0, 0, 0.905882)
 
 [node name="Rotatepoint" type="Node2D" parent="."]
 script = ExtResource("3_v7dgu")

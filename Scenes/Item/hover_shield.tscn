@@ -1,0 +1,92 @@
+[gd_scene load_steps=8 format=3 uid="uid://byhuvfavxv1xw"]
+
+[ext_resource type="Texture2D" uid="uid://7cnt62rhyfa0" path="res://Sprites/1.png" id="1_igrhu"]
+[ext_resource type="Script" uid="uid://c15qclbjk2gv7" path="res://Scripts/HoverShield.cs" id="1_ld1o4"]
+[ext_resource type="Script" uid="uid://s36jhwd8h8w1" path="res://Scripts/Shield.cs" id="2_qmmr7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qmmr7"]
+radius = 7.25431
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cdvoh"]
+radius = 7.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xx2kg"]
+radius = 7.04006
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dvhp8"]
+radius = 7.67402
+
+[node name="HoverShield" type="Node2D"]
+scale = Vector2(0.1, 0.1)
+script = ExtResource("1_ld1o4")
+
+[node name="Node2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("2_qmmr7")
+
+[node name="Shield 1" type="Sprite2D" parent="Node2D"]
+position = Vector2(300, 0)
+rotation = 1.5708
+scale = Vector2(8, 8)
+texture = ExtResource("1_igrhu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D"]
+position = Vector2(300, 0)
+rotation = 1.5708
+scale = Vector2(8, 8)
+shape = SubResource("CircleShape2D_qmmr7")
+
+[node name="Node2D2" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("2_qmmr7")
+
+[node name="Shield 2" type="Sprite2D" parent="Node2D2"]
+position = Vector2(-300, 0)
+rotation = -1.5708
+scale = Vector2(8, 8)
+texture = ExtResource("1_igrhu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D2"]
+position = Vector2(-300, 0)
+rotation = -1.5708
+scale = Vector2(8, 8)
+shape = SubResource("CircleShape2D_cdvoh")
+
+[node name="Node2D3" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("2_qmmr7")
+
+[node name="Shield 3" type="Sprite2D" parent="Node2D3"]
+position = Vector2(0, 300)
+rotation = -3.14159
+scale = Vector2(8, 8)
+texture = ExtResource("1_igrhu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D3"]
+position = Vector2(0, 300)
+rotation = -3.14159
+scale = Vector2(8, 8)
+shape = SubResource("CircleShape2D_xx2kg")
+
+[node name="Node2D4" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("2_qmmr7")
+
+[node name="Shield 4" type="Sprite2D" parent="Node2D4"]
+position = Vector2(0, -300)
+scale = Vector2(8, 8)
+texture = ExtResource("1_igrhu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D4"]
+position = Vector2(0, -300)
+scale = Vector2(8, 8)
+shape = SubResource("CircleShape2D_dvhp8")
+
+[connection signal="area_entered" from="Node2D" to="Node2D" method="_on_area_entered"]
+[connection signal="area_entered" from="Node2D2" to="Node2D2" method="_on_area_entered"]
+[connection signal="area_entered" from="Node2D3" to="Node2D3" method="_on_area_entered"]
+[connection signal="area_entered" from="Node2D4" to="Node2D4" method="_on_area_entered"]
