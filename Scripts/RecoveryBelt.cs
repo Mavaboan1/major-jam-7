@@ -46,6 +46,10 @@ public partial class RecoveryBelt : Node2D
                 {
                     callTimer = 0f;
                     player.Call("takePlayerDamage", -Level); // Change to the method you want to call
+                    if (Level == 5)
+        {
+                    player.Call("takePlayerDamage", -Level); // Change to the method you want to call
+        }
                 }
             }
         }
