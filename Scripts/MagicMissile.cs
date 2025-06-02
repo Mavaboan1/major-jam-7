@@ -30,6 +30,10 @@ public partial class MagicMissile : Node2D
                     Area2D bullet = bullet_scn.Instantiate<Area2D>();
                     bullet.Rotation = (float)GD.RandRange(0, Mathf.Tau);
                     bullet.GlobalPosition = spawnPoint.GlobalPosition;
+                    if (Level == 5)
+            {
+                bullet.Call("level5");
+            }
                     GetTree().Root.AddChild(bullet);
                 }
             }

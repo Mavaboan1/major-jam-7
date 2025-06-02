@@ -26,6 +26,10 @@ public partial class HoverShield : Node2D
     public void LevelUp()
     {
         Level += 1;
+        if (Level == 5)
+        {
+            SpinSpeed += 100f;
+        }
         UpdateActiveNodes();
     }
     private void UpdateActiveNodes()

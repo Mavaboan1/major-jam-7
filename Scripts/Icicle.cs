@@ -25,6 +25,10 @@ public partial class Icicle : Node2D
     public void LevelUp()
     {
         Level += 1;
+        if (Level == 5)
+        {
+            SpinSpeed += 100;
+        }
         UpdateActiveNodes();
     }
     private void UpdateActiveNodes()
