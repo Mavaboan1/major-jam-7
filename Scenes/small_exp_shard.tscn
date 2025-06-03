@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bvbltdmwjkir2"]
 
-[ext_resource type="Script" uid="uid://ceh2cnyrtysh7" path="res://EXP.gd" id="1_x5unp"]
+[ext_resource type="Script" uid="uid://ceh2cnyrtysh7" path="res://Scripts/EXP.gd" id="1_x5unp"]
 [ext_resource type="Texture2D" uid="uid://b4bgcwtudnlab" path="res://Sprites/VFX/Protect_Up.png" id="2_u5c2b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2ts4m"]

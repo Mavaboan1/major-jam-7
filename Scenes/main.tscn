@@ -40,6 +40,17 @@ unique_name_in_owner = true
 position = Vector2(-79, -76)
 rotation = 1.57458
 
+[node name="Path2D2" type="Path2D" parent="Character"]
+position = Vector2(-258.5, -158)
+scale = Vector2(0.5, 0.5)
+curve = SubResource("Curve2D_7u77a")
+
+[node name="PathFollow2D2" type="PathFollow2D" parent="Character/Path2D2"]
+unique_name_in_owner = true
+position = Vector2(1214.03, 718.991)
+rotation = 0.00230769
+progress = 2088.02
+
 [node name="slimeTime" type="Timer" parent="."]
 autostart = true
 
@@ -64,3 +75,4 @@ position = Vector2(205, 679)
 [node name="Timer" type="Timer" parent="."]
 
 [connection signal="timeout" from="slimeTime" to="Enemy" method="_on_slime_time_timeout"]
+[connection signal="timeout" from="Timer" to="Enemy" method="_on_timer_timeout"]

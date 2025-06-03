@@ -36,7 +36,7 @@ func monster_size():
 	await get_tree().create_timer(15.0).timeout
 	for i in get_node("/root/Main/Enemy").get_children():
 		i.scale /= 2
-		
+		randi()
 func exp_explosion():
 	for i in range(randi_range(5, 15)):
 		var exp_shard = SMALL_EXP_SHARD.instantiate()
