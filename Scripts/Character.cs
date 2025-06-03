@@ -40,7 +40,7 @@ public partial class Character : CharacterBody2D
 			Itemmenu.Call("Active");
 			Experience -= 500;
 		}
-		getExp(1);
+		getExp(6);
 
 		Vector2 velocity = Velocity;
 

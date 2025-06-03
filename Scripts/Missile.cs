@@ -19,10 +19,10 @@ public partial class Missile : Area2D
     public override void _PhysicsProcess(double delta)
     {
         if (target == null || !IsInstanceValid(target))
-        target = FindClosestEnemy();
+            target = FindClosestEnemy();
 
-    if (target == null)
-        return;
+        if (target == null)
+            return;
         GlobalPosition += dir * 600f * (float)delta;
 
 
@@ -67,14 +67,18 @@ public partial class Missile : Area2D
 
         return closestEnemy;
     }
-public void _on_body_entered(Node body)
+    public void _on_body_entered(Node body)
     {
 
         QueueFree();
         if (body.HasMethod("takeDamage") != false)
         {
-            body.Call("takeDamage", 5);
+            body.Call("takeDamage", 3);
 
         }
+    }
+    public void level5()
+    {
+        TurnSpeed += 5f;
     }
 }

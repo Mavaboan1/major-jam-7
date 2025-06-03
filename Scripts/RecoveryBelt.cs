@@ -4,7 +4,7 @@ using System;
 public partial class RecoveryBelt : Node2D
 {
     private Node player;
-    public float Level = 1f;
+    [Export]public float Level = 1f;
     private Vector2 lastPosition;
     private float idleTimer = 0f;
     private float callTimer = 0f;
@@ -46,6 +46,10 @@ public partial class RecoveryBelt : Node2D
                 {
                     callTimer = 0f;
                     player.Call("takePlayerDamage", -Level); // Change to the method you want to call
+                    if (Level == 5)
+        {
+                    player.Call("takePlayerDamage", -Level); // Change to the method you want to call
+        }
                 }
             }
         }

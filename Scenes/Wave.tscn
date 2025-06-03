@@ -11,12 +11,12 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_rvxmi")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="ShockRange" type="CollisionShape2D" parent="."]
 position = Vector2(-2, -1)
 scale = Vector2(0.25, 0.25)
 shape = SubResource("RectangleShape2D_rvxmi")
 
-[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+[node name="Sprite2D" type="Sprite2D" parent="ShockRange"]
 rotation = 3.14159
 texture = ExtResource("1_y54vu")
 

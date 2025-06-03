@@ -7,7 +7,7 @@ public partial class BouncySpark : Area2D
     private Vector2 velocity;
     public CollisionShape2D collisionShape;
 
-    public float Level = 1f;
+    [Export]public float Level = 1f;
 
 
     public override void _Ready()
@@ -48,7 +48,15 @@ public partial class BouncySpark : Area2D
 
         if (body.HasMethod("takeDamage") != false)
         {
-            body.Call("takeDamage", 5);
+            if (Level == 5)
+            {
+                body.Call("takeDamage", 8);
+            }
+            else
+            {
+                body.Call("takeDamage", 5);
+
+            }
 
         }
     }

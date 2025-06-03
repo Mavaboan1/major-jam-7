@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://41kkdavby4x3" path="res://Scripts/RecoveryBelt.cs" id="1_813h4"]
 
-[node name="Recovery Belt" type="Node2D"]
+[node name="recovery_belt" type="Node2D"]
 script = ExtResource("1_813h4")

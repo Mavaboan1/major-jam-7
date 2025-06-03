@@ -16,7 +16,7 @@ radius = 7.04006
 [sub_resource type="CircleShape2D" id="CircleShape2D_dvhp8"]
 radius = 7.67402
 
-[node name="HoverShield" type="Node2D"]
+[node name="hover_shield" type="Node2D"]
 scale = Vector2(0.1, 0.1)
 script = ExtResource("1_ld1o4")
 

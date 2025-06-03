@@ -25,6 +25,14 @@ public partial class MeteorShower : Node2D
             bullet.GlobalPosition = GlobalPosition;
 
             GetTree().Root.AddChild(bullet);
+            if (Level == 5)
+            {
+                Area2D bullet2 = bullet_scn.Instantiate<Area2D>();
+            bullet2.Rotation = (float)GD.RandRange(0, Mathf.Tau); // Tau = 2 * PI
+            bullet2.GlobalPosition = GlobalPosition;
+
+            GetTree().Root.AddChild(bullet2);
+            }
             time_until_fire = 0f;
         }
         else

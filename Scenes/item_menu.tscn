@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cogektxjg0x6l" path="res://Scripts/ItemMenu.cs" id="1_rqjqw"]
 
-[node name="Item Menu" type="Control" node_paths=PackedStringArray("Item1", "Item2", "Item3")]
+[node name="Item Menu" type="Control" node_paths=PackedStringArray("Item1", "Item2", "Item3", "DescriptionLabel")]
 process_mode = 3
 z_index = 10
 layout_mode = 3
@@ -15,6 +15,7 @@ script = ExtResource("1_rqjqw")
 Item1 = NodePath("PanelContainer/VBoxContainer/Button")
 Item2 = NodePath("PanelContainer/VBoxContainer/Button2")
 Item3 = NodePath("PanelContainer/VBoxContainer/Button3")
+DescriptionLabel = NodePath("PanelContainer/VBoxContainer/Description")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0
@@ -41,3 +42,7 @@ text = "b"
 [node name="Button3" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 text = "c"
+
+[node name="Description" type="RichTextLabel" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+fit_content = true

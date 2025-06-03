@@ -12,7 +12,7 @@ public partial class Testgiver : Node2D
 
             if (player != null)
             {
-                player.Call("PickUpItem", "icicle");
+                player.Call("PickUpItem", "shockwave");
                 GD.Print("Sent Garlic to Player");
             }
             else
@@ -28,7 +28,7 @@ public partial class Testgiver : Node2D
 
             if (player != null)
             {
-                player.Call("PickUpItem", "hover_shield");
+                player.Call("PickUpItem", "bouncy_spark");
                 GD.Print("Sent Icicle to Player");
             }
             else

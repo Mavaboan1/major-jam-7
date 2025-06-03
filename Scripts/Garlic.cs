@@ -5,9 +5,10 @@ using System.ComponentModel.DataAnnotations;
 
 public partial class Garlic : Area2D
 {
-    public float Level;
+    [Export]public float Level;
     [Export] public Timer timer;
     public CollisionShape2D collisionShape;
+    
     private List<Node> Garliclist = new List<Node>();
     
     public override void _Ready()
@@ -37,7 +38,16 @@ public partial class Garlic : Area2D
     {
         for (int i = 0; i < Garliclist.Count; i++)
         {
-            Garliclist[i].Call("takeDamage", 2);
+            if (Level == 5)
+            {
+                Garliclist[i].Call("takeDamage", 4);
+
+            }
+            else
+            {
+                Garliclist[i].Call("takeDamage", 2);
+
+            }
         }
     }
 

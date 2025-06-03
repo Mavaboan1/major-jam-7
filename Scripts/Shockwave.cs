@@ -4,7 +4,7 @@ using System;
 public partial class Shockwave : Node2D
 {
     [Export] PackedScene bullet_scn;
-    public float Level = 1;
+    [Export]public float Level = 1;
 
     [Export] float bullet_speed = 600f;
     [Export] float bps = 1f;
@@ -22,7 +22,10 @@ public partial class Shockwave : Node2D
             var bullet = bullet_scn.Instantiate<Wave>();
             bullet.Rotation = GlobalRotation;
             bullet.GlobalPosition = GlobalPosition;
-
+            if (Level == 5)
+            {
+                bullet.Call("level5");
+            }
             GetTree().Root.AddChild(bullet);
             time_until_fire = 0f;
         }
