@@ -7,6 +7,23 @@ public partial class ItemMenu : Control
     [Export] public Button Item1;
     [Export] public Button Item2;
     [Export] public Button Item3;
+    [Export] public RichTextLabel DescriptionLabel;
+    private Dictionary<string, string> itemDescriptions = new Dictionary<string, string>()
+{
+    { "Garlic", "Small Damaging Aura Around you. Leveling up increases Range" },
+    { "hover_shield", "A shield that spins and blocks attacks. Leveling Up gives more Shields" },
+    { "icicle", "Icicles that spin around you and damage enemies. Leveling up gives more icicles." },
+    { "boots", "Gives a speed increas. Leveling up gives more speed." },
+    { "bouncy_spark", "A Spark that bounces around the screen damaing enemies.Levling up increases Size and Speed." },
+    { "magic_missile", "Fire homing Missiles at enemies. Leveling up increases Accuracy" },
+    { "meteor_shower", "Fires loads of Random projectiles. Leveling up increases FireRate" },
+    { "recovery_belt", "Stand still to regenerate health. Leveling up increases health regen" },
+    { "shockwave", "fire a wave in the faced direction, knocking back enemies. Leveling up increases firerate" },
+    { "tornadoes", "summon tornadoes that randomly move around the screen. Leveling up increases Firerate" },
+
+
+
+};
 
     public override void _Ready()
     {
@@ -14,11 +31,15 @@ public partial class ItemMenu : Control
         Item2.Pressed += () => OnButtonPressed(Item2);
         Item3.Pressed += () => OnButtonPressed(Item3);
         Disabled();
+        Item1.MouseEntered += () => OnButtonHover(Item1);
+        Item2.MouseEntered += () => OnButtonHover(Item2);
+        Item3.MouseEntered += () => OnButtonHover(Item3);
+        Disabled();
+
     }
 
     public void RollItems()
     {
-        // Step 1: Gather names to exclude
         List<string> excludeNames = new();
         Node itemController = GetTree().Root.GetNodeOrNull("Main/Character/ItemController");
         foreach (Node item in itemController.GetChildren())
@@ -30,7 +51,7 @@ public partial class ItemMenu : Control
                 float level = levelVariant.As<float>();
                 if (level >= 5f)
                 {
-                    string itemName = item.Name; // Or get from scene path if needed
+                    string itemName = item.Name; 
                     excludeNames.Add(itemName);
                 }
             }
@@ -38,13 +59,12 @@ public partial class ItemMenu : Control
             {
                 GD.Print($"Item {item.Name} does not have a valid float Level property");
             }
-        
+
 
 
 
         }
 
-        // Step 2: Load all item scene names
         string folderPath = "res://Scenes/Item/";
         DirAccess dir = DirAccess.Open(folderPath);
         if (dir == null)
@@ -70,14 +90,12 @@ public partial class ItemMenu : Control
         }
         dir.ListDirEnd();
 
-        // Step 3: Shuffle
         for (int i = itemNames.Count - 1; i > 0; i--)
         {
             int j = (int)(GD.Randi() % (uint)(i + 1));
             (itemNames[i], itemNames[j]) = (itemNames[j], itemNames[i]);
         }
 
-        // Step 4: Set buttons
         if (itemNames.Count >= 3)
         {
             Item1.Text = itemNames[0];
@@ -117,7 +135,7 @@ public partial class ItemMenu : Control
         if (player != null)
         {
             player.Call("PickUpItem", itemName);
-            Disabled(); // Hide menu after choosing
+            Disabled(); 
         }
         else
         {
@@ -129,5 +147,19 @@ public partial class ItemMenu : Control
     {
         if (pressedButton != null)
             ChooseItem(pressedButton.Text);
+    }
+    private void OnButtonHover(Button hoveredButton)
+    {
+        if (hoveredButton == null) return;
+
+        string itemName = hoveredButton.Text;
+        string desc = GetItemDescription(itemName);
+        DescriptionLabel.Text = desc;
+    }
+     private string GetItemDescription(string itemName)
+    {
+        if (itemDescriptions.TryGetValue(itemName, out var desc))
+        return desc;
+    return "No description available.";
     }
 }

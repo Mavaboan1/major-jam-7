@@ -10,7 +10,7 @@ private Dictionary<string, Node> itemInstances = new Dictionary<string, Node>();
 
     public void PickUpItem(string itemName)
     {
-        // If item already exists, level it up
+
         if (itemInstances.ContainsKey(itemName))
         {
             Node item = itemInstances[itemName];
@@ -24,7 +24,7 @@ private Dictionary<string, Node> itemInstances = new Dictionary<string, Node>();
             if (scene != null)
             {
                 Node itemInstance = scene.Instantiate();
-                itemInstance.Name = itemName;  // <-- Set the name explicitly here
+                itemInstance.Name = itemName;  
                 AddChild(itemInstance);
                 itemInstances[itemName] = itemInstance;
             }
