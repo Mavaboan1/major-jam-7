@@ -9,6 +9,8 @@ extends CharacterBody2D
 const SMALL_EXP_SHARD = preload("res://Scenes/small_exp_shard.tscn")
 const SMALL_WILD_SHARD = preload("res://Scenes/small_wild_shard.tscn")
 
+signal died
+
 var knockback_timer = 0
 var knockback_force: Vector2
 
@@ -51,6 +53,7 @@ func takeDamage(damage):
 	health -= damage
 
 func die():
+	died.emit()
 	shard_drop()
 	spawn_ice()
 	queue_free()

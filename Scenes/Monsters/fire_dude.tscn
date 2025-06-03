@@ -18,8 +18,8 @@ bg_color = Color(0.76201, 0.128086, 0.19317, 1)
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_3evdg")
-stats = ExtResource("2_5wg7d")
 shot_rotation = NodePath("ShootingRotation")
+stats = ExtResource("2_5wg7d")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -34)
@@ -60,4 +60,3 @@ show_percentage = false
 
 [connection signal="body_entered" from="dangerZone" to="." method="_on_danger_zone_body_entered"]
 [connection signal="body_exited" from="dangerZone" to="." method="_on_danger_zone_body_exited"]
-[connection signal="timeout" from="FireRate" to="." method="_on_timer_timeout"]

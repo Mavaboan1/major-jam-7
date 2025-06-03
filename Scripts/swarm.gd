@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var health_bar: ProgressBar = $HealthBar
 const SMALL_EXP_SHARD = preload("res://Scenes/small_exp_shard.tscn")
 const SMALL_WILD_SHARD = preload("res://Scenes/small_wild_shard.tscn")
+signal died
 
 func _ready() -> void:
 	health_bar.max_value = stats.max_health
@@ -26,6 +27,7 @@ func takeDamage(damage):
 	health -= damage
 
 func die():
+	died.emit()
 	shard_drop()
 	queue_free()
 	

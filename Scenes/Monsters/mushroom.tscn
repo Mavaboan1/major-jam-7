@@ -183,8 +183,8 @@ bg_color = Color(0.76201, 0.128086, 0.19317, 1)
 radius = 237.076
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0ig03"]
-radius = 36.0
-height = 76.0
+radius = 42.0
+height = 88.0
 
 [node name="Mushroom" type="CharacterBody2D"]
 collision_layer = 2
@@ -198,7 +198,6 @@ animation = &"walk_right"
 frame_progress = 0.713477
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, -36)
 shape = SubResource("CapsuleShape2D_aeljw")
 
@@ -212,7 +211,6 @@ value = 100.0
 show_percentage = false
 
 [node name="DangeZone" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DangeZone"]
 position = Vector2(1, -36)
@@ -220,12 +218,13 @@ shape = SubResource("CircleShape2D_0ig03")
 debug_color = Color(0.630447, 0.52037, 0.279907, 0.42)
 
 [node name="HurtBox" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(0, -36)
 shape = SubResource("CapsuleShape2D_0ig03")
 debug_color = Color(0.911023, 0.211643, 0.524521, 0.42)
+
+[node name="AttackTimer" type="Timer" parent="."]
 
 [connection signal="body_entered" from="DangeZone" to="." method="_on_dange_zone_body_entered"]
 [connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]

@@ -6,6 +6,8 @@ extends CharacterBody2D
 
 @onready var health = stats.max_health
 
+signal died
+
 var knockback_timer = 0
 var knockback_force: Vector2
 const SMALL_EXP_SHARD = preload("res://Scenes/small_exp_shard.tscn")
@@ -38,6 +40,7 @@ func takeDamage(damage):
 	health -= damage
 
 func die():
+	died.emit()
 	shard_drop()
 	queue_free()
 	
