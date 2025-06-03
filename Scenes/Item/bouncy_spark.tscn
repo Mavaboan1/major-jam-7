@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ludai"]
 radius = 15.0
 
-[node name="Spark" type="Area2D"]
+[node name="bouncy_spark" type="Area2D"]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_ludai")

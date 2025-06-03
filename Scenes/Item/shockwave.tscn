@@ -3,6 +3,6 @@
 [ext_resource type="Script" uid="uid://cbl7octp6gl28" path="res://Scripts/Shockwave.cs" id="1_rrekt"]
 [ext_resource type="PackedScene" uid="uid://bfnsrsqt8quvn" path="res://Scenes/Wave.tscn" id="2_t1jg3"]
 
-[node name="Shockwave" type="Node2D"]
+[node name="shockwave" type="Node2D"]
 script = ExtResource("1_rrekt")
 bullet_scn = ExtResource("2_t1jg3")

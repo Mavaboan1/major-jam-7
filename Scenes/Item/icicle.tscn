@@ -8,7 +8,7 @@
 radius = 70.0001
 height = 200.0
 
-[node name="Icicle" type="Node2D"]
+[node name="icicle" type="Node2D"]
 scale = Vector2(0.1, 0.1)
 script = ExtResource("1_ktscb")
 

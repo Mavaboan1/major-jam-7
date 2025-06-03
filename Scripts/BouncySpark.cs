@@ -7,7 +7,7 @@ public partial class BouncySpark : Area2D
     private Vector2 velocity;
     public CollisionShape2D collisionShape;
 
-    public float Level = 1f;
+    [Export]public float Level = 1f;
 
 
     public override void _Ready()

@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 public partial class Garlic : Area2D
 {
-    public float Level;
+    [Export]public float Level;
     [Export] public Timer timer;
     public CollisionShape2D collisionShape;
     

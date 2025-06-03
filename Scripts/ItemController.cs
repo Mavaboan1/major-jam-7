@@ -24,6 +24,7 @@ private Dictionary<string, Node> itemInstances = new Dictionary<string, Node>();
             if (scene != null)
             {
                 Node itemInstance = scene.Instantiate();
+                itemInstance.Name = itemName;  // <-- Set the name explicitly here
                 AddChild(itemInstance);
                 itemInstances[itemName] = itemInstance;
             }

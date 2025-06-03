@@ -4,7 +4,7 @@ using System;
 public partial class RecoveryBelt : Node2D
 {
     private Node player;
-    public float Level = 1f;
+    [Export]public float Level = 1f;
     private Vector2 lastPosition;
     private float idleTimer = 0f;
     private float callTimer = 0f;
