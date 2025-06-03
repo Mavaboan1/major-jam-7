@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvbltdmwjkir2"]
+
+[ext_resource type="Script" uid="uid://ceh2cnyrtysh7" path="res://Scripts/EXP.gd" id="1_x5unp"]
+[ext_resource type="Texture2D" uid="uid://b4bgcwtudnlab" path="res://Sprites/VFX/Protect_Up.png" id="2_u5c2b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2ts4m"]
+radius = 13.0384
+
+[node name="SmallExpShard" type="Area2D"]
+script = ExtResource("1_x5unp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_u5c2b")
+hframes = 6
+vframes = 4
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2ts4m")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

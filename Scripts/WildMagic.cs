@@ -10,7 +10,7 @@ public partial class WildMagic : Node2D
     {
         WildMagicBar.MaxValue = 300f;
         WildMagicBar.Value = 0;
-        //wildSingleton = GetNode<Node>("/root/")
+        wildSingleton = GetNode<Node>("/root/WildMagicSingle");
     }
 
     public override void _Process(double delta)
@@ -50,9 +50,21 @@ public partial class WildMagic : Node2D
         {
             Darkness();
         }
-        else if (Randomnr == 1)
+        else if (Randomnr == 7)
         {
             SpeedTime();
+        }
+        else if (Randomnr == 8)
+        {
+            wildSingleton.Call("monster_speed");
+        }
+        else if (Randomnr == 9)
+        {
+            wildSingleton.Call("monster_size");
+        }
+        else if (Randomnr == 1)
+        {
+            wildSingleton.Call("exp_explosion");
         }
     }
     public void invert()
