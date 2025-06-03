@@ -194,10 +194,11 @@ stats = ExtResource("2_aeljw")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -36)
 sprite_frames = SubResource("SpriteFrames_0ig03")
-animation = &"wait"
-frame_progress = 0.753182
+animation = &"walk_right"
+frame_progress = 0.713477
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -36)
 shape = SubResource("CapsuleShape2D_aeljw")
 
@@ -211,6 +212,7 @@ value = 100.0
 show_percentage = false
 
 [node name="DangeZone" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DangeZone"]
 position = Vector2(1, -36)
@@ -218,6 +220,7 @@ shape = SubResource("CircleShape2D_0ig03")
 debug_color = Color(0.630447, 0.52037, 0.279907, 0.42)
 
 [node name="HurtBox" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(0, -36)

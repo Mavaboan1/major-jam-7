@@ -22,7 +22,10 @@ public partial class Missile : Area2D
             target = FindClosestEnemy();
 
         if (target == null)
+        {
+            QueueFree();
             return;
+        }
         GlobalPosition += dir * 600f * (float)delta;
 
 

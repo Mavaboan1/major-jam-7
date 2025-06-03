@@ -6,6 +6,7 @@ public partial class Tornado : Area2D
     [Export] public float Speed = 200f;
     [Export] public float DirectionChangeInterval = 0.25f;
     [Export] public float Lifetime = 3f;
+    [Export] private AnimatedSprite2D animatedSprite;
 
     private Vector2 direction = Vector2.Zero;
     private float directionTimer = 0f;
@@ -14,10 +15,12 @@ public partial class Tornado : Area2D
     public override void _Ready()
     {
         ChooseNewDirection();
+        animatedSprite.Play("default");
     }
 
     public override void _Process(double delta)
     {
+        
         float dt = (float)delta;
 
         GlobalPosition += direction * Speed * dt;

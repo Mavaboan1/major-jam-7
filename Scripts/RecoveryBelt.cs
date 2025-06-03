@@ -14,6 +14,8 @@ public partial class RecoveryBelt : Node2D
 
     private bool isIdle = false;
 
+    [Export] private AnimatedSprite2D animatedSprite;
+
     public override void _Ready()
     {
         player = GetTree().Root.GetNode("Main/Character");
@@ -44,6 +46,7 @@ public partial class RecoveryBelt : Node2D
                 callTimer += (float)delta;
                 if (callTimer >= CallInterval)
                 {
+                    animatedSprite.Play("default");
                     callTimer = 0f;
                     player.Call("takePlayerDamage", -Level); // Change to the method you want to call
                     if (Level == 5)
@@ -55,6 +58,7 @@ public partial class RecoveryBelt : Node2D
         }
         else
         {
+            animatedSprite.Play("none");
             isIdle = false;
             idleTimer = 0f;
             callTimer = 0f;

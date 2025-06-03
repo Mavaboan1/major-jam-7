@@ -8,10 +8,12 @@ public partial class BouncySpark : Area2D
     public CollisionShape2D collisionShape;
 
     [Export]public float Level = 1f;
+    [Export] private AnimatedSprite2D animatedSprite;
 
 
     public override void _Ready()
     {
+        animatedSprite.Play("default");
         collisionShape = GetNode<CollisionShape2D>("SparkRange");
         float angle = (float)GD.RandRange(0, 2 * Mathf.Pi);
         velocity = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * Speed;

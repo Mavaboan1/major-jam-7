@@ -1,6 +1,8 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 public partial class Character : CharacterBody2D
 {
@@ -18,7 +20,10 @@ public partial class Character : CharacterBody2D
 	[Export] public Control Itemmenu;
 	[Export] public ProgressBar HealthBar;
 	[Export] public WildMagic wildController;
+	[Export] private AnimatedSprite2D animatedSprite;
 	private List<Node> Touchlist = new List<Node>();
+
+	public bool isDead = false;
 
 
 
@@ -32,6 +37,7 @@ public partial class Character : CharacterBody2D
 
 	public override void _Process(double delta)
 	{
+		if (isDead) return;
 		expBar.Value = Experience;
 		HealthBar.Value = Health;
 
@@ -40,7 +46,6 @@ public partial class Character : CharacterBody2D
 			Itemmenu.Call("Active");
 			Experience -= 500;
 		}
-		getExp(6);
 
 		Vector2 velocity = Velocity;
 
@@ -48,11 +53,17 @@ public partial class Character : CharacterBody2D
 		velocity.Y = 0;
 		if (Input.IsKeyPressed(Key.Left))
 		{
+			playAnimation("walk");
+			animatedSprite.FlipH = true;
 			velocity.X = -moveSpeed;
+
 		}
 		else if (Input.IsKeyPressed(Key.Right))
 		{
+			playAnimation("walk");
+			animatedSprite.FlipH = false;
 			velocity.X = +moveSpeed;
+
 		}
 
 		if (Input.IsKeyPressed(Key.Down))
@@ -64,17 +75,27 @@ public partial class Character : CharacterBody2D
 			velocity.Y = -moveSpeed;
 		}
 
+		if (velocity == Vector2.Zero)
+		{
+			playAnimation("idle");
+		}
 
 		Velocity = velocity;
 		MoveAndSlide();
 		if (Touchlist.Count > 0)
 		{
 			Health -= damageRate * Touchlist.Count * (float)delta;
+			if (!isDead)
+			{
+				animatedSprite.Play("take_damage");
+			}
 		}
 
 		if (Health <= 0)
 		{
-			QueueFree();
+			isDead = true;
+			animatedSprite.Stop();
+			die();
 		}
 	}
 	public void PickUpItem(string itemName)
@@ -94,9 +115,22 @@ public partial class Character : CharacterBody2D
 		moveSpeed += 20f;
 	}
 
+	public void playAnimation(string newAnimation)
+	{
+		if (animatedSprite.Animation != newAnimation)
+		{
+			animatedSprite.Play(newAnimation);
+		}
+	}
+
 	public void takePlayerDamage(int damageTaken)
 	{
 		Health -= damageTaken;
+		if (!isDead)
+		{
+			animatedSprite.Play("take_damage");
+		}
+		
 	}
 
 	public void _on_hurt_box_body_entered(Node body)
@@ -107,6 +141,21 @@ public partial class Character : CharacterBody2D
 		}
 
 	}
+
+	public async Task die()
+	{
+		playAnimation("death");
+		animatedSprite.FrameChanged += () => onFrameChanged(animatedSprite);
+	}
+
+	private void onFrameChanged(AnimatedSprite2D sprite)
+	{
+		if (sprite.Frame == sprite.SpriteFrames.GetFrameCount(sprite.Animation) - 1)
+		{
+			QueueFree();
+		}
+	}
+
 
 	public void _on_hurt_box_body_exited(Node body)
 	{
