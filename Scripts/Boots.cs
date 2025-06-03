@@ -13,19 +13,10 @@ public override void _Ready()
     public void LevelUp()
     {
         Level += 1;
-        if (Level == 5)
-        {
-            Node player = GetTree().Root.GetNode("Main/Character");
-            player.Call("SpeedUp");
-            player.Call("SpeedUp");
-            player.Call("SpeedUp");
-
-        }
-        else
-        {
-            Node player = GetTree().Root.GetNode("Main/Character");
-            player.Call("SpeedUp");
-        }
         
+        
+            Node player = GetTree().Root.GetNode("Main/Character");
+            player.Call("SpeedUp");
+               
     }
 }
