@@ -194,8 +194,7 @@ stats = ExtResource("2_aeljw")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -36)
 sprite_frames = SubResource("SpriteFrames_0ig03")
-animation = &"walk_right"
-frame_progress = 0.713477
+animation = &"walk_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -36)
