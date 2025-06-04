@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bvfyynaceugym"]
+
+[ext_resource type="FontFile" path="res://Scenes/alagard.ttf" id="1_sbidc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7a4ki"]
+bg_color = Color(0.473546, 0.218935, 0.814956, 1)
+
+[resource]
+default_font = ExtResource("1_sbidc")
+default_font_size = 24
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_7a4ki")
