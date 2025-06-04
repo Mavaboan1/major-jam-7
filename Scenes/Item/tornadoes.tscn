@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d2a7tkqupnr8q"]
 
 [ext_resource type="Script" uid="uid://dko3b6e6a872i" path="res://Scripts/Tornadoes.cs" id="1_c84ip"]
-[ext_resource type="PackedScene" uid="uid://bt2tb5nj1jfqu" path="res://Scenes/tornado.tscn" id="2_0qak6"]
+[ext_resource type="PackedScene" uid="uid://c4d0vi7j3gvtw" path="res://Scenes/tornado.tscn" id="2_0qak6"]
 
 [node name="tornadoes" type="Node2D"]
 script = ExtResource("1_c84ip")

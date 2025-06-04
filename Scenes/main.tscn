@@ -1,19 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://bxa871tqes7es"]
+[gd_scene load_steps=12 format=3 uid="uid://bxa871tqes7es"]
 
 [ext_resource type="Script" uid="uid://bwg243s6su2us" path="res://Scripts/main.gd" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://yn8e3bs3pk8t" path="res://Scenes/background.tscn" id="2_8gbba"]
 [ext_resource type="PackedScene" uid="uid://dr8hfsa1hj1bi" path="res://Scenes/Character.tscn" id="3_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://cwpxl4iyful4m" path="res://Scenes/testgiver.tscn" id="4_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://bcrbn1ixdcews" path="res://Scenes/Waves/swarm_wave_1.tscn" id="5_kry3j"]
+[ext_resource type="PackedScene" uid="uid://vyjun3b6h7sq" path="res://Scenes/Monsters/mushroom.tscn" id="6_21xkr"]
+[ext_resource type="PackedScene" uid="uid://ccphsn4x2mp5x" path="res://Scenes/Monsters/weirdos.tscn" id="7_6bp64"]
+[ext_resource type="PackedScene" uid="uid://dbvjxm1dp8u16" path="res://Scenes/Waves/swarm_wave_2.tscn" id="8_ynf5e"]
+[ext_resource type="PackedScene" uid="uid://c0d1vuarllyjh" path="res://Scenes/Monsters/fire_dude.tscn" id="9_hptm8"]
+[ext_resource type="PackedScene" uid="uid://ca0xamlaemhco" path="res://Scenes/tree_spawner.tscn" id="10_hptm8"]
 
 [sub_resource type="Curve2D" id="Curve2D_7u77a"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -78, -121, 0, 0, 0, 0, -158, 757, 0, 0, 0, 0, 1249, 756, 0, 0, 0, 0, 1245, -118, 0, 0, 0, 0, -78, -121)
-}
-point_count = 5
-
-[sub_resource type="Curve2D" id="Curve2D_ynf5e"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -291.5, -213, 0, 0, 0, 0, 360, -211, 0, 0, 0, 0, 352, 183.5, 0, 0, 0, 0, -283.5, 173.5, 0, 0, 0, 0, -291.5, -213)
+"points": PackedVector2Array(0, 0, 0, 0, -79, -76, 0, 0, 0, 0, -82, 716, 0, 0, 0, 0, 1218, 719, 0, 0, 0, 0, 1214, -72, 0, 0, 0, 0, -79, -76)
 }
 point_count = 5
 
@@ -22,9 +22,11 @@ point_count = 5
 [node name="Background" parent="." instance=ExtResource("2_8gbba")]
 position = Vector2(499, 245)
 
-[node name="Enemy" type="Node2D" parent="."]
+[node name="Enemy" type="Node2D" parent="." node_paths=PackedStringArray("slime_time", "time_controll")]
 position = Vector2(735, 303)
 script = ExtResource("1_jjgbg")
+slime_time = NodePath("../slimeTime")
+time_controll = NodePath("../Timer")
 
 [node name="Character" parent="." instance=ExtResource("3_jjvhh")]
 position = Vector2(349, 242)
@@ -36,17 +38,19 @@ curve = SubResource("Curve2D_7u77a")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Character/Path2D"]
 unique_name_in_owner = true
-position = Vector2(-78, -121)
-rotation = 1.66166
+position = Vector2(-79, -76)
+rotation = 1.57458
 
 [node name="Path2D2" type="Path2D" parent="Character"]
-curve = SubResource("Curve2D_ynf5e")
+position = Vector2(-258.5, -158)
+scale = Vector2(0.5, 0.5)
+curve = SubResource("Curve2D_7u77a")
 
 [node name="PathFollow2D2" type="PathFollow2D" parent="Character/Path2D2"]
 unique_name_in_owner = true
-position = Vector2(352.241, 171.592)
-rotation = 1.59107
-progress = 1034.12
+position = Vector2(1214.03, 718.991)
+rotation = 0.00230769
+progress = 2088.02
 
 [node name="slimeTime" type="Timer" parent="."]
 autostart = true
@@ -54,8 +58,24 @@ autostart = true
 [node name="Testgiver" parent="." instance=ExtResource("4_jjvhh")]
 position = Vector2(252, 207)
 
+[node name="Mushroom" parent="." instance=ExtResource("6_21xkr")]
+position = Vector2(775, 268)
+
+[node name="weirdos" parent="." instance=ExtResource("7_6bp64")]
+position = Vector2(4, 372)
+
+[node name="SwarmWave1" parent="." instance=ExtResource("5_kry3j")]
+position = Vector2(-5, 20)
+
+[node name="SwarmWave2" parent="." instance=ExtResource("8_ynf5e")]
+position = Vector2(703, -73)
+
+[node name="fire_dude" parent="." instance=ExtResource("9_hptm8")]
+position = Vector2(205, 679)
+
 [node name="Timer" type="Timer" parent="."]
-autostart = true
+
+[node name="treeSpawner" parent="." instance=ExtResource("10_hptm8")]
 
 [connection signal="timeout" from="slimeTime" to="Enemy" method="_on_slime_time_timeout"]
 [connection signal="timeout" from="Timer" to="Enemy" method="_on_timer_timeout"]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c10pv1fit3tpl"]
+
+[ext_resource type="Texture2D" uid="uid://5w0b34668liu" path="res://Sprites/Pine Tree - GREEN  - 0002.png" id="1_0vwjc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rsuno"]
+size = Vector2(33, 96)
+
+[node name="tree" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_0vwjc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_rsuno")
