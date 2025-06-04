@@ -155,7 +155,7 @@ public partial class ItemMenu : Control
     private void OnButtonPressed(Button pressedButton)
     {
         if (pressedButton != null)
-            ChooseItem(pressedButton.Text);
+            ChooseItem(pressedButton.Text.Replace(' ','_'));
     }
     private void OnButtonHover(Button hoveredButton)
 {
@@ -173,7 +173,7 @@ public partial class ItemMenu : Control
             if (texture != null && ItemPreviewSprite != null)
             {
                 ItemPreviewSprite.Texture = texture;
-                ItemPreviewSprite.Scale = new Vector2(5, 5);
+                ItemPreviewSprite.Scale = new Vector2(1f, 1f);
 
         }
     }

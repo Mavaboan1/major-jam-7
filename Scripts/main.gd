@@ -63,63 +63,202 @@ func _setup_waves():
 		1.0, 10,
 		[1.0]
 	))
-	
+
 	waves.append(WaveConfig.new(
 		20.0, 30.0,
 		[SLIME, SWARM_WAVE_1, SWARM_WAVE_2],
 		1, 10,
-		[7.0, 3.0, 3.0]
+		[0.6, 0.2, 0.2]
 	))
-	
+
 	waves.append(WaveConfig.new(
 		30.0, 50.0,
 		[SLIME, FIRE_DUDE],
 		1.0, 10,
 		[0.7, 0.3]
 	))
-	
+
 	waves.append(WaveConfig.new(
 		50.0, 70.0,
 		[SLIME],
 		0.5, 30,
 		[1.0]
 	))
-	
+
 	waves.append(WaveConfig.new(
 		70.0, 100.0,
 		[SLIME, FIRE_DUDE, MUSHROOM],
 		2.5, 40,
 		[0.5, 0.3, 0.2]
 	))
-	
+
 	waves.append(WaveConfig.new(
 		100.0, 120.0,
 		[FIRE_DUDE, SWARM_WAVE_1, SWARM_WAVE_2],
 		1, 6,
 		[0.5, 0.3, 0.2]
 	))
-	
+
 	waves.append(WaveConfig.new(
 		120.0, 160.0,
 		[SLIME, FIRE_DUDE, SWARM_WAVE_1, SWARM_WAVE_2, MUSHROOM],
 		2.5, 30,
 		[0.1, 0.3, 0.1, 0.2, 0.3]
 	))
-	
+
 	waves.append(WaveConfig.new(
 		160.0, 200.0,
 		[SLIME],
 		0.2, 100,
 		[1.0]
 	))
-	
+
 	waves.append(WaveConfig.new(
-		200.0, INF,
+		200.0, 240.0,
 		[SLIME, FIRE_DUDE, SWARM_WAVE_1, SWARM_WAVE_2, MUSHROOM],
 		0.3, 8,
-		[0.1 ,0.3, 0.2, 0.2, 0.2]
+		[0.1, 0.3, 0.2, 0.2, 0.2]
+	))
+
+	waves.append(WaveConfig.new(
+		240.0, 280.0,
+		[SLIME, FIRE_DUDE, WEIRDOS, MUSHROOM],
+		0.5, 20,
+		[0.2 ,0.4, 0.3, 0.1]
+	))
+
+	waves.append(WaveConfig.new(
+		280.0, 320.0,
+		[WEIRDOS, MUSHROOM],
+		0.5, 10,
+		[0.6 ,0.4]
+	))
+
+	waves.append(WaveConfig.new(
+		320.0, 360.0,
+		[MUSHROOM],
+		1, 10,
+		[1.0]
+	))
+
+	waves.append(WaveConfig.new(
+		360.0, 400.0,
+		[SLIME, FIRE_DUDE, WEIRDOS],
+		0.5, 30,
+		[0.1 ,0.3, 0.6]
+	))
+
+	waves.append(WaveConfig.new(
+		400.0, 440.0,
+		[FIRE_DUDE, WEIRDOS],
+		0.5, 40,
+		[0.5 ,0.5]
+	))
+
+	waves.append(WaveConfig.new(
+		440.0, 480.0,
+		[SLIME, WEIRDOS],
+		0.7, 60,
+		[0.7 ,0.3]
+	))
+
+	waves.append(WaveConfig.new(
+		480.0, 520.0,
+		[SWARM_WAVE_1, WEIRDOS],
+		0.5, 30,
+		[0.6 ,0.4]
+	))
+
+	waves.append(WaveConfig.new(
+		480.0, 520.0,
+		[SWARM_WAVE_1, SWARM_WAVE_2],
+		0.8, 30,
+		[0.4 ,0.6]
+	))
+
+	waves.append(WaveConfig.new(
+		520.0, 560.0,
+		[SWARM_WAVE_1, MUSHROOM],
+		0.5, 20,
+		[0.6 ,0.4]
+	))
+
+	waves.append(WaveConfig.new(
+		560.0, 600.0,
+		[SWARM_WAVE_2, SLIME],
+		0.2, 40,
+		[0.7 ,0.3]
+	))
+
+	waves.append(WaveConfig.new(
+		600.0, 640.0,
+		[SLIME, MUSHROOM],
+		0.3, 50,
+		[0.2 ,0.8]
+	))
+
+	waves.append(WaveConfig.new(
+		640.0, 680.0,
+		[SLIME, FIRE_DUDE],
+		0.2, 60,
+		[0.3 ,0.7]
+	))
+
+	waves.append(WaveConfig.new(
+		680.0, 720.0,
+		[FIRE_DUDE],
+		0.3, 80,
+		[1.0]
+	))
+
+	waves.append(WaveConfig.new(
+		720.0, 760.0,
+		[MUSHROOM],
+		0.3, 50,
+		[1.0]
+	))
+
+	waves.append(WaveConfig.new(
+		760.0, 800.0,
+		[MUSHROOM, SWARM_WAVE_1],
+		0.2, 30,
+		[0.8, 0.2]
+	))
+
+	waves.append(WaveConfig.new(
+		800.0, 840.0,
+		[MUSHROOM, SWARM_WAVE_1, SWARM_WAVE_2],
+		0.3, 40,
+		[0.7, 0.1, 0.2]
+	))
+
+	waves.append(WaveConfig.new(
+		840.0, 880.0,
+		[MUSHROOM, WEIRDOS],
+		0.2, 70,
+		[0.7, 0.3]
+	))
+
+	waves.append(WaveConfig.new(
+		880.0, 900.0,
+		[MUSHROOM],
+		0.1, 100,
+		[1.0]
+	))
+	waves.append(WaveConfig.new(
+		900.0, INF,
+		[MUSHROOM],
+		0.1, 1,
+		[1.0]
 	))
 	
+func _setup_waves_endless():
+	waves.append(WaveConfig.new(
+		0.0, INF,
+		[SLIME, FIRE_DUDE, SWARM_WAVE_1, SWARM_WAVE_2, MUSHROOM, WEIRDOS],
+		1.0, 10,
+		[0.2,0.2,0.1,0.1,0.2,0.2]
+	))
 func _connect_nodes():
 	player_node = get_node_or_null(player_path)
 	enemy_parent = get_node_or_null(enemy_path)

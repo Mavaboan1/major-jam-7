@@ -3,13 +3,16 @@
 [ext_resource type="Texture2D" uid="uid://5w0b34668liu" path="res://Sprites/Pine Tree - GREEN  - 0002.png" id="1_0vwjc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rsuno"]
-size = Vector2(33, 96)
+size = Vector2(33, 33)
 
-[node name="tree" type="Area2D"]
+[node name="tree" type="RigidBody2D"]
+z_index = 2
+collision_layer = 128
+gravity_scale = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_0vwjc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 1)
+position = Vector2(0.5, 32.5)
 shape = SubResource("RectangleShape2D_rsuno")

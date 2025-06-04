@@ -28,7 +28,6 @@ position = Vector2(735, 303)
 script = ExtResource("1_jjgbg")
 
 [node name="Character" parent="." instance=ExtResource("3_jjvhh")]
-position = Vector2(349, 242)
 
 [node name="Path2D" type="Path2D" parent="Character"]
 position = Vector2(-258.5, -158)
@@ -64,7 +63,7 @@ position = Vector2(775, 268)
 position = Vector2(4, 372)
 
 [node name="SwarmWave1" parent="." instance=ExtResource("5_kry3j")]
-position = Vector2(-5, 20)
+position = Vector2(436, 20)
 
 [node name="SwarmWave2" parent="." instance=ExtResource("8_ynf5e")]
 position = Vector2(703, -73)
