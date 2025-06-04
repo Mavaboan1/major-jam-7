@@ -13,6 +13,9 @@ var knockback_force: Vector2
 const SMALL_EXP_SHARD = preload("res://Scenes/small_exp_shard.tscn")
 const SMALL_WILD_SHARD = preload("res://Scenes/small_wild_shard.tscn")
 
+@onready var sprite_2d: AnimatedSprite2D = $Sprite2D
+
+
 func _ready() -> void:
 	health_bar.max_value = stats.max_health
 	health_bar.value = stats.max_health
@@ -31,13 +34,33 @@ func _physics_process(delta: float) -> void:
 
 	if health <= 0:
 		die()
+	
+	play_movement_animation()
 
 func apply_knockback(force: Vector2):
 	knockback_timer = 0.2
 	knockback_force = force
+
+func play_movement_animation() -> void:
+	if not sprite_2d:
+		return
 	
+	var direction = velocity.normalized()
+	
+	if abs(direction.x) > abs(direction.y):
+		if direction.x < 0:
+			sprite_2d.play("move_left")
+		else:
+			sprite_2d.play("move_right")
+	else:
+		if direction.y < 0:
+			sprite_2d.play("move_up")  # Note: Y is flipped in Godot
+		else:
+			sprite_2d.play("move_down")
+
 func takeDamage(damage):
 	health -= damage
+	show_damage_feedback()
 
 func die():
 	died.emit()
@@ -52,3 +75,10 @@ func shard_drop():
 	var wild_shard = SMALL_WILD_SHARD.instantiate()
 	wild_shard.global_position = global_position + Vector2.UP * 30
 	get_tree().current_scene.add_child(wild_shard)
+
+func show_damage_feedback() -> void:
+	#Visual feedback when taking damage
+	if sprite_2d:
+		var tween = create_tween()
+		tween.tween_property(sprite_2d, "modulate", Color.WHITE * 1.5, 0.1)
+		tween.tween_property(sprite_2d, "modulate", Color.WHITE, 0.1)

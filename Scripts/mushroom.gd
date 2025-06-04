@@ -82,7 +82,7 @@ func handle_knockback(delta: float) -> void:
 		knockback_timer -= delta
 		move_and_slide()
 		
-func update_state_machine(delta: float) -> void:
+func update_state_machine(_delta: float) -> void:
 	if not is_instance_valid(player):
 		change_state(MobState.IDLE)
 		return
@@ -132,13 +132,13 @@ func execute_current_state(delta: float) -> void:
 func execute_idle_state(delta: float) -> void:
 	velocity = velocity.move_toward(Vector2.ZERO, stats.speed * delta * 2)
 
-func execute_chasing_state(delta: float) -> void:
+func execute_chasing_state(_delta: float) -> void:
 	if is_instance_valid(player):
 		var direction = global_position.direction_to(player.global_position)
 		velocity = direction * stats.speed
 		last_direction = direction
 	
-func execute_attacking_state(delta: float) -> void:
+func execute_attacking_state(_delta: float) -> void:
 	# Slight movement towards player during attack
 	if is_instance_valid(player):
 		var direction = global_position.direction_to(player.global_position)
@@ -149,7 +149,7 @@ func change_state(new_state: MobState) -> void:
 	if current_state == new_state:
 		return
 	
-	var old_state = current_state
+	var _old_state = current_state
 	exit_state(current_state)
 	current_state = new_state
 	enter_state(new_state)

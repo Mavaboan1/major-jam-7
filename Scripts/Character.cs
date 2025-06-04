@@ -43,7 +43,7 @@ public partial class Character : CharacterBody2D
 		if (isDead) return;
 		expBar.Value = Experience;
 		HealthBar.Value = Health;
-		getExp(2);
+		//getExp(2);
 		if (Experience >= 500)
 		{
 			Itemmenu.Call("Active");

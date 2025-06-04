@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="MobStats" load_steps=2 format=3 uid="uid://kec5wg8f7878"]
+
+[ext_resource type="Script" uid="uid://xku8uvetsgg8" path="res://Scripts/mob_stats.gd" id="1_j4bhs"]
+
+[resource]
+script = ExtResource("1_j4bhs")
+max_health = 300
+current_health = 300
+speed = 100
+damage = 1
+attack_speed = 1.0
+metadata/_custom_type_script = "uid://xku8uvetsgg8"

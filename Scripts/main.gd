@@ -48,7 +48,7 @@ var enemy_parent: Node2D
 # Signals
 signal wave_started(wave_index: int)
 signal wave_ended(wave_index: int)
-signal enemy_spawned(enemy_type: String)
+#signal _enemy_spawned(enemy_type: String)
 
 func _ready() -> void:
 	_setup_waves()
@@ -274,7 +274,7 @@ func _physics_process(delta: float) -> void:
 	game_time += delta
 	_update_current_wave()
 	_handle_spawning()
-	print_wave_info()
+	#print_wave_info()
 	
 func start_wave_system():
 	is_active = true
