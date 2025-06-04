@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-public partial class Garlic : Area2D
+public partial class spell_circle : Area2D
 {
     [Export]public float Level;
     [Export] public Timer timer;

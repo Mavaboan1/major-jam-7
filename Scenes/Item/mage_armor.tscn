@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccqsnh16nurhr"]
+
+[ext_resource type="Script" uid="uid://b0ps3voa6j4nn" path="res://Scripts/MageArmor.cs" id="1_5bpd5"]
+
+[node name="mage_armor" type="Node2D"]
+script = ExtResource("1_5bpd5")

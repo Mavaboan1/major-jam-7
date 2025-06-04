@@ -13,6 +13,7 @@ public partial class Character : CharacterBody2D
 	public Area2D hurtBox;
 	[Export] public Resource stats;
 	float damageRate;
+	[Export] public float Range;
 	bool Slowed;
 
 	public int mobs = 0;
@@ -40,7 +41,7 @@ public partial class Character : CharacterBody2D
 		if (isDead) return;
 		expBar.Value = Experience;
 		HealthBar.Value = Health;
-
+		getExp(200);
 		if (Experience >= 500)
 		{
 			Itemmenu.Call("Active");
@@ -51,14 +52,14 @@ public partial class Character : CharacterBody2D
 
 		velocity.X = 0;
 		velocity.Y = 0;
-		if (Input.IsKeyPressed(Key.Left))
+		if (Input.IsActionPressed("move_left"))
 		{
 			playAnimation("walk");
 			animatedSprite.FlipH = true;
 			velocity.X = -moveSpeed;
 
 		}
-		else if (Input.IsKeyPressed(Key.Right))
+		else if (Input.IsActionPressed("move_right"))
 		{
 			playAnimation("walk");
 			animatedSprite.FlipH = false;
@@ -66,11 +67,11 @@ public partial class Character : CharacterBody2D
 
 		}
 
-		if (Input.IsKeyPressed(Key.Down))
+		if (Input.IsActionPressed("move_down"))
 		{
 			velocity.Y = +moveSpeed;
 		}
-		else if (Input.IsKeyPressed(Key.Up))
+		else if (Input.IsActionPressed("move_up"))
 		{
 			velocity.Y = -moveSpeed;
 		}
@@ -113,6 +114,16 @@ public partial class Character : CharacterBody2D
 	public void SpeedUp()
 	{
 		moveSpeed += 20f;
+	}
+	public void RangeUp()
+	{
+		Range += 20f;
+	}
+	public void HealthUp()
+	{
+		HealthBar.MaxValue += 20;
+		Health += 20f;
+		HealthBar.Value = Health;
 	}
 
 	public void playAnimation(string newAnimation)

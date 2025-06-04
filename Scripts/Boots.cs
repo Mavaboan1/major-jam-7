@@ -3,7 +3,7 @@ using System;
 
 public partial class Boots : Node2D
 {
-    [Export] public float Level = 1f;
+    [Export] public float Level = 6f;
 
 public override void _Ready()
     {

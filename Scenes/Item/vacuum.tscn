@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4i62mx0wnivf"]
+
+[ext_resource type="Script" uid="uid://dhjcb2hx0hnf8" path="res://Scripts/Vacuum.cs" id="1_glj5j"]
+
+[node name="Vacuum" type="Node2D"]
+script = ExtResource("1_glj5j")

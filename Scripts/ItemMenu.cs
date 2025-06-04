@@ -10,16 +10,20 @@ public partial class ItemMenu : Control
     [Export] public RichTextLabel DescriptionLabel;
     private Dictionary<string, string> itemDescriptions = new Dictionary<string, string>()
 {
-    { "Garlic", "Small Damaging Aura Around you. Leveling up increases Range" },
+    { "spell_circle", "Small Damaging Aura Around you. Leveling up increases Range" },
     { "hover_shield", "A shield that spins and blocks attacks. Leveling Up gives more Shields" },
     { "icicle", "Icicles that spin around you and damage enemies. Leveling up gives more icicles." },
-    { "boots", "Gives a speed increas. Leveling up gives more speed." },
+    { "boots", "Gives a speed increase. Leveling up gives more speed." },
     { "bouncy_spark", "A Spark that bounces around the screen damaing enemies.Levling up increases Size and Speed." },
     { "magic_missile", "Fire homing Missiles at enemies. Leveling up increases Accuracy" },
     { "meteor_shower", "Fires loads of Random projectiles. Leveling up increases FireRate" },
     { "recovery_belt", "Stand still to regenerate health. Leveling up increases health regen" },
     { "shockwave", "fire a wave in the faced direction, knocking back enemies. Leveling up increases firerate" },
     { "tornadoes", "summon tornadoes that randomly move around the screen. Leveling up increases Firerate" },
+    { "vacuum", "Increases Pickup Range. Leveling up increases Range" },
+    { "mage_armor", "Increases Max Health. Leveling up increases Max Health" },
+
+
 
 
 
@@ -49,7 +53,7 @@ public partial class ItemMenu : Control
             try
             {
                 float level = levelVariant.As<float>();
-                if (level >= 5f)
+                if (level == 5f)
                 {
                     string itemName = item.Name; 
                     excludeNames.Add(itemName);
