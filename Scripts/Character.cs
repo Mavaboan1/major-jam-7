@@ -15,7 +15,7 @@ public partial class Character : CharacterBody2D
 	float damageRate;
 	[Export] public float Range;
 	bool Slowed;
-
+	[Signal] public delegate void rangeSignalEventHandler(float Range);
 	public int mobs = 0;
 	[Export] public ProgressBar expBar;
 	[Export] public Control Itemmenu;
@@ -118,6 +118,7 @@ public partial class Character : CharacterBody2D
 	public void RangeUp()
 	{
 		Range += 20f;
+		EmitSignal(SignalName.rangeSignal,Range);
 	}
 	public void HealthUp()
 	{

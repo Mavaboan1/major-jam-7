@@ -22,11 +22,9 @@ point_count = 5
 [node name="Background" parent="." instance=ExtResource("2_8gbba")]
 position = Vector2(499, 245)
 
-[node name="Enemy" type="Node2D" parent="." node_paths=PackedStringArray("slime_time", "time_controll")]
+[node name="Enemy" type="Node2D" parent="."]
 position = Vector2(735, 303)
 script = ExtResource("1_jjgbg")
-slime_time = NodePath("../slimeTime")
-time_controll = NodePath("../Timer")
 
 [node name="Character" parent="." instance=ExtResource("3_jjvhh")]
 position = Vector2(349, 242)
