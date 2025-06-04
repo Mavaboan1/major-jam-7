@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b45quqbgslyxr"]
+
+[ext_resource type="AudioStream" uid="uid://iqkqkubvvgfc" path="res://Sprites/Numina.mp3" id="1_ehqup"]
+
+[node name="MusicNode" type="AudioStreamPlayer2D"]
+process_mode = 3
+stream = ExtResource("1_ehqup")
+volume_db = -25.0
+autoplay = true
+parameters/looping = false

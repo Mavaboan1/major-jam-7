@@ -34,6 +34,8 @@ public partial class Character : CharacterBody2D
 		damageRate = (float)stats.Get("damage");
 		HealthBar.MaxValue = Health;
 		HealthBar.Value = Health;
+		var music = GetNode<AudioStreamPlayer>("/root/MenuMusic/AudioStreamPlayer2D2");
+		music.Stop();
 	}
 
 	public override void _Process(double delta)

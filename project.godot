@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Major Jam 7"
-run/main_scene="uid://bxa871tqes7es"
+run/main_scene="uid://di7appp27vlpj"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 WildMagicSingle="*res://Scripts/wild_magic_single.gd"
+MenuMusic="*res://Scenes/menu_music.tscn"
 
 [display]
 

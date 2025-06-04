@@ -107,16 +107,16 @@ public partial class ItemMenu : Control
 
         if (itemNames.Count >= 3)
         {
-            Item1.Text = itemNames[0];
-            Item2.Text = itemNames[1];
-            Item3.Text = itemNames[2];
+            Item1.Text = itemNames[0].Replace('_',' ');
+            Item2.Text = itemNames[1].Replace('_',' ');
+            Item3.Text = itemNames[2].Replace('_',' ');
         }
         else
         {
             GD.PrintErr("Not enough items to choose from after filtering level 5.");
         }
     }
-
+    
     public void Active()
     {
         Visible = true;
@@ -161,7 +161,7 @@ public partial class ItemMenu : Control
 {
     if (hoveredButton == null) return;
 
-    string itemName = hoveredButton.Text;
+    string itemName = hoveredButton.Text.Replace(' ','_');
     string desc = GetItemDescription(itemName);
     DescriptionLabel.Text = desc;
 

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkyklhcoaj4sr"]
+
+[ext_resource type="AudioStream" uid="uid://bfmicxm5qoq4f" path="res://Sprites/Wacky witness.mp3" id="1_audmt"]
+
+[node name="MenuMusic" type="Node2D"]
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_audmt")
+volume_db = -30.0
+autoplay = true
+parameters/looping = false

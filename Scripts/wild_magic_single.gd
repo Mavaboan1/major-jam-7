@@ -10,8 +10,14 @@ const BIG_EXP_SHARD = preload("res://Scenes/big_exp_shard.tscn")
 
 var player: CharacterBody2D
 
-func _ready() -> void:
-	player = get_node("/root/Main/Character")
+	
+
+func _process(_delta: float) -> void:
+	if player == null:
+		if has_node("/root/Main/Character"):
+			player = get_node("/root/Main/Character")
+		else:
+			return;
 
 func monster_speed():
 	var fire_temp = fire_dude_stats.speed
