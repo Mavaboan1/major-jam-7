@@ -9,6 +9,8 @@ extends CharacterBody2D
 const SMALL_EXP_SHARD = preload("res://Scenes/small_exp_shard.tscn")
 const SMALL_WILD_SHARD = preload("res://Scenes/small_wild_shard.tscn")
 
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+
 signal died
 
 var knockback_timer = 0
@@ -17,7 +19,6 @@ var knockback_force: Vector2
 func _ready() -> void:
 	health_bar.max_value = stats.max_health
 	health_bar.value = stats.max_health
-	$AnimatedSprite2D.play("default")
 
 func _physics_process(delta: float) -> void:
 	if knockback_timer > 0:
@@ -33,6 +34,25 @@ func _physics_process(delta: float) -> void:
 
 	if health <= 0:
 		die()
+	
+	play_movement_animation()
+
+func play_movement_animation() -> void:
+	if not animated_sprite_2d:
+		return
+	
+	var direction = velocity.normalized()
+	
+	if abs(direction.x) > abs(direction.y):
+		if direction.x < 0:
+			animated_sprite_2d.play("move_left")
+		else:
+			animated_sprite_2d.play("move_right")
+	else:
+		if direction.y < 0:
+			animated_sprite_2d.play("move_up")  # Note: Y is flipped in Godot
+		else:
+			animated_sprite_2d.play("move_down")
 
 func spawn_ice():
 	for i in death_markers.get_children():

@@ -24,6 +24,9 @@ const BIG_WILD_SHARD = preload("res://Scenes/big_wild_shard.tscn")
 const BIG_EXP_SHARD = preload("res://Scenes/big_exp_shard.tscn")
 const SMALL_FIRE_BALL = preload("res://Scenes/small_fire_ball.tscn")
 
+@onready var sprite_2d: AnimatedSprite2D = $Sprite2D
+
+
 
 func _ready() -> void:
 	if not stats:
@@ -115,6 +118,25 @@ func shard_drop():
 func apply_knockback(force: Vector2):
 	knockback_timer = KNOCKBACK_DURATION
 	knockback_force = force
+
+func play_movement_animation() -> void:
+	if not sprite_2d:
+		return
+	
+	var direction = velocity.normalized()
+	if velocity == Vector2.ZERO:
+		sprite_2d.play("idle")
+	
+	if abs(direction.x) > abs(direction.y):
+		if direction.x < 0:
+			sprite_2d.play("move_left")
+		else:
+			sprite_2d.play("move_right")
+	else:
+		if direction.y < 0:
+			sprite_2d.play("move_up")  # Note: Y is flipped in Godot
+		else:
+			sprite_2d.play("move_down")
 
 func _on_danger_zone_body_entered(body: Node2D) -> void:
 	if body.has_method("takePlayerDamage"):
