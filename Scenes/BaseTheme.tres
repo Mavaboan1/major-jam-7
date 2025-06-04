@@ -1,11 +1,27 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bvfyynaceugym"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://bvfyynaceugym"]
 
-[ext_resource type="FontFile" path="res://Scenes/alagard.ttf" id="1_sbidc"]
+[ext_resource type="Texture2D" uid="uid://b2cvi1oj4po4k" path="res://Sprites/01_TravelBookLite/Sprites/UI_TravelBook_FrameSelect01b.png" id="1_j8qdk"]
+[ext_resource type="FontFile" uid="uid://utem2tv07evk" path="res://Scenes/alagard.ttf" id="1_sbidc"]
+[ext_resource type="Texture2D" uid="uid://c8mlls353il3j" path="res://Sprites/01_TravelBookLite/Sprites/UI_TravelBook_Frame01a.png" id="2_mluiq"]
+[ext_resource type="Texture2D" uid="uid://bartds47xnn1y" path="res://Sprites/01_TravelBookLite/Sprites/UI_TravelBook_FrameSelect01a.png" id="3_4l5is"]
+[ext_resource type="Texture2D" uid="uid://dnn1u63x2c1qr" path="res://Sprites/01_TravelBookLite/Sprites/UI_TravelBook_BookCover01a.png" id="4_q1wa5"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7a4ki"]
-bg_color = Color(0.473546, 0.218935, 0.814956, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_be4ii"]
+texture = ExtResource("1_j8qdk")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7r0gi"]
+texture = ExtResource("2_mluiq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8lbwu"]
+texture = ExtResource("3_4l5is")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mj8f1"]
+texture = ExtResource("4_q1wa5")
 
 [resource]
 default_font = ExtResource("1_sbidc")
 default_font_size = 24
-PanelContainer/styles/panel = SubResource("StyleBoxFlat_7a4ki")
+Button/styles/hover = SubResource("StyleBoxTexture_be4ii")
+Button/styles/normal = SubResource("StyleBoxTexture_7r0gi")
+Button/styles/pressed = SubResource("StyleBoxTexture_8lbwu")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_mj8f1")

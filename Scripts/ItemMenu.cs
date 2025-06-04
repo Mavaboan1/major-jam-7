@@ -7,7 +7,12 @@ public partial class ItemMenu : Control
     [Export] public Button Item1;
     [Export] public Button Item2;
     [Export] public Button Item3;
+    [Export] public Button Visbility;
     [Export] public RichTextLabel DescriptionLabel;
+    [Export] public Sprite2D ItemPreviewSprite;
+
+    private bool isTransparent = false;
+
     private Dictionary<string, string> itemDescriptions = new Dictionary<string, string>()
 {
     { "spell_circle", "Small Damaging Aura Around you. Leveling up increases Range" },
@@ -31,10 +36,10 @@ public partial class ItemMenu : Control
 
     public override void _Ready()
     {
+        Visbility.Pressed += OnToggleTransparencyPressed;
         Item1.Pressed += () => OnButtonPressed(Item1);
         Item2.Pressed += () => OnButtonPressed(Item2);
         Item3.Pressed += () => OnButtonPressed(Item3);
-        Disabled();
         Item1.MouseEntered += () => OnButtonHover(Item1);
         Item2.MouseEntered += () => OnButtonHover(Item2);
         Item3.MouseEntered += () => OnButtonHover(Item3);
@@ -55,7 +60,7 @@ public partial class ItemMenu : Control
                 float level = levelVariant.As<float>();
                 if (level == 5f)
                 {
-                    string itemName = item.Name; 
+                    string itemName = item.Name;
                     excludeNames.Add(itemName);
                 }
             }
@@ -139,7 +144,7 @@ public partial class ItemMenu : Control
         if (player != null)
         {
             player.Call("PickUpItem", itemName);
-            Disabled(); 
+            Disabled();
         }
         else
         {
@@ -153,17 +158,42 @@ public partial class ItemMenu : Control
             ChooseItem(pressedButton.Text);
     }
     private void OnButtonHover(Button hoveredButton)
-    {
-        if (hoveredButton == null) return;
+{
+    if (hoveredButton == null) return;
 
-        string itemName = hoveredButton.Text;
-        string desc = GetItemDescription(itemName);
-        DescriptionLabel.Text = desc;
+    string itemName = hoveredButton.Text;
+    string desc = GetItemDescription(itemName);
+    DescriptionLabel.Text = desc;
+
+    string imagePath = $"res://Sprites/Items/Used/{itemName}.png";
+
+    if (ResourceLoader.Exists(imagePath))
+    {
+        Texture2D texture = GD.Load<Texture2D>(imagePath);
+            if (texture != null && ItemPreviewSprite != null)
+            {
+                ItemPreviewSprite.Texture = texture;
+                ItemPreviewSprite.Scale = new Vector2(5, 5);
+
+        }
     }
-     private string GetItemDescription(string itemName)
+    else
+    {
+        GD.PrintErr($"Image not found: {imagePath}");
+    }
+}
+    private string GetItemDescription(string itemName)
     {
         if (itemDescriptions.TryGetValue(itemName, out var desc))
-        return desc;
-    return "No description available.";
+            return desc;
+        return "No description available.";
     }
+    private void OnToggleTransparencyPressed()
+{
+    isTransparent = !isTransparent;
+
+    Modulate = isTransparent 
+        ? new Color(1, 1, 1, 0.3f) 
+        : new Color(1, 1, 1, 1f);  
+}
 }
