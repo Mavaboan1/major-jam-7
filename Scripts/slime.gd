@@ -72,14 +72,17 @@ func shard_drop():
 	exp_shard.global_position = global_position
 	get_tree().current_scene.add_child(exp_shard)
 	
+	var drop_wild = randf()
 	var wild_shard = SMALL_WILD_SHARD.instantiate()
-	wild_shard.global_position = global_position + Vector2.UP * 30
-	get_tree().current_scene.add_child(wild_shard)
+	if drop_wild <= 0.75:
+		
+		wild_shard.global_position = global_position + Vector2.UP * 30
+		get_tree().current_scene.add_child(wild_shard)
 	
 	var heal_shard = HEALING_SHARD.instantiate()
 	var drop_heal = randf()
 	if drop_heal <= 0.05:
-		heal_shard.global_position = global_position + Vector2.UP * 30
+		heal_shard.global_position = global_position + Vector2.UP * 15
 		get_tree().current_scene.add_child(heal_shard)
 
 func show_damage_feedback() -> void:

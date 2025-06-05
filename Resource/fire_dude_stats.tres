@@ -8,5 +8,5 @@ max_health = 20
 current_health = 20
 speed = 100
 damage = 2
-attack_speed = 0.5
+attack_speed = 0.8
 metadata/_custom_type_script = "uid://xku8uvetsgg8"

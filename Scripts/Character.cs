@@ -40,6 +40,7 @@ public partial class Character : CharacterBody2D
 		HealthBar.Value = Health;
 		var music = GetNode<AudioStreamPlayer>("/root/MenuMusic/AudioStreamPlayer2D2");
 		music.Stop();
+		Range = 60f;
 	}
 
 	public override void _Process(double delta)

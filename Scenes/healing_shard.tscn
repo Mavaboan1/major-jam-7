@@ -1,17 +1,17 @@
 [gd_scene load_steps=5 format=3 uid="uid://6s36lykhckvj"]
 
-[ext_resource type="Script" uid="uid://ceh2cnyrtysh7" path="res://Scripts/EXP.gd" id="1_mc1f8"]
+[ext_resource type="Script" uid="uid://brykij5lj54w8" path="res://Scripts/healing_shard.gd" id="1_mc1f8"]
 [ext_resource type="Texture2D" uid="uid://b4bgcwtudnlab" path="res://Sprites/VFX/Protect_Up.png" id="2_y8idm"]
 [ext_resource type="AudioStream" uid="uid://drwenpjmemyl7" path="res://Sprites/SFX/Pickup_Coin5.wav" id="3_nnn62"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2ts4m"]
 radius = 8.0
 
-[node name="SmallExpShard" type="Area2D" node_paths=PackedStringArray("audio")]
+[node name="HealingShard" type="Area2D"]
 script = ExtResource("1_mc1f8")
-audio = NodePath("AudioStreamPlayer2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.228741, 0.823216, 0, 1)
 texture = ExtResource("2_y8idm")
 hframes = 6
 vframes = 4

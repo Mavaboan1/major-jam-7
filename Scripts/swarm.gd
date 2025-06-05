@@ -33,9 +33,12 @@ func shard_drop():
 	exp_shard.global_position = global_position
 	get_tree().current_scene.add_child(exp_shard)
 	
+	var drop_wild = randf()
 	var wild_shard = SMALL_WILD_SHARD.instantiate()
-	wild_shard.global_position = global_position + Vector2.UP * 30
-	get_tree().current_scene.add_child(wild_shard)
+	if drop_wild <= 0.75:
+		
+		wild_shard.global_position = global_position + Vector2.UP * 30
+		get_tree().current_scene.add_child(wild_shard)
 	
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()
