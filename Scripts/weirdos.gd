@@ -3,7 +3,6 @@ extends CharacterBody2D
 @onready var player = get_node("/root/Main/Character")
 @export var stats: MobStats
 @export var audio: AudioStreamPlayer2D
-@onready var health_bar: ProgressBar = $HealthBar
 @onready var death_markers: Node2D = $DeathMarkers
 @onready var health = stats.max_health
 
@@ -17,9 +16,7 @@ signal died
 var knockback_timer = 0
 var knockback_force: Vector2
 
-func _ready() -> void:
-	health_bar.max_value = stats.max_health
-	health_bar.value = stats.max_health
+
 
 func _physics_process(delta: float) -> void:
 	if knockback_timer > 0:
@@ -31,7 +28,6 @@ func _physics_process(delta: float) -> void:
 		velocity = direction * stats.speed
 		move_and_slide()
 	
-	health_bar.value = health
 
 	if health <= 0:
 		die()

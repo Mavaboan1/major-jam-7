@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 @onready var player = get_node("/root/Main/Character")
 @export var stats: MobStats
-@onready var health_bar: ProgressBar = $HealthBar
 
 @onready var health = stats.max_health
 var speed
@@ -18,9 +17,7 @@ const SMALL_WILD_SHARD = preload("res://Scenes/small_wild_shard.tscn")
 @export var audio: AudioStreamPlayer2D
 
 
-func _ready() -> void:
-	health_bar.max_value = stats.max_health
-	health_bar.value = stats.max_health
+
 
 func _physics_process(delta: float) -> void:
 	speed = stats.speed
@@ -33,7 +30,6 @@ func _physics_process(delta: float) -> void:
 		velocity = direction * speed
 		move_and_slide()
 	
-	health_bar.value = health
 
 	if health <= 0:
 		die()
