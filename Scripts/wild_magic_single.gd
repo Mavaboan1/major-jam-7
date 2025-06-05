@@ -32,10 +32,12 @@ func monster_speed():
 	var swarm_temp = shroom_stats.speed
 	var weirdos_temp = weirdos_stats.speed
 	
-	fire_dude_stats.speed *= 2
-	shroom_stats.speed *= 2
-	swarm_stats.speed *= 2
-	weirdos_stats.speed *= 2
+	print("MONSTER SPEED TRIGGERED")
+	
+	fire_dude_stats.speed *= 3
+	shroom_stats.speed *= 3
+	swarm_stats.speed *= 3
+	weirdos_stats.speed *= 3
 	
 	await get_tree().create_timer(15.0).timeout
 	fire_dude_stats.speed = fire_temp
@@ -44,6 +46,8 @@ func monster_speed():
 	weirdos_stats.speed = weirdos_temp
 
 func monster_size():
+	print("MONSTER SIZE TRIGGERED")
+	
 	for i in get_node("/root/Main/Enemy").get_children():
 		i.scale *= 2
 	await get_tree().create_timer(15.0).timeout
@@ -51,6 +55,8 @@ func monster_size():
 		i.scale /= 2
 		randi()
 func exp_explosion():
+	print("EXP TRIGGERED")
+	
 	for i in range(randi_range(5, 15)):
 		var exp_shard = SMALL_EXP_SHARD.instantiate()
 		exp_shard.global_position.x = player.global_position.x + randi_range(-60,60)

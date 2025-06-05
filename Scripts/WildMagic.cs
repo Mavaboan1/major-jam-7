@@ -33,41 +33,50 @@ public partial class WildMagic : Node2D
         animatedSpriteWild.Play("default");
         audio.Play();
         GD.Randomize();
-        int Randomnr = (int)GD.Randi() % 9 + 1;
+        int Randomnr = (int)GD.Randi() % 1 + 1;
         if (Randomnr == 2)
         {
+            GD.Print("Wildmagic");
             invert();
         }
         else if (Randomnr == 3)
         {
+            GD.Print("Wildmagic");
             Slow();
         }
         else if (Randomnr == 4)
         {
+            GD.Print("Wildmagic");
             Zoom();
         }
         else if (Randomnr == 5)
         {
+            GD.Print("Wildmagic");
             Flip();
         }
         else if (Randomnr == 6)
         {
+            GD.Print("Wildmagic");
             Darkness();
         }
         else if (Randomnr == 7)
         {
+            GD.Print("Wildmagic");
             SpeedTime();
-        }
-        else if (Randomnr == 8)
-        {
-            wildSingleton.Call("monster_speed");
         }
         else if (Randomnr == 9)
         {
-            wildSingleton.Call("monster_size");
+            GD.Print("Call Monster speed");
+            wildSingleton.Call("monster_speed");
         }
         else if (Randomnr == 1)
         {
+            GD.Print("CAll MONSTER SIZE");
+            wildSingleton.Call("monster_size");
+        }
+        else if (Randomnr == 8)
+        {
+            GD.Print("Wildmagic");
             wildSingleton.Call("exp_explosion");
         }
     }
