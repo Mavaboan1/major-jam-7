@@ -7,7 +7,7 @@ public partial class Shockwave : Node2D
     [Export]public float Level = 1;
 
     [Export] float bullet_speed = 600f;
-    [Export] float bps = 1f;
+    [Export] float bps = 0.5f;
     [Export] float bullet_damage = 5f;
     float fire_rate;
     float time_until_fire = 0f;
@@ -37,7 +37,7 @@ public partial class Shockwave : Node2D
     public void LevelUp()
     {
         Level += 1;
-        bps += 0.5f;
+        bps += 0.25f;
         fire_rate = 1 / bps;
     }
 }

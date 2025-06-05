@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_bawa1")
-max_health = 10
-current_health = 10
+max_health = 20
+current_health = 20
 speed = 100
 damage = 2
 attack_speed = 0.5

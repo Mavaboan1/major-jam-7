@@ -49,7 +49,7 @@ public partial class Tornado : Area2D
 
         if (body.HasMethod("takeDamage") != false)
         {
-            body.Call("takeDamage", 5);
+            body.Call("takeDamage", 3);
 
         }
     }

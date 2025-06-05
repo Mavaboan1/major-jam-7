@@ -7,7 +7,7 @@ public partial class Tornadoes : Node2D
 
     [Export] PackedScene bullet_scn;
 
-    [Export] float bps = 1f;
+    [Export] float bps = 0.5f;
     float fire_rate;
     float time_until_fire = 0f;
     public override void _Ready()

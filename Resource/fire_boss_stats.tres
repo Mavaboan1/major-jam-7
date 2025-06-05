@@ -4,9 +4,9 @@
 
 [resource]
 script = ExtResource("1_j4bhs")
-max_health = 300
-current_health = 300
+max_health = 1000
+current_health = 1000
 speed = 100
-damage = 1
+damage = 10
 attack_speed = 1.0
 metadata/_custom_type_script = "uid://xku8uvetsgg8"

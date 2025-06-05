@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_mo3u5")
-max_health = 4
-current_health = 10
+max_health = 5
+current_health = 5
 speed = 300
 damage = 2
 attack_speed = 2.0

@@ -10,7 +10,7 @@ public partial class Meteor : Area2D
         QueueFree();
         if (body.HasMethod("takeDamage") != false)
         {
-            body.Call("takeDamage", 5);
+            body.Call("takeDamage", 4);
 
         }
     }

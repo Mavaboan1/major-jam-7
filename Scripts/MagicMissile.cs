@@ -46,7 +46,7 @@ public partial class MagicMissile : Node2D
     public void LevelUp()
     {
         Level += 1;
-        bps += 1;
+        bps += 0.5f;
         fire_rate = 1 / bps;
     }
 }

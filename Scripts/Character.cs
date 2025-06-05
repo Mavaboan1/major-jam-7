@@ -50,40 +50,40 @@ public partial class Character : CharacterBody2D
 			Experience -= 500;
 		}
 
-		Vector2 velocity = Velocity;
+		Vector2 input = Vector2.Zero;
 
-		velocity.X = 0;
-		velocity.Y = 0;
-		if (Input.IsActionPressed("move_left"))
-		{
-			playAnimation("walk");
-			animatedSprite.FlipH = true;
-			velocity.X = -moveSpeed;
+if (Input.IsActionPressed("move_left"))
+{
+    input.X -= 1;
+    playAnimation("walk");
+    animatedSprite.FlipH = true;
+}
+else if (Input.IsActionPressed("move_right"))
+{
+    input.X += 1;
+    playAnimation("walk");
+    animatedSprite.FlipH = false;
+}
 
-		}
-		else if (Input.IsActionPressed("move_right"))
-		{
-			playAnimation("walk");
-			animatedSprite.FlipH = false;
-			velocity.X = +moveSpeed;
+if (Input.IsActionPressed("move_down"))
+{
+    input.Y += 1;
+}
+else if (Input.IsActionPressed("move_up"))
+{
+    input.Y -= 1;
+}
 
-		}
+if (input == Vector2.Zero)
+{
+    playAnimation("idle");
+}
+else
+{
+    input = input.Normalized();
+}
 
-		if (Input.IsActionPressed("move_down"))
-		{
-			velocity.Y = +moveSpeed;
-		}
-		else if (Input.IsActionPressed("move_up"))
-		{
-			velocity.Y = -moveSpeed;
-		}
-
-		if (velocity == Vector2.Zero)
-		{
-			playAnimation("idle");
-		}
-
-		Velocity = velocity;
+Velocity = input * moveSpeed;
 		MoveAndSlide();
 		if (Touchlist.Count > 0)
 		{
@@ -115,17 +115,17 @@ public partial class Character : CharacterBody2D
 	}
 	public void SpeedUp()
 	{
-		moveSpeed += 20f;
+		moveSpeed += 10f;
 	}
 	public void RangeUp()
 	{
-		Range += 20f;
+		Range += 10f;
 		EmitSignal(SignalName.rangeSignal,Range);
 	}
 	public void HealthUp()
 	{
-		HealthBar.MaxValue += 20;
-		Health += 20f;
+		HealthBar.MaxValue += 10;
+		Health += 10f;
 		HealthBar.Value = Health;
 	}
 

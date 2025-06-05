@@ -52,11 +52,11 @@ public partial class BouncySpark : Area2D
         {
             if (Level == 5)
             {
-                body.Call("takeDamage", 8);
+                body.Call("takeDamage", 6);
             }
             else
             {
-                body.Call("takeDamage", 5);
+                body.Call("takeDamage", 4);
 
             }
 
