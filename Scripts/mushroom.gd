@@ -21,6 +21,7 @@ var current_health: float
 var current_state: MobState = MobState.IDLE
 var knockback_timer: float = 0.0
 var knockback_force: Vector2 = Vector2.ZERO
+var speed
 
 
 var can_attack: bool = true
@@ -70,6 +71,7 @@ func setup_healthbar():
 
 
 func _physics_process(delta: float) -> void:
+	speed = stats.speed
 	handle_knockback(delta)
 	update_state_machine(delta)
 	execute_current_state(delta)
@@ -131,7 +133,7 @@ func execute_current_state(delta: float) -> void:
 			velocity = Vector2.ZERO
 
 func execute_idle_state(delta: float) -> void:
-	velocity = velocity.move_toward(Vector2.ZERO, stats.speed * delta * 2)
+	velocity = velocity.move_toward(Vector2.ZERO, speed * delta * 2)
 
 func execute_chasing_state(_delta: float) -> void:
 	if is_instance_valid(player):
@@ -264,17 +266,20 @@ func die():
 	queue_free()
 
 func shard_drop():
+	call_deferred("_deferred_shard_drop")
+	
+func _deferred_shard_drop():
 	var current_scene = get_tree().current_scene
 	if not current_scene:
 		return
 	
 	var exp_shard = BIG_EXP_SHARD.instantiate()
 	exp_shard.global_position = global_position
-	current_scene.add_child(exp_shard)
+	get_tree().current_scene.add_child(exp_shard)
 	
 	var wild_shard = BIG_WILD_SHARD.instantiate()
 	wild_shard.global_position = global_position + Vector2.UP * 30
-	current_scene.add_child(wild_shard)
+	get_tree().current_scene.add_child(wild_shard)
 
 func _on_attack_timer_timout() -> void:
 	can_attack = true

@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var health_bar: ProgressBar = $HealthBar
 
 @onready var health = stats.max_health
+var speed
 
 signal died
 
@@ -22,13 +23,14 @@ func _ready() -> void:
 	health_bar.value = stats.max_health
 
 func _physics_process(delta: float) -> void:
+	speed = stats.speed
 	if knockback_timer > 0:
 		velocity = knockback_force
 		knockback_timer -= delta
 		move_and_slide()
 	else:
 		var direction = global_position.direction_to(player.global_position)
-		velocity = direction * stats.speed
+		velocity = direction * speed
 		move_and_slide()
 	
 	health_bar.value = health
