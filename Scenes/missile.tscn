@@ -8,7 +8,7 @@ radius = 7.0
 
 [node name="Missile" type="Area2D"]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 34
 script = ExtResource("1_u28tq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

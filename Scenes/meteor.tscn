@@ -9,7 +9,7 @@ height = 22.0
 
 [node name="Meteor" type="Area2D"]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 34
 script = ExtResource("1_wm1ig")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

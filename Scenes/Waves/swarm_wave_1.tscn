@@ -1,34 +1,43 @@
 [gd_scene load_steps=3 format=3 uid="uid://bcrbn1ixdcews"]
 
 [ext_resource type="PackedScene" uid="uid://dg3ggtus58bvx" path="res://Scenes/Monsters/swarm.tscn" id="1_8xnfg"]
-[ext_resource type="Script" uid="uid://doayjju6rxods" path="res://Scenes/Waves/swarm_wave_1.gd" id="1_engvc"]
+[ext_resource type="Script" path="res://Scenes/Waves/swarm_wave_1.gd" id="1_engvc"]
 
 [node name="SwarmWave1" type="Node2D"]
 script = ExtResource("1_engvc")
 
 [node name="Swarm" parent="." instance=ExtResource("1_8xnfg")]
 position = Vector2(1, -2)
+motion_mode = 0
 
 [node name="Swarm2" parent="." instance=ExtResource("1_8xnfg")]
 position = Vector2(15, 25)
+motion_mode = 0
 
 [node name="Swarm3" parent="." instance=ExtResource("1_8xnfg")]
 position = Vector2(-13, 25)
+motion_mode = 0
 
 [node name="Swarm4" parent="." instance=ExtResource("1_8xnfg")]
 position = Vector2(1, 50)
+motion_mode = 0
 
 [node name="Swarm5" parent="." instance=ExtResource("1_8xnfg")]
 position = Vector2(-28, 0)
+motion_mode = 0
 
 [node name="Swarm6" parent="." instance=ExtResource("1_8xnfg")]
 position = Vector2(-13, -25)
+motion_mode = 0
 
 [node name="Swarm7" parent="." instance=ExtResource("1_8xnfg")]
 position = Vector2(30, 0)
+motion_mode = 0
 
 [node name="Swarm8" parent="." instance=ExtResource("1_8xnfg")]
 position = Vector2(15, -25)
+motion_mode = 0
 
 [node name="Swarm9" parent="." instance=ExtResource("1_8xnfg")]
 position = Vector2(1, -50)
+motion_mode = 0
