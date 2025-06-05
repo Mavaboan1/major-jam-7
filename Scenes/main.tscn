@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dr8hfsa1hj1bi" path="res://Scenes/Character.tscn" id="3_jjvhh"]
 [ext_resource type="Theme" uid="uid://bvfyynaceugym" path="res://Scenes/BaseTheme.tres" id="4_21xkr"]
 [ext_resource type="PackedScene" uid="uid://ca0xamlaemhco" path="res://Scenes/tree_spawner.tscn" id="10_hptm8"]
-[ext_resource type="PackedScene" path="res://Scenes/music_node.tscn" id="11_d1ilt"]
+[ext_resource type="PackedScene" uid="uid://b45quqbgslyxr" path="res://Scenes/music_node.tscn" id="11_d1ilt"]
 
 [sub_resource type="Curve2D" id="Curve2D_7u77a"]
 _data = {

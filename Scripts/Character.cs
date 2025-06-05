@@ -24,6 +24,8 @@ public partial class Character : CharacterBody2D
 	[Export] private AnimatedSprite2D animatedSprite;
 	[Export] public Control DeathScreen;
 	[Export] public Control WinScreen;
+	[Export] public Control PauseScreen;
+
 	private List<Node> Touchlist = new List<Node>();
 
 	public bool isDead = false;
@@ -53,18 +55,22 @@ public partial class Character : CharacterBody2D
 
 		Vector2 input = Vector2.Zero;
 
+		if (Input.IsActionPressed("Pause"))
+		{
+			PauseScreen.Call("Activate");
+}
 if (Input.IsActionPressed("move_left"))
-{
-    input.X -= 1;
-    playAnimation("walk");
-    animatedSprite.FlipH = true;
-}
-else if (Input.IsActionPressed("move_right"))
-{
-    input.X += 1;
-    playAnimation("walk");
-    animatedSprite.FlipH = false;
-}
+		{
+			input.X -= 1;
+			playAnimation("walk");
+			animatedSprite.FlipH = true;
+		}
+		else if (Input.IsActionPressed("move_right"))
+		{
+			input.X += 1;
+			playAnimation("walk");
+			animatedSprite.FlipH = false;
+		}
 
 if (Input.IsActionPressed("move_down"))
 {
