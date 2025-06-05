@@ -200,6 +200,7 @@ stream = ExtResource("4_5wg7d")
 volume_db = -25.0
 
 [node name="DeathTimer" type="Timer" parent="."]
+wait_time = 120.0
 
 [connection signal="body_entered" from="dangerZone" to="." method="_on_danger_zone_body_entered"]
 [connection signal="body_exited" from="dangerZone" to="." method="_on_danger_zone_body_exited"]

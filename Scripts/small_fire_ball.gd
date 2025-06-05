@@ -8,9 +8,9 @@ func _physics_process(delta: float) -> void:
 	const RANGE = 1200
 	
 	var direction = Vector2.RIGHT.rotated(rotation)
-	position += direction * 500.0 * delta
+	position += direction * 350.0 * delta
 	
-	travelled_distance += 500.0 * delta
+	travelled_distance += 350.0 * delta
 	if travelled_distance > RANGE:
 		queue_free()
 

@@ -166,5 +166,6 @@ stream = ExtResource("4_s7agn")
 volume_db = -25.0
 
 [node name="DeathTimer" type="Timer" parent="."]
+wait_time = 120.0
 
 [connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

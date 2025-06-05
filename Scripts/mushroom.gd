@@ -33,7 +33,7 @@ var attack_distance: float = 40.0
 var lose_target_distance: float = 600.0
 
 
-const KNOCKBACK_DURATION: float = 0.1
+const KNOCKBACK_DURATION: float = 0.2
 const SHARD_OFFSET: Vector2 = Vector2.UP * 30
 const ANIMATION_THRESHOLD: float = 10.0  # Minimum velocity to trigger walk animation
 
@@ -74,9 +74,12 @@ func _physics_process(delta: float) -> void:
 	handle_animations()
 
 func handle_knockback(delta: float) -> void:
-	if knockback_timer:
+	if knockback_timer > 0:  # Changed from 'if knockback_timer:' to 'if knockback_timer > 0:'
 		velocity = knockback_force
 		knockback_timer -= delta
+		if knockback_timer <= 0:  # Ensure timer doesn't go negative
+			knockback_timer = 0.0
+			velocity = Vector2.ZERO  # Stop the knockback movement
 		move_and_slide()
 		
 func update_state_machine(_delta: float) -> void:
