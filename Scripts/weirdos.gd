@@ -71,13 +71,21 @@ func apply_knockback(force: Vector2):
 
 func takeDamage(damage):
 	health -= damage
+	show_damage_feedback()
 
 func die():
 	died.emit()
 	shard_drop()
 	spawn_ice()
 	queue_free()
-	
+
+func show_damage_feedback() -> void:
+	#Visual feedback when taking damage
+	if animated_sprite_2d:
+		var tween = create_tween()
+		tween.tween_property(animated_sprite_2d, "modulate", Color.WHITE * 1.5, 0.1)
+		tween.tween_property(animated_sprite_2d, "modulate", Color.WHITE, 0.1)
+
 func shard_drop():
 	var exp_shard = SMALL_EXP_SHARD.instantiate()
 	exp_shard.global_position = global_position
