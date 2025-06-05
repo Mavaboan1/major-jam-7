@@ -13,6 +13,7 @@ public partial class Missile : Area2D
     public override void _Ready()
     {
         dir = Transform.X.Normalized();
+        SelfDestruct();
 
     }
 
@@ -70,6 +71,11 @@ public partial class Missile : Area2D
 
         return closestEnemy;
     }
+    private async void SelfDestruct()
+{
+    await ToSignal(GetTree().CreateTimer(2f), "timeout");
+    QueueFree();
+}
     public void _on_body_entered(Node body)
     {
 
