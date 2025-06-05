@@ -24,9 +24,10 @@ var knockback_timer: float = 0.0
 var knockback_force: Vector2 = Vector2.ZERO
 var last_direction: Vector2 = Vector2.ZERO
 
-const KNOCKBACK_DURATION: float = 0.2
+const KNOCKBACK_DURATION: float = 0.05
 const SHARD_OFFSET: Vector2 = Vector2.UP * 30
 const ANIMATION_TRESHOLD: float = 10.0
+const ANIMATION_THRESHOLD: float = 10.0  # Minimum velocity to trigger walk animation
 
 const BIG_EXP_SHARD = preload("res://Scenes/big_exp_shard.tscn")
 const BIG_WILD_SHARD = preload("res://Scenes/big_wild_shard.tscn")
@@ -36,11 +37,13 @@ signal health_changed(new_health: float, max_health: float)
 @warning_ignore("unused_signal")
 signal state_changed(old_state: EnemyState, new_state: EnemyState)
 
+
 func _ready() -> void:
 	validate_setup()
 	initialize_stats()
 	setup_shooting()
 	change_state(EnemyState.IDLE)
+	
 	
 
 func validate_setup() -> void:
@@ -68,7 +71,7 @@ func update_stats_machine(_delta: float) -> void:
 	
 	var distance = get_distance_to_player()
 	var chase_dist = 1200
-	var attack_dist = 150.0
+	var attack_dist = 300.0
 	
 	match current_state:
 		EnemyState.IDLE:
@@ -115,7 +118,46 @@ func execute_current_state(delta: float) -> void:
 		shot_rotation.look_at(player.global_position)
 
 func handle_animation() -> void: #TODO
-	pass
+	if not animated_sprite:
+		return
+	
+	match current_state:
+		EnemyState.IDLE:
+			if velocity == Vector2.ZERO:
+				animated_sprite.play("wait")
+			else:
+				play_movement_animation()
+		EnemyState.CHASING:
+			play_movement_animation()
+		EnemyState.ATTACKING:
+			if velocity == Vector2.ZERO:
+				animated_sprite.play("wait")
+		
+		EnemyState.STUNNED:
+			# Could add a stunned animation here
+			animated_sprite.play("wait")
+		EnemyState.DYING:
+			# Could add a death animation here
+			pass
+
+func play_movement_animation() -> void:
+	if not animated_sprite:
+		return
+	
+	var direction = velocity.normalized()
+	if direction.length() < 0.1:
+		direction = last_direction
+	
+	if abs(direction.x) > abs(direction.y):
+		if direction.x < 0:
+			animated_sprite.play("walk_left")
+		else:
+			animated_sprite.play("walk_right")
+	else:
+		if direction.y < 0:
+			animated_sprite.play("walk_up")  # Note: Y is flipped in Godot
+		else:
+			animated_sprite.play("walk_down")
 
 func handle_knockback(delta: float) -> void:
 	if knockback_timer > 0:
@@ -181,7 +223,7 @@ func drop_shards() -> void:
 	current_scene.add_child(wild_shard)
 	
 func apply_knockback(force: Vector2) -> void:
-	var resistance = stats.knockback_resistance if stats.has_method("knockback_resistance") else 1.0
+	var resistance = stats.knockback_resistance if stats.has_method("knockback_resistance") else 2.0
 	knockback_timer = KNOCKBACK_DURATION
 	knockback_force = force * resistance
 	change_state(EnemyState.STUNNED)

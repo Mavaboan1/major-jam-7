@@ -92,6 +92,7 @@ func takeDamage(damage_taken):
 	
 	current_health = max(0, current_health - damage_taken)
 	health_changed.emit(current_health, stats.max_health)
+	show_damage_feedback()
 
 func show_damage_feedback() -> void:
 	#Visual feedback when taking damage

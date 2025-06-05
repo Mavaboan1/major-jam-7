@@ -32,7 +32,7 @@ var attack_distance: float = 40.0
 var lose_target_distance: float = 600.0
 
 
-const KNOCKBACK_DURATION: float = 0.2
+const KNOCKBACK_DURATION: float = 0.1
 const SHARD_OFFSET: Vector2 = Vector2.UP * 30
 const ANIMATION_THRESHOLD: float = 10.0  # Minimum velocity to trigger walk animation
 
@@ -136,7 +136,9 @@ func execute_chasing_state(_delta: float) -> void:
 	if is_instance_valid(player):
 		var direction = global_position.direction_to(player.global_position)
 		velocity = direction * stats.speed
+		
 		last_direction = direction
+		move_and_slide()
 	
 func execute_attacking_state(_delta: float) -> void:
 	# Slight movement towards player during attack

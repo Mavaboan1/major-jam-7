@@ -191,7 +191,6 @@ radius = 29.0172
 [node name="LavaBall" type="Area2D"]
 collision_layer = 0
 script = ExtResource("1_5r3x7")
-fragment_scene = null
 mobs_stat = ExtResource("2_xcblv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

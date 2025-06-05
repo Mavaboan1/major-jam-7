@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bgo2gchoty6cc" path="res://Scripts/TreeSpawner.cs" id="1_oohn8"]
 [ext_resource type="PackedScene" uid="uid://c10pv1fit3tpl" path="res://Scenes/tree.tscn" id="2_ybois"]
-[ext_resource type="PackedScene" uid="uid://686kw5ssp2im" path="res://Scenes/rock.tscn" id="3_lecks"]
+[ext_resource type="PackedScene" path="res://Scenes/rock.tscn" id="3_lecks"]
 
 [node name="treeSpawner" type="Node2D"]
 script = ExtResource("1_oohn8")

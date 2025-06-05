@@ -7,6 +7,9 @@ const WEIRDOS = preload("res://Scenes/Monsters/weirdos.tscn")
 const FIRE_DUDE = preload("res://Scenes/Monsters/fire_dude.tscn")
 const SWARM_WAVE_1 = preload("res://Scenes/Waves/swarm_wave_1.tscn")
 const SWARM_WAVE_2 = preload("res://Scenes/Waves/swarm_wave_2.tscn")
+const FIRE_BOSS = preload("res://Scenes/Monsters/fire_boss.tscn")
+
+var is_endless: bool = false
 
 class WaveConfig:
 	var start_time: float
@@ -49,12 +52,22 @@ var enemy_parent: Node2D
 signal wave_started(wave_index: int)
 signal wave_ended(wave_index: int)
 #signal _enemy_spawned(enemy_type: String)
+@onready var wildMagicSpawner = get_node("/root/WildMagicSingle")
 
 func _ready() -> void:
-	_setup_waves()
+	if wildMagicSpawner.endless:
+		print("Is endless")
+		_setup_waves_endless()
+	else:
+		print("Is normal")
+		_setup_waves()
 	_connect_nodes()
 	start_wave_system()
 	print_wave_info()
+
+func call_endless():
+	print("It is endless")
+	is_endless = true
 
 func _setup_waves():
 	waves.append(WaveConfig.new(
@@ -247,7 +260,7 @@ func _setup_waves():
 	))
 	waves.append(WaveConfig.new(
 		900.0, INF,
-		[MUSHROOM],
+		[FIRE_BOSS],
 		0.1, 1,
 		[1.0]
 	))
@@ -307,8 +320,8 @@ func _handle_spawning():
 	
 	var current_wave = waves[current_wave_index]
 	
-	if current_wave_index == waves.size() - 1 and game_time > 200.0:
-		var time_multiplier = 1.0 + (game_time - 200) / 60.0 # Harder every minute
+	if current_wave_index == waves.size() - 1 and is_endless:
+		var time_multiplier = 1.0 + (game_time) / 30.0 # Harder every 30 seconds
 		current_wave.spawn_interval = max(0.5, 1.2 / time_multiplier) # Faster Spawning
 		current_wave.max_concurrent = min(20, int(8 * time_multiplier)) # More Enemies
 	

@@ -9,12 +9,19 @@ const SMALL_EXP_SHARD = preload("res://Scenes/small_exp_shard.tscn")
 const BIG_EXP_SHARD = preload("res://Scenes/big_exp_shard.tscn")
 
 var player: CharacterBody2D
+var wave: Node2D
 
-	
+var endless: bool = false
+
+func signal_bus():
+	endless = true
 
 func _process(_delta: float) -> void:
 	if player == null:
 		if has_node("/root/Main/Character"):
+			wave = get_node("/root/Main/Enemy")
+			if wave.has_method("call_endless") and endless:
+				wave.call_endless()
 			player = get_node("/root/Main/Character")
 		else:
 			return;
