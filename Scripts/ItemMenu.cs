@@ -16,27 +16,21 @@ public partial class ItemMenu : Control
     private Vector2 originalZoom = Vector2.One;
     private bool zoomedOut = false;
 
-
     private Dictionary<string, string> itemDescriptions = new Dictionary<string, string>()
-{
-    { "spell_circle", "Small Damaging Aura Around you. Leveling up increases Range" },
-    { "hover_shield", "A shield that spins and blocks attacks. Leveling Up gives more Shields" },
-    { "icicle", "Icicles that spin around you and damage enemies. Leveling up gives more icicles." },
-    { "boots", "Gives a speed increase. Leveling up gives more speed." },
-    { "bouncy_spark", "A Spark that bounces around the screen damaing enemies.Levling up increases Size and Speed." },
-    { "magic_missile", "Fire homing Missiles at enemies. Leveling up increases Accuracy" },
-    { "meteor_shower", "Fires loads of Random projectiles. Leveling up increases FireRate" },
-    { "recovery_belt", "Stand still to regenerate health. Leveling up increases health regen" },
-    { "shockwave", "fire a wave in the faced direction, knocking back enemies. Leveling up increases firerate" },
-    { "tornadoes", "summon tornadoes that randomly move around the screen. Leveling up increases Firerate" },
-    { "vacuum", "Increases Pickup Range. Leveling up increases Range" },
-    { "mage_armor", "Increases Max Health. Leveling up increases Max Health" },
-
-
-
-
-
-};
+    {
+        { "spell_circle", "Small Damaging Aura Around you. Leveling up increases Range" },
+        { "hover_shield", "A shield that spins and blocks attacks. Leveling Up gives more Shields" },
+        { "icicle", "Icicles that spin around you and damage enemies. Leveling up gives more icicles." },
+        { "boots", "Gives a speed increase. Leveling up gives more speed." },
+        { "bouncy_spark", "A Spark that bounces around the screen damaing enemies.Levling up increases Size and Speed." },
+        { "magic_missile", "Fire homing Missiles at enemies. Leveling up increases Accuracy" },
+        { "meteor_shower", "Fires loads of Random projectiles. Leveling up increases FireRate" },
+        { "recovery_belt", "Stand still to regenerate health. Leveling up increases health regen" },
+        { "shockwave", "fire a wave in the faced direction, knocking back enemies. Leveling up increases firerate" },
+        { "tornadoes", "summon tornadoes that randomly move around the screen. Leveling up increases Firerate" },
+        { "vacuum", "Increases Pickup Range. Leveling up increases Range" },
+        { "mage_armor", "Increases Max Health. Leveling up increases Max Health" },
+    };
 
     public override void _Ready()
     {
@@ -50,7 +44,7 @@ public partial class ItemMenu : Control
         Disabled();
 
         var character = GetTree().Root.GetNodeOrNull("Main/Character");
-        playerCamera = character.GetNodeOrNull<Camera2D>("Camera");
+        playerCamera = character?.GetNodeOrNull<Camera2D>("Camera");
     }
 
     public void RollItems()
@@ -60,7 +54,6 @@ public partial class ItemMenu : Control
         foreach (Node item in itemController.GetChildren())
         {
             var levelVariant = item.Get("Level");
-
             try
             {
                 float level = levelVariant.As<float>();
@@ -74,37 +67,28 @@ public partial class ItemMenu : Control
             {
                 GD.Print($"Item {item.Name} does not have a valid float Level property");
             }
-
-
-
-
         }
 
-        string folderPath = "res://Scenes/Item/";
-        DirAccess dir = DirAccess.Open(folderPath);
-        if (dir == null)
+        // ✅ Hardcoded list of item names
+        List<string> itemNames = new()
         {
-            GD.PrintErr("Folder not found: " + folderPath);
-            return;
-        }
+            "spell_circle",
+            "hover_shield",
+            "icicle",
+            "boots",
+            "bouncy_spark",
+            "magic_missile",
+            "meteor_shower",
+            "recovery_belt",
+            "shockwave",
+            "tornadoes",
+            "vacuum",
+            "mage_armor"
+        };
 
-        List<string> itemNames = new();
+        itemNames.RemoveAll(name => excludeNames.Contains(name));
 
-        dir.ListDirBegin();
-        string file;
-        while ((file = dir.GetNext()) != "")
-        {
-            if (!dir.CurrentIsDir() && file.EndsWith(".tscn"))
-            {
-                string itemName = file.GetBaseName();
-                if (!excludeNames.Contains(itemName))
-                {
-                    itemNames.Add(itemName);
-                }
-            }
-        }
-        dir.ListDirEnd();
-
+        // Shuffle
         for (int i = itemNames.Count - 1; i > 0; i--)
         {
             int j = (int)(GD.Randi() % (uint)(i + 1));
@@ -134,10 +118,10 @@ public partial class ItemMenu : Control
         GetTree().Paused = true;
         audio.Play();
         if (playerCamera.Zoom == new Vector2(2f,2f))
-    {
+        {
             playerCamera.Zoom = new Vector2(1f, 1f);
-        zoomedOut = true;
-    }
+            zoomedOut = true;
+        }
     }
 
     public void Disabled()
@@ -148,11 +132,11 @@ public partial class ItemMenu : Control
         SetProcessUnhandledInput(false);
         SetProcessUnhandledKeyInput(false);
         GetTree().Paused = false;
-        if (zoomedOut == true)
-    {
-        playerCamera.Zoom = new Vector2(2f,2f);
-        zoomedOut = false;
-    }
+        if (zoomedOut)
+        {
+            playerCamera.Zoom = new Vector2(2f,2f);
+            zoomedOut = false;
+        }
     }
 
     public void ChooseItem(string itemName)
@@ -174,43 +158,45 @@ public partial class ItemMenu : Control
         if (pressedButton != null)
             ChooseItem(pressedButton.Text.Replace(' ','_'));
     }
+
     private void OnButtonHover(Button hoveredButton)
-{
-    if (hoveredButton == null) return;
-
-    string itemName = hoveredButton.Text.Replace(' ','_');
-    string desc = GetItemDescription(itemName);
-    DescriptionLabel.Text = desc;
-
-    string imagePath = $"res://Sprites/Items/Used/{itemName}.png";
-
-    if (ResourceLoader.Exists(imagePath))
     {
-        Texture2D texture = GD.Load<Texture2D>(imagePath);
+        if (hoveredButton == null) return;
+
+        string itemName = hoveredButton.Text.Replace(' ','_');
+        string desc = GetItemDescription(itemName);
+        DescriptionLabel.Text = desc;
+
+        string imagePath = $"res://Sprites/Items/Used/{itemName}.png";
+
+        if (ResourceLoader.Exists(imagePath))
+        {
+            Texture2D texture = GD.Load<Texture2D>(imagePath);
             if (texture != null && ItemPreviewSprite != null)
             {
                 ItemPreviewSprite.Texture = texture;
                 ItemPreviewSprite.Scale = new Vector2(1f, 1f);
-
+            }
+        }
+        else
+        {
+            GD.PrintErr($"Image not found: {imagePath}");
         }
     }
-    else
-    {
-        GD.PrintErr($"Image not found: {imagePath}");
-    }
-}
+
     private string GetItemDescription(string itemName)
     {
         if (itemDescriptions.TryGetValue(itemName, out var desc))
             return desc;
         return "No description available.";
     }
-    private void OnToggleTransparencyPressed()
-{
-    isTransparent = !isTransparent;
 
-    Modulate = isTransparent 
-        ? new Color(1, 1, 1, 0.3f) 
-        : new Color(1, 1, 1, 1f);  
-}
+    private void OnToggleTransparencyPressed()
+    {
+        isTransparent = !isTransparent;
+
+        Modulate = isTransparent 
+            ? new Color(1, 1, 1, 0.3f) 
+            : new Color(1, 1, 1, 1f);  
+    }
 }
