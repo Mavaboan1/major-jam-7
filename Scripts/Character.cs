@@ -22,6 +22,8 @@ public partial class Character : CharacterBody2D
 	[Export] public ProgressBar HealthBar;
 	[Export] public WildMagic wildController;
 	[Export] private AnimatedSprite2D animatedSprite;
+	[Export] public Control DeathScreen;
+	[Export] public Control WinScreen;
 	private List<Node> Touchlist = new List<Node>();
 
 	public bool isDead = false;
@@ -165,7 +167,8 @@ Velocity = input * moveSpeed;
 	{
 		if (sprite.Frame == sprite.SpriteFrames.GetFrameCount(sprite.Animation) - 1)
 		{
-			QueueFree();
+			DeathScreen.Call("Activate");
+			
 		}
 	}
 
