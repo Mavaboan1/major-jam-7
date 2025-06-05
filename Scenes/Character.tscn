@@ -16,8 +16,8 @@
 [ext_resource type="AudioStream" uid="uid://ie0cghr2mb2b" path="res://Sprites/SFX/GS1_Spell_Misc_2 (mp3cut.net).mp3" id="6_xxe07"]
 [ext_resource type="Script" uid="uid://b45yv58enaaip" path="res://Scripts/ItemController.cs" id="7_peemv"]
 [ext_resource type="PackedScene" uid="uid://cdhj04qn4w4ck" path="res://Scenes/item_menu.tscn" id="8_peemv"]
-[ext_resource type="PackedScene" uid="uid://dtvgvi5fh1ye3" path="res://Scenes/end_menu.tscn" id="12_kw72g"]
-[ext_resource type="PackedScene" uid="uid://byx1mhxg3xssp" path="res://Scenes/Lose_menu.tscn" id="13_nxr2n"]
+[ext_resource type="PackedScene" uid="uid://cvu81vfgmajkd" path="res://Scenes/end_menu.tscn" id="12_kw72g"]
+[ext_resource type="PackedScene" uid="uid://bplaed3qucl6q" path="res://Scenes/Lose_menu.tscn" id="13_nxr2n"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_omicx"]
 bg_color = Color(0.541176, 0.615686, 0.635294, 0.231373)

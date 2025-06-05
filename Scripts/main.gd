@@ -39,6 +39,8 @@ var current_enemies: int = 0
 var last_spawn_time: float = 0.0
 var current_wave_index: int = 0
 
+@export var gameTime: RichTextLabel
+
 var waves: Array[WaveConfig] = []
 
 @export var spawn_radius: float = 500.0
@@ -51,7 +53,6 @@ var enemy_parent: Node2D
 # Signals
 signal wave_started(wave_index: int)
 signal wave_ended(wave_index: int)
-#signal _enemy_spawned(enemy_type: String)
 @onready var wildMagicSpawner = get_node("/root/WildMagicSingle")
 
 func _ready() -> void:
@@ -287,7 +288,12 @@ func _physics_process(delta: float) -> void:
 	game_time += delta
 	_update_current_wave()
 	_handle_spawning()
-	#print_wave_info()
+	
+	var minutes = int(game_time) / 60
+	var seconds = int(game_time) % 60
+	
+	var time_formatted = "%02d:%02d" % [minutes, seconds]
+	gameTime.text = time_formatted
 	
 func start_wave_system():
 	is_active = true

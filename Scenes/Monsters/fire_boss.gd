@@ -39,6 +39,8 @@ signal health_changed(new_health: float, max_health: float)
 @warning_ignore("unused_signal")
 signal state_changed(old_state: EnemyState, new_state: EnemyState)
 
+@onready var win_screen = player.get_node("../Character/Camera/EndMenu")
+
 
 func _ready() -> void:
 	validate_setup()
@@ -199,6 +201,9 @@ func takeDamage(damage_amount: float) -> void:
 	health_changed.emit(current_health, stats.max_health)
 	
 	show_damage_feedback()
+	
+	if current_health <= 0:
+		die()
 
 func show_damage_feedback() -> void:
 	if animated_sprite:
@@ -210,22 +215,11 @@ func show_damage_feedback() -> void:
 
 func die() -> void:
 	died.emit()
-	drop_shards()
+	if win_screen.has_method("Activate"):
+		win_screen.Activate()
 	queue_free()
 
-func drop_shards() -> void:
-	var current_scene = get_tree().current_scene
-	if not current_scene:
-		return
-	
-	var exp_shard = BIG_EXP_SHARD.instantiate()
-	exp_shard.global_position = global_position
-	current_scene.add_child(exp_shard)
-	
-	var wild_shard = BIG_WILD_SHARD.instantiate()
-	wild_shard.global_position = global_position + SHARD_OFFSET
-	current_scene.add_child(wild_shard)
-	
+
 func apply_knockback(force: Vector2) -> void:
 	var resistance = stats.knockback_resistance if stats.has_method("knockback_resistance") else 2.0
 	knockback_timer = KNOCKBACK_DURATION

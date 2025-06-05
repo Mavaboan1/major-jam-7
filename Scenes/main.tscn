@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bxa871tqes7es"]
+[gd_scene load_steps=8 format=3 uid="uid://bxa871tqes7es"]
 
 [ext_resource type="Script" uid="uid://bwg243s6su2us" path="res://Scripts/main.gd" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://yn8e3bs3pk8t" path="res://Scenes/background.tscn" id="2_8gbba"]
 [ext_resource type="PackedScene" uid="uid://dr8hfsa1hj1bi" path="res://Scenes/Character.tscn" id="3_jjvhh"]
+[ext_resource type="Theme" uid="uid://bvfyynaceugym" path="res://Scenes/BaseTheme.tres" id="4_21xkr"]
 [ext_resource type="PackedScene" uid="uid://ca0xamlaemhco" path="res://Scenes/tree_spawner.tscn" id="10_hptm8"]
-[ext_resource type="PackedScene" uid="uid://b45quqbgslyxr" path="res://Scenes/music_node.tscn" id="11_d1ilt"]
+[ext_resource type="PackedScene" path="res://Scenes/music_node.tscn" id="11_d1ilt"]
 
 [sub_resource type="Curve2D" id="Curve2D_7u77a"]
 _data = {
@@ -17,9 +18,10 @@ point_count = 5
 [node name="Background" parent="." instance=ExtResource("2_8gbba")]
 position = Vector2(499, 245)
 
-[node name="Enemy" type="Node2D" parent="."]
+[node name="Enemy" type="Node2D" parent="." node_paths=PackedStringArray("gameTime")]
 position = Vector2(735, 303)
 script = ExtResource("1_jjgbg")
+gameTime = NodePath("../Character/gameTime")
 
 [node name="Character" parent="." instance=ExtResource("3_jjvhh")]
 position = Vector2(349, 242)
@@ -44,6 +46,18 @@ unique_name_in_owner = true
 position = Vector2(1214.03, 718.991)
 rotation = 0.00230769
 progress = 2088.02
+
+[node name="gameTime" type="RichTextLabel" parent="Character"]
+z_index = 4
+offset_left = 136.5
+offset_top = -58.0
+offset_right = 164.5
+offset_bottom = -49.0
+theme = ExtResource("4_21xkr")
+theme_override_font_sizes/normal_font_size = 8
+text = "asd
+"
+fit_content = true
 
 [node name="Timer" type="Timer" parent="."]
 

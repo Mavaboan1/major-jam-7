@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dtvgvi5fh1ye3"]
+[gd_scene load_steps=4 format=3 uid="uid://cvu81vfgmajkd"]
 
 [ext_resource type="Theme" uid="uid://bvfyynaceugym" path="res://Scenes/BaseTheme.tres" id="1_bg38y"]
 [ext_resource type="Script" uid="uid://c0kurk7nku2m3" path="res://Scripts/EndMenu.cs" id="2_wrsnd"]
 [ext_resource type="Texture2D" uid="uid://cl2xkoxguoifp" path="res://Sprites/vecteezy_game-trophy-pixelated_54978933.png" id="3_rrpri"]
 
 [node name="EndMenu" type="Control" node_paths=PackedStringArray("back")]
+z_index = 100
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
