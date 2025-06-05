@@ -5,21 +5,21 @@
 [ext_resource type="Resource" uid="uid://cbq81fijh2nu1" path="res://Resource/Shroom.tres" id="2_aeljw"]
 [ext_resource type="AudioStream" uid="uid://bgwmp61uoq55s" path="res://Sprites/SFX/Hit_Hurt6.wav" id="4_aeljw"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0ig03"]
-atlas = ExtResource("2_0ig03")
-region = Rect2(0, 288, 72, 72)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_aeljw"]
 atlas = ExtResource("2_0ig03")
-region = Rect2(72, 288, 72, 72)
+region = Rect2(0, 293, 72, 67)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nndxv"]
 atlas = ExtResource("2_0ig03")
-region = Rect2(144, 288, 72, 72)
+region = Rect2(72, 293, 72, 67)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mgmf1"]
 atlas = ExtResource("2_0ig03")
-region = Rect2(216, 288, 72, 72)
+region = Rect2(144, 293, 72, 67)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4blv"]
+atlas = ExtResource("2_0ig03")
+region = Rect2(216, 293, 72, 67)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rg6qh"]
 atlas = ExtResource("2_0ig03")
@@ -89,9 +89,6 @@ region = Rect2(216, 216, 72, 72)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0ig03")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_aeljw")
 }, {
 "duration": 1.0,
@@ -99,6 +96,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mgmf1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4blv")
 }],
 "loop": true,
 "name": &"wait",
@@ -196,7 +196,8 @@ audio = NodePath("AudioStreamPlayer2D")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -36)
 sprite_frames = SubResource("SpriteFrames_0ig03")
-animation = &"walk_down"
+animation = &"wait"
+frame_progress = 0.621749
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -36)

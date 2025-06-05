@@ -420,10 +420,12 @@ metadata/_edit_use_anchors_ = true
 [node name="Darkness" type="ColorRect" parent="Camera"]
 visible = false
 z_index = 4096
-offset_left = -160.0
-offset_top = -89.0
-offset_right = 163.0
-offset_bottom = 94.0
+offset_left = -163.5
+offset_top = -95.5
+offset_right = 159.5
+offset_bottom = 87.5
+scale = Vector2(1.0477, 1.12523)
+mouse_filter = 2
 color = Color(0, 0, 0, 0.905882)
 
 [node name="EndMenu" parent="Camera" instance=ExtResource("12_kw72g")]
