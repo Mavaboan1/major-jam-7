@@ -173,7 +173,7 @@ audio = NodePath("AudioStreamPlayer2D")
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -34)
 sprite_frames = SubResource("SpriteFrames_bp23b")
-animation = &"idle"
+animation = &"move_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(4, -22)

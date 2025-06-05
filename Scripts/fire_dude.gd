@@ -51,6 +51,7 @@ func _physics_process(delta: float) -> void:
 	handle_rotation()
 	update_ui()
 	check_death()
+	play_movement_animation()
 
 func handle_movement(delta: float) -> void:
 	if knockback_timer > 0:
