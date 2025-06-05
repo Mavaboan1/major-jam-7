@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bxa871tqes7es"]
+[gd_scene load_steps=7 format=3 uid="uid://bxa871tqes7es"]
 
 [ext_resource type="Script" uid="uid://bwg243s6su2us" path="res://Scripts/main.gd" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://yn8e3bs3pk8t" path="res://Scenes/background.tscn" id="2_8gbba"]
 [ext_resource type="PackedScene" uid="uid://dr8hfsa1hj1bi" path="res://Scenes/Character.tscn" id="3_jjvhh"]
-[ext_resource type="PackedScene" uid="uid://cwpxl4iyful4m" path="res://Scenes/testgiver.tscn" id="4_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://ca0xamlaemhco" path="res://Scenes/tree_spawner.tscn" id="10_hptm8"]
-[ext_resource type="PackedScene" path="res://Scenes/music_node.tscn" id="11_d1ilt"]
+[ext_resource type="PackedScene" uid="uid://b45quqbgslyxr" path="res://Scenes/music_node.tscn" id="11_d1ilt"]
 
 [sub_resource type="Curve2D" id="Curve2D_7u77a"]
 _data = {
@@ -45,12 +44,6 @@ unique_name_in_owner = true
 position = Vector2(1214.03, 718.991)
 rotation = 0.00230769
 progress = 2088.02
-
-[node name="slimeTime" type="Timer" parent="."]
-autostart = true
-
-[node name="Testgiver" parent="." instance=ExtResource("4_jjvhh")]
-position = Vector2(252, 207)
 
 [node name="Timer" type="Timer" parent="."]
 

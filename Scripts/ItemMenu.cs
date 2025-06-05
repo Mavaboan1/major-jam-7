@@ -12,6 +12,10 @@ public partial class ItemMenu : Control
     [Export] public Sprite2D ItemPreviewSprite;
     [Export] public AudioStreamPlayer2D audio;
     private bool isTransparent = false;
+    private Camera2D playerCamera;
+    private Vector2 originalZoom = Vector2.One;
+    private bool zoomedOut = false;
+
 
     private Dictionary<string, string> itemDescriptions = new Dictionary<string, string>()
 {
@@ -45,6 +49,8 @@ public partial class ItemMenu : Control
         Item3.MouseEntered += () => OnButtonHover(Item3);
         Disabled();
 
+        var character = GetTree().Root.GetNodeOrNull("Main/Character");
+        playerCamera = character.GetNodeOrNull<Camera2D>("Camera");
     }
 
     public void RollItems()
@@ -127,6 +133,11 @@ public partial class ItemMenu : Control
         RollItems();
         GetTree().Paused = true;
         audio.Play();
+        if (playerCamera.Zoom == new Vector2(2f,2f))
+    {
+            playerCamera.Zoom = new Vector2(1f, 1f);
+        zoomedOut = true;
+    }
     }
 
     public void Disabled()
@@ -137,6 +148,11 @@ public partial class ItemMenu : Control
         SetProcessUnhandledInput(false);
         SetProcessUnhandledKeyInput(false);
         GetTree().Paused = false;
+        if (zoomedOut == true)
+    {
+        playerCamera.Zoom = new Vector2(2f,2f);
+        zoomedOut = false;
+    }
     }
 
     public void ChooseItem(string itemName)

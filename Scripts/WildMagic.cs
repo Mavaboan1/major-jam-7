@@ -33,7 +33,7 @@ public partial class WildMagic : Node2D
         animatedSpriteWild.Play("default");
         audio.Play();
         GD.Randomize();
-        int Randomnr = (int)GD.Randi() % 9 + 1;
+        int Randomnr = GD.RandRange(1, 9);
         if (Randomnr == 2)
         {
             invert();
@@ -42,7 +42,7 @@ public partial class WildMagic : Node2D
         {
             Slow();
         }
-        else if (Randomnr == 4)
+        else if (Randomnr == 1)
         {
             Zoom();
         }
@@ -66,7 +66,7 @@ public partial class WildMagic : Node2D
         {
             wildSingleton.Call("monster_size");
         }
-        else if (Randomnr == 1)
+        else if (Randomnr == 4)
         {
             wildSingleton.Call("exp_explosion");
         }
@@ -143,7 +143,7 @@ public partial class WildMagic : Node2D
         ColorRect DarknessOverlay = GetTree().Root.GetNode<ColorRect>("Main/Character/Camera/Darkness");
         DarknessOverlay.Visible = true;
         Timer timer = new Timer();
-        timer.WaitTime = 1f;
+        timer.WaitTime = 15f;
         timer.OneShot = true;
         AddChild(timer);
 
