@@ -7,6 +7,10 @@ const SMALL_EXP_SHARD = preload("res://Scenes/small_exp_shard.tscn")
 const SMALL_WILD_SHARD = preload("res://Scenes/small_wild_shard.tscn")
 signal died
 
+@onready var sprite_2d: AnimatedSprite2D = $Sprite2D
+@export var audio: AudioStreamPlayer2D
+
+
 func _physics_process(delta: float) -> void:
 	var direction = player.global_position.normalized()
 	rotation = direction.angle() + 1.5708
@@ -17,6 +21,7 @@ func _physics_process(delta: float) -> void:
 
 func takeDamage(damage):
 	health -= damage
+	show_damage_feedback()
 
 func die():
 	died.emit()
@@ -39,3 +44,12 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 func _on_hurt_box_body_entered(body: Node2D) -> void:
 	if body.has_method("takePlayerDamage"):
 		body.takePlayerDamage(stats.damage)
+
+func show_damage_feedback() -> void:
+	#Visual feedback when taking damage
+	if sprite_2d:
+		var tween = create_tween()
+		tween.tween_property(sprite_2d, "modulate", Color.WHITE * 1.5, 0.1)
+		tween.tween_property(sprite_2d, "modulate", Color.WHITE, 0.1)
+	
+	audio.play()

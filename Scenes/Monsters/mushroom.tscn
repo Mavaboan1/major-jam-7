@@ -186,6 +186,7 @@ height = 88.0
 
 [node name="Mushroom" type="CharacterBody2D" node_paths=PackedStringArray("audio")]
 collision_layer = 2
+motion_mode = 1
 script = ExtResource("1_1xmbr")
 stats = ExtResource("2_aeljw")
 audio = NodePath("AudioStreamPlayer2D")

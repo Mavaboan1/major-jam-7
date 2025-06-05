@@ -31,4 +31,4 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _on_range_up(_range):
 	print("Magnet up")
-	magnet_distance += _range
+	magnet_distance = _range
