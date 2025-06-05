@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ccphsn4x2mp5x"]
+[gd_scene load_steps=23 format=3 uid="uid://ccphsn4x2mp5x"]
 
 [ext_resource type="Script" uid="uid://ixko1im2bjbp" path="res://Scripts/weirdos.gd" id="1_fkpmg"]
 [ext_resource type="Texture2D" uid="uid://i8i6ukr2yif0" path="res://Sprites/Monsters/Weirdos.png" id="2_4bt5e"]
@@ -143,9 +143,6 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_e8pmo"]
 radius = 25.02
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cf0rw"]
-bg_color = Color(0.76201, 0.128086, 0.19317, 1)
-
 [node name="weirdos" type="CharacterBody2D" node_paths=PackedStringArray("audio")]
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
@@ -162,15 +159,6 @@ animation = &"move_up"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -27)
 shape = SubResource("CircleShape2D_e8pmo")
-
-[node name="HealthBar" type="ProgressBar" parent="."]
-offset_left = -18.0
-offset_top = -63.0
-offset_right = 21.0
-offset_bottom = -58.0
-theme_override_styles/fill = SubResource("StyleBoxFlat_cf0rw")
-value = 100.0
-show_percentage = false
 
 [node name="DeathMarkers" type="Node2D" parent="."]
 

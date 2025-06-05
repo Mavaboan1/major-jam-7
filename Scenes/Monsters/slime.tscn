@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bqo83mekr2cml"]
+[gd_scene load_steps=23 format=3 uid="uid://bqo83mekr2cml"]
 
 [ext_resource type="Script" uid="uid://c5kwfi3stdamr" path="res://Scripts/slime.gd" id="1_hg6vo"]
 [ext_resource type="Resource" uid="uid://crkxqx07utcve" path="res://Resource/slime_stats.tres" id="2_s7agn"]
@@ -143,9 +143,6 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_nokgg"]
 radius = 16.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aiwxb"]
-bg_color = Color(0.76201, 0.128086, 0.19317, 1)
-
 [node name="slime" type="CharacterBody2D" node_paths=PackedStringArray("audio")]
 collision_layer = 2
 collision_mask = 3
@@ -163,15 +160,6 @@ frame_progress = 0.608036
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -13)
 shape = SubResource("CircleShape2D_nokgg")
-
-[node name="HealthBar" type="ProgressBar" parent="."]
-offset_left = -16.0
-offset_top = -38.0
-offset_right = 17.0
-offset_bottom = -32.0
-theme_override_styles/fill = SubResource("StyleBoxFlat_aiwxb")
-value = 100.0
-show_percentage = false
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_s7agn")

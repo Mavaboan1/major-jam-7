@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 @onready var player = get_node("/root/Main/Character")
-@onready var health_bar: ProgressBar = $HealthBar
 @onready var fire_rate_timer: Timer = %FireRate
 @onready var shooting_point: Marker2D = %ShootingPoint
 
@@ -36,20 +35,14 @@ func _ready() -> void:
 	
 	current_health = stats.max_health
 	
-	setup_health_bar()
-	
 	fire_rate_timer.wait_time = stats.attack_speed
 	fire_rate_timer.timeout.connect(_on_timer_timeout)
 	
-func setup_health_bar() -> void:
-	if health_bar:
-		health_bar.max_value = stats.max_health
-		health_bar.value = current_health
+
 
 func _physics_process(delta: float) -> void:
 	handle_movement(delta)
 	handle_rotation()
-	update_ui()
 	check_death()
 	play_movement_animation()
 
@@ -70,9 +63,6 @@ func handle_rotation() -> void:
 	if shot_rotation and is_instance_valid(player):
 		shot_rotation.look_at(player.global_position)
 
-func update_ui():
-	if health_bar:
-		health_bar.value = current_health
 
 func check_death() -> void:
 	if current_health <= 0:

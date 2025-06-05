@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bcrbn1ixdcews"]
+[gd_scene load_steps=3 format=3 uid="uid://bcrbn1ixdcews"]
 
 [ext_resource type="PackedScene" uid="uid://dg3ggtus58bvx" path="res://Scenes/Monsters/swarm.tscn" id="1_8xnfg"]
+[ext_resource type="Script" uid="uid://doayjju6rxods" path="res://Scenes/Waves/swarm_wave_1.gd" id="1_engvc"]
 
 [node name="SwarmWave1" type="Node2D"]
+script = ExtResource("1_engvc")
 
 [node name="Swarm" parent="." instance=ExtResource("1_8xnfg")]
 position = Vector2(1, -2)

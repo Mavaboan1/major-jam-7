@@ -74,196 +74,196 @@ func _setup_waves():
 	waves.append(WaveConfig.new(
 		0.0, 20.0,
 		[SLIME],
-		1.0, 10,
+		1.0, 1000,
 		[1.0]
 	))
 
 	waves.append(WaveConfig.new(
 		20.0, 30.0,
 		[SLIME, SWARM_WAVE_1, SWARM_WAVE_2],
-		1, 10,
+		1, 1000,
 		[0.6, 0.2, 0.2]
 	))
 
 	waves.append(WaveConfig.new(
 		30.0, 50.0,
 		[SLIME, FIRE_DUDE],
-		1.0, 10,
+		1.0, 1000,
 		[0.7, 0.3]
 	))
 
 	waves.append(WaveConfig.new(
 		50.0, 70.0,
 		[SLIME],
-		0.5, 30,
+		0.5, 1000,
 		[1.0]
 	))
 
 	waves.append(WaveConfig.new(
 		70.0, 100.0,
 		[SLIME, FIRE_DUDE, MUSHROOM],
-		2.5, 40,
+		2.5, 1000,
 		[0.5, 0.3, 0.2]
 	))
 
 	waves.append(WaveConfig.new(
 		100.0, 120.0,
 		[FIRE_DUDE, SWARM_WAVE_1, SWARM_WAVE_2],
-		1, 6,
+		1, 1000,
 		[0.5, 0.3, 0.2]
 	))
 
 	waves.append(WaveConfig.new(
 		120.0, 160.0,
 		[SLIME, FIRE_DUDE, SWARM_WAVE_1, SWARM_WAVE_2, MUSHROOM],
-		2.5, 30,
+		2.5, 1000,
 		[0.1, 0.3, 0.1, 0.2, 0.3]
 	))
 
 	waves.append(WaveConfig.new(
 		160.0, 200.0,
 		[SLIME],
-		0.2, 100,
+		0.2, 1000,
 		[1.0]
 	))
 
 	waves.append(WaveConfig.new(
 		200.0, 240.0,
 		[SLIME, FIRE_DUDE, SWARM_WAVE_1, SWARM_WAVE_2, MUSHROOM],
-		0.3, 8,
+		0.3, 1000,
 		[0.1, 0.3, 0.2, 0.2, 0.2]
 	))
 
 	waves.append(WaveConfig.new(
 		240.0, 280.0,
 		[SLIME, FIRE_DUDE, WEIRDOS, MUSHROOM],
-		0.5, 20,
+		0.5, 1000,
 		[0.2 ,0.4, 0.3, 0.1]
 	))
 
 	waves.append(WaveConfig.new(
 		280.0, 320.0,
 		[WEIRDOS, MUSHROOM],
-		0.5, 10,
+		0.5, 1000,
 		[0.6 ,0.4]
 	))
 
 	waves.append(WaveConfig.new(
 		320.0, 360.0,
 		[MUSHROOM],
-		1, 10,
+		1, 1000,
 		[1.0]
 	))
 
 	waves.append(WaveConfig.new(
 		360.0, 400.0,
 		[SLIME, FIRE_DUDE, WEIRDOS],
-		0.5, 30,
+		0.5, 1000,
 		[0.1 ,0.3, 0.6]
 	))
 
 	waves.append(WaveConfig.new(
 		400.0, 440.0,
 		[FIRE_DUDE, WEIRDOS],
-		0.5, 40,
+		0.5, 1000,
 		[0.5 ,0.5]
 	))
 
 	waves.append(WaveConfig.new(
 		440.0, 480.0,
 		[SLIME, WEIRDOS],
-		0.7, 60,
+		0.7, 1000,
 		[0.7 ,0.3]
 	))
 
 	waves.append(WaveConfig.new(
 		480.0, 520.0,
 		[SWARM_WAVE_1, WEIRDOS],
-		0.5, 30,
+		0.5, 1000,
 		[0.6 ,0.4]
 	))
 
 	waves.append(WaveConfig.new(
 		480.0, 520.0,
 		[SWARM_WAVE_1, SWARM_WAVE_2],
-		0.8, 30,
+		0.8, 1000,
 		[0.4 ,0.6]
 	))
 
 	waves.append(WaveConfig.new(
 		520.0, 560.0,
 		[SWARM_WAVE_1, MUSHROOM],
-		0.5, 20,
+		0.5, 1000,
 		[0.6 ,0.4]
 	))
 
 	waves.append(WaveConfig.new(
 		560.0, 600.0,
 		[SWARM_WAVE_2, SLIME],
-		0.2, 40,
+		0.2, 1000,
 		[0.7 ,0.3]
 	))
 
 	waves.append(WaveConfig.new(
 		600.0, 640.0,
 		[SLIME, MUSHROOM],
-		0.3, 50,
+		0.3, 1000,
 		[0.2 ,0.8]
 	))
 
 	waves.append(WaveConfig.new(
 		640.0, 680.0,
 		[SLIME, FIRE_DUDE],
-		0.2, 60,
+		0.2, 1000,
 		[0.3 ,0.7]
 	))
 
 	waves.append(WaveConfig.new(
 		680.0, 720.0,
 		[FIRE_DUDE],
-		0.3, 80,
+		0.3, 1000,
 		[1.0]
 	))
 
 	waves.append(WaveConfig.new(
 		720.0, 760.0,
 		[MUSHROOM],
-		0.3, 50,
+		0.3, 1000,
 		[1.0]
 	))
 
 	waves.append(WaveConfig.new(
 		760.0, 800.0,
 		[MUSHROOM, SWARM_WAVE_1],
-		0.2, 30,
+		0.2, 1000,
 		[0.8, 0.2]
 	))
 
 	waves.append(WaveConfig.new(
 		800.0, 840.0,
 		[MUSHROOM, SWARM_WAVE_1, SWARM_WAVE_2],
-		0.3, 40,
+		0.3, 1000,
 		[0.7, 0.1, 0.2]
 	))
 
 	waves.append(WaveConfig.new(
 		840.0, 880.0,
 		[MUSHROOM, WEIRDOS],
-		0.2, 70,
+		0.2, 1000,
 		[0.7, 0.3]
 	))
 
 	waves.append(WaveConfig.new(
 		880.0, 900.0,
 		[MUSHROOM],
-		0.1, 100,
+		0.1, 1000,
 		[1.0]
 	))
 	waves.append(WaveConfig.new(
 		900.0, INF,
-		[FIRE_BOSS],
-		0.1, 1,
-		[1.0]
+		[SLIME, FIRE_DUDE, SWARM_WAVE_1, SWARM_WAVE_2, MUSHROOM, WEIRDOS],
+		1.5, 1000,
+		[0.2,0.2,0.1,0.1,0.2,0.2]
 	))
 	
 func _setup_waves_endless():
@@ -288,6 +288,9 @@ func _physics_process(delta: float) -> void:
 	game_time += delta
 	_update_current_wave()
 	_handle_spawning()
+	
+	if game_time >= 900:
+		spawn_boos()
 	
 	var minutes = int(game_time) / 60
 	var seconds = int(game_time) % 60
@@ -357,6 +360,14 @@ func _spawn_enemy(wave: WaveConfig):
 		enemy_instance.connect(signal_name, _on_enemy_died)
 	
 	current_enemies += 1
+
+func spawn_boos():
+	var spawn_pos = _get_spawn_position()
+	
+	var enemy_instance = FIRE_BOSS.instantiate()
+	enemy_parent.add_child(enemy_instance)
+	
+	enemy_instance.global_position = spawn_pos
 
 func _select_weighted_enemy(enemy_types: Array[PackedScene], weights: Array[float]) -> PackedScene:
 	if enemy_types.is_empty():

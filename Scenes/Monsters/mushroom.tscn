@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://vyjun3b6h7sq"]
+[gd_scene load_steps=29 format=3 uid="uid://vyjun3b6h7sq"]
 
 [ext_resource type="Script" uid="uid://dp4ou6t3kf7rn" path="res://Scripts/mushroom.gd" id="1_1xmbr"]
 [ext_resource type="Texture2D" uid="uid://by1edg5ji6mw8" path="res://Sprites/Monsters/Shroom.png" id="2_0ig03"]
@@ -177,9 +177,6 @@ animations = [{
 radius = 34.0
 height = 72.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nndxv"]
-bg_color = Color(0.76201, 0.128086, 0.19317, 1)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_0ig03"]
 radius = 237.076
 
@@ -202,15 +199,6 @@ frame_progress = 0.621749
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -36)
 shape = SubResource("CapsuleShape2D_aeljw")
-
-[node name="HealthBar" type="ProgressBar" parent="."]
-offset_left = -33.0
-offset_top = -81.0
-offset_right = 31.0
-offset_bottom = -75.0
-theme_override_styles/fill = SubResource("StyleBoxFlat_nndxv")
-value = 100.0
-show_percentage = false
 
 [node name="DangeZone" type="Area2D" parent="."]
 

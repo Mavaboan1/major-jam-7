@@ -9,7 +9,6 @@ enum MobState {
 }
 
 @onready var player = get_node("/root/Main/Character")
-@onready var health_bar: ProgressBar = $HealthBar
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack_timer: Timer = $AttackTimer
 
@@ -57,16 +56,12 @@ func _ready() -> void:
 		
 	current_health = stats.max_health
 	
-	setup_healthbar()
 	
 	change_state(MobState.IDLE)
 	
 	attack_timer.wait_time = stats.attack_speed
 
-func setup_healthbar():
-	if health_bar:
-		health_bar.max_value = stats.max_health
-		health_bar.value = current_health
+
 		
 
 
@@ -76,8 +71,6 @@ func _physics_process(delta: float) -> void:
 	update_state_machine(delta)
 	execute_current_state(delta)
 	handle_animations()
-	update_ui()
-		
 
 func handle_knockback(delta: float) -> void:
 	if knockback_timer:
@@ -226,10 +219,6 @@ func play_movement_animation() -> void:
 			animated_sprite.play("walk_up")  # Note: Y is flipped in Godot
 		else:
 			animated_sprite.play("walk_down")
-
-func update_ui() -> void:
-	if health_bar:
-		health_bar.value = current_health
 
 func apply_knockback(force: Vector2):
 	knockback_timer = KNOCKBACK_DURATION
