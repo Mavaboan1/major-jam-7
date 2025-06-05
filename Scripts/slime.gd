@@ -14,6 +14,7 @@ const SMALL_EXP_SHARD = preload("res://Scenes/small_exp_shard.tscn")
 const SMALL_WILD_SHARD = preload("res://Scenes/small_wild_shard.tscn")
 
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
+@export var audio: AudioStreamPlayer2D
 
 
 func _ready() -> void:
@@ -82,3 +83,5 @@ func show_damage_feedback() -> void:
 		var tween = create_tween()
 		tween.tween_property(sprite_2d, "modulate", Color.WHITE * 1.5, 0.1)
 		tween.tween_property(sprite_2d, "modulate", Color.WHITE, 0.1)
+	
+	audio.play()

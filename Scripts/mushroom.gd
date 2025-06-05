@@ -14,6 +14,7 @@ enum MobState {
 @onready var attack_timer: Timer = $AttackTimer
 
 @export var stats: MobStats
+@export var audio: AudioStreamPlayer2D
 
 
 var current_health: float
@@ -254,6 +255,8 @@ func show_damage_feedback() -> void:
 		var tween = create_tween()
 		tween.tween_property(animated_sprite, "modulate", Color.WHITE * 1.5, 0.1)
 		tween.tween_property(animated_sprite, "modulate", Color.WHITE, 0.1)
+	
+	audio.play()
 
 func die():
 	died.emit()

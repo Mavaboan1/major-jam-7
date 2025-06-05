@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var player = get_node("/root/Main/Character")
 @export var stats: MobStats
+@export var audio: AudioStreamPlayer2D
 @onready var health_bar: ProgressBar = $HealthBar
 @onready var death_markers: Node2D = $DeathMarkers
 @onready var health = stats.max_health
@@ -85,6 +86,8 @@ func show_damage_feedback() -> void:
 		var tween = create_tween()
 		tween.tween_property(animated_sprite_2d, "modulate", Color.WHITE * 1.5, 0.1)
 		tween.tween_property(animated_sprite_2d, "modulate", Color.WHITE, 0.1)
+	
+	audio.play()
 
 func shard_drop():
 	var exp_shard = SMALL_EXP_SHARD.instantiate()

@@ -1,8 +1,9 @@
-[gd_scene load_steps=29 format=3 uid="uid://vyjun3b6h7sq"]
+[gd_scene load_steps=30 format=3 uid="uid://vyjun3b6h7sq"]
 
 [ext_resource type="Script" uid="uid://dp4ou6t3kf7rn" path="res://Scripts/mushroom.gd" id="1_1xmbr"]
 [ext_resource type="Texture2D" uid="uid://by1edg5ji6mw8" path="res://Sprites/Monsters/Shroom.png" id="2_0ig03"]
 [ext_resource type="Resource" uid="uid://cbq81fijh2nu1" path="res://Resource/Shroom.tres" id="2_aeljw"]
+[ext_resource type="AudioStream" uid="uid://bgwmp61uoq55s" path="res://Sprites/SFX/Hit_Hurt6.wav" id="4_aeljw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ig03"]
 atlas = ExtResource("2_0ig03")
@@ -186,10 +187,11 @@ radius = 237.076
 radius = 42.0
 height = 88.0
 
-[node name="Mushroom" type="CharacterBody2D"]
+[node name="Mushroom" type="CharacterBody2D" node_paths=PackedStringArray("audio")]
 collision_layer = 2
 script = ExtResource("1_1xmbr")
 stats = ExtResource("2_aeljw")
+audio = NodePath("AudioStreamPlayer2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -36)
@@ -224,6 +226,10 @@ shape = SubResource("CapsuleShape2D_0ig03")
 debug_color = Color(0.911023, 0.211643, 0.524521, 0.42)
 
 [node name="AttackTimer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_aeljw")
+volume_db = -25.0
 
 [connection signal="body_entered" from="DangeZone" to="." method="_on_dange_zone_body_entered"]
 [connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]

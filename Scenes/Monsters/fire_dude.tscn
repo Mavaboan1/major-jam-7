@@ -1,8 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://c0d1vuarllyjh"]
+[gd_scene load_steps=26 format=3 uid="uid://c0d1vuarllyjh"]
 
 [ext_resource type="Script" uid="uid://d1yy87o5chxx2" path="res://Scripts/fire_dude.gd" id="1_3evdg"]
 [ext_resource type="Resource" uid="uid://c7wejevd7aw00" path="res://Resource/fire_dude_stats.tres" id="2_5wg7d"]
 [ext_resource type="Texture2D" uid="uid://bmk3bgdrsgpoe" path="res://Sprites/Monsters/Fire_Dudge.png" id="3_s1jhi"]
+[ext_resource type="AudioStream" uid="uid://bgwmp61uoq55s" path="res://Sprites/SFX/Hit_Hurt6.wav" id="4_5wg7d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3evdg"]
 atlas = ExtResource("3_s1jhi")
@@ -161,12 +162,13 @@ radius = 217.009
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xytnp"]
 bg_color = Color(0.76201, 0.128086, 0.19317, 1)
 
-[node name="fire_dude" type="CharacterBody2D" node_paths=PackedStringArray("shot_rotation")]
+[node name="fire_dude" type="CharacterBody2D" node_paths=PackedStringArray("shot_rotation", "audio")]
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_3evdg")
 shot_rotation = NodePath("ShootingRotation")
 stats = ExtResource("2_5wg7d")
+audio = NodePath("AudioStreamPlayer2D")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -34)
@@ -203,6 +205,10 @@ offset_bottom = -52.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_xytnp")
 value = 100.0
 show_percentage = false
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_5wg7d")
+volume_db = -25.0
 
 [connection signal="body_entered" from="dangerZone" to="." method="_on_danger_zone_body_entered"]
 [connection signal="body_exited" from="dangerZone" to="." method="_on_danger_zone_body_exited"]

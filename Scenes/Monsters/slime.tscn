@@ -1,8 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://bqo83mekr2cml"]
+[gd_scene load_steps=24 format=3 uid="uid://bqo83mekr2cml"]
 
 [ext_resource type="Script" uid="uid://c5kwfi3stdamr" path="res://Scripts/slime.gd" id="1_hg6vo"]
 [ext_resource type="Resource" uid="uid://crkxqx07utcve" path="res://Resource/slime_stats.tres" id="2_s7agn"]
 [ext_resource type="Texture2D" uid="uid://db38xxq2kei7w" path="res://Sprites/Monsters/Slime.png" id="3_p5e7v"]
+[ext_resource type="AudioStream" uid="uid://bgwmp61uoq55s" path="res://Sprites/SFX/Hit_Hurt6.wav" id="4_s7agn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hg6vo"]
 atlas = ExtResource("3_p5e7v")
@@ -145,12 +146,13 @@ radius = 16.0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aiwxb"]
 bg_color = Color(0.76201, 0.128086, 0.19317, 1)
 
-[node name="slime" type="CharacterBody2D"]
+[node name="slime" type="CharacterBody2D" node_paths=PackedStringArray("audio")]
 collision_layer = 2
 collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_hg6vo")
 stats = ExtResource("2_s7agn")
+audio = NodePath("AudioStreamPlayer2D")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -33)
@@ -169,3 +171,7 @@ offset_bottom = -32.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_aiwxb")
 value = 100.0
 show_percentage = false
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_s7agn")
+volume_db = -25.0

@@ -17,6 +17,8 @@ enum EnemyState {
 @export var stats: MobStats
 @export var projectile_scene: PackedScene
 @export var lava_scene: PackedScene
+@export var audio: AudioStreamPlayer2D
+
 
 var current_health: float
 var current_state: EnemyState = EnemyState.IDLE
@@ -71,7 +73,7 @@ func update_stats_machine(_delta: float) -> void:
 	
 	var distance = get_distance_to_player()
 	var chase_dist = 1200
-	var attack_dist = 300.0
+	var attack_dist = 200.0
 	
 	match current_state:
 		EnemyState.IDLE:
@@ -203,6 +205,8 @@ func show_damage_feedback() -> void:
 		var tween = create_tween()
 		tween.tween_property(animated_sprite, "modulate", Color.WHITE * 1.5, 0.1)
 		tween.tween_property(animated_sprite, "modulate", Color.WHITE, 0.1)
+	
+	audio.play()
 
 func die() -> void:
 	died.emit()

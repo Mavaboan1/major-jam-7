@@ -7,6 +7,7 @@ extends CharacterBody2D
 
 @export var shot_rotation: Node2D
 @export var stats: MobStats
+@export var audio: AudioStreamPlayer2D
 
 const KNOCKBACK_DURATION: float = 0.2
 const SHARD_OFFSET: Vector2 = Vector2.UP * 30
@@ -100,6 +101,8 @@ func show_damage_feedback() -> void:
 		var tween = create_tween()
 		tween.tween_property(sprite_2d, "modulate", Color.WHITE * 1.5, 0.1)
 		tween.tween_property(sprite_2d, "modulate", Color.WHITE, 0.1)
+	
+	audio.play()
 
 func die():
 	died.emit()

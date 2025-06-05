@@ -43,10 +43,10 @@ public partial class Character : CharacterBody2D
 		if (isDead) return;
 		expBar.Value = Experience;
 		HealthBar.Value = Health;
-		if (Experience >= 500)
+		if (Experience >= 100)
 		{
 			Itemmenu.Call("Active");
-			Experience -= 500;
+			Experience -= 100;
 		}
 
 		Vector2 input = Vector2.Zero;
@@ -118,7 +118,7 @@ Velocity = input * moveSpeed;
 	}
 	public void RangeUp()
 	{
-		Range += 10f;
+		Range += 30f;
 		EmitSignal(SignalName.rangeSignal,Range);
 	}
 	public void HealthUp()

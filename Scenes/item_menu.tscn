@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cdhj04qn4w4ck"]
+[gd_scene load_steps=14 format=3 uid="uid://cdhj04qn4w4ck"]
 
 [ext_resource type="Theme" uid="uid://bvfyynaceugym" path="res://Scenes/BaseTheme.tres" id="1_hs6fl"]
 [ext_resource type="Script" uid="uid://cogektxjg0x6l" path="res://Scripts/ItemMenu.cs" id="1_rqjqw"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c16a31ej7ad45" path="res://Sprites/01_TravelBookLite/Sprites/UI_TravelBook_BookPageRight01a.png" id="5_n3dxn"]
 [ext_resource type="Texture2D" uid="uid://pqtp1rj53qe8" path="res://Sprites/01_TravelBookLite/Sprites/UI_TravelBook_Popup01a.png" id="6_bgdpj"]
 [ext_resource type="Texture2D" uid="uid://jvftk32vvqac" path="res://Sprites/01_TravelBookLite/Sprites/UI_TravelBook_Slot01a.png" id="7_24h47"]
+[ext_resource type="AudioStream" uid="uid://f4qq7esw0i3x" path="res://Sprites/SFX/GS2_Item_Acquire_1.mp3" id="8_n3dxn"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v2u0j"]
 texture = ExtResource("3_vd0pl")
@@ -23,7 +24,7 @@ texture = ExtResource("6_bgdpj")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fpnjn"]
 texture = ExtResource("7_24h47")
 
-[node name="Item Menu" type="Control" node_paths=PackedStringArray("Item1", "Item2", "Item3", "Visbility", "DescriptionLabel", "ItemPreviewSprite")]
+[node name="Item Menu" type="Control" node_paths=PackedStringArray("Item1", "Item2", "Item3", "Visbility", "DescriptionLabel", "ItemPreviewSprite", "audio")]
 process_mode = 3
 z_index = 10
 layout_mode = 3
@@ -40,6 +41,7 @@ Item3 = NodePath("Button3")
 Visbility = NodePath("Button4")
 DescriptionLabel = NodePath("Description")
 ItemPreviewSprite = NodePath("Panel3/Spell")
+audio = NodePath("AudioStreamPlayer2D")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0
@@ -160,3 +162,7 @@ offset_top = 279.0
 offset_right = 287.0
 offset_bottom = 315.0
 text = "Toggle Visibility"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_n3dxn")
+volume_db = -15.0

@@ -1,8 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://ccphsn4x2mp5x"]
+[gd_scene load_steps=24 format=3 uid="uid://ccphsn4x2mp5x"]
 
 [ext_resource type="Script" uid="uid://ixko1im2bjbp" path="res://Scripts/weirdos.gd" id="1_fkpmg"]
 [ext_resource type="Texture2D" uid="uid://i8i6ukr2yif0" path="res://Sprites/Monsters/Weirdos.png" id="2_4bt5e"]
 [ext_resource type="Resource" uid="uid://bjl1ipgu2h6q7" path="res://Resource/weirdos.tres" id="2_typ2f"]
+[ext_resource type="AudioStream" uid="uid://bgwmp61uoq55s" path="res://Sprites/SFX/Hit_Hurt6.wav" id="4_typ2f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_typ2f"]
 atlas = ExtResource("2_4bt5e")
@@ -145,12 +146,13 @@ radius = 25.02
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cf0rw"]
 bg_color = Color(0.76201, 0.128086, 0.19317, 1)
 
-[node name="weirdos" type="CharacterBody2D"]
+[node name="weirdos" type="CharacterBody2D" node_paths=PackedStringArray("audio")]
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_fkpmg")
 stats = ExtResource("2_typ2f")
+audio = NodePath("AudioStreamPlayer2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -33)
@@ -203,3 +205,7 @@ rotation = -0.690178
 [node name="Marker2D8" type="Marker2D" parent="DeathMarkers"]
 position = Vector2(-30, -50)
 rotation = -2.3417
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_typ2f")
+volume_db = -25.0

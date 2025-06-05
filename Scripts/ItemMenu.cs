@@ -10,7 +10,7 @@ public partial class ItemMenu : Control
     [Export] public Button Visbility;
     [Export] public RichTextLabel DescriptionLabel;
     [Export] public Sprite2D ItemPreviewSprite;
-
+    [Export] public AudioStreamPlayer2D audio;
     private bool isTransparent = false;
 
     private Dictionary<string, string> itemDescriptions = new Dictionary<string, string>()
@@ -116,7 +116,7 @@ public partial class ItemMenu : Control
             GD.PrintErr("Not enough items to choose from after filtering level 5.");
         }
     }
-    
+
     public void Active()
     {
         Visible = true;
@@ -126,6 +126,7 @@ public partial class ItemMenu : Control
         SetProcessUnhandledKeyInput(true);
         RollItems();
         GetTree().Paused = true;
+        audio.Play();
     }
 
     public void Disabled()

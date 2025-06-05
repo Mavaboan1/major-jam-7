@@ -6,9 +6,12 @@ public partial class WildMagic : Node2D
     [Export] public ProgressBar WildMagicBar;
     public Node wildSingleton;
 
+    [Export] public AnimatedSprite2D animatedSpriteWild;
+    [Export] public AudioStreamPlayer2D audio;
+
     public override void _Ready()
     {
-        WildMagicBar.MaxValue = 300f;
+        WildMagicBar.MaxValue = 100f;
         WildMagicBar.Value = 0;
         wildSingleton = GetNode<Node>("/root/WildMagicSingle");
     }
@@ -27,6 +30,8 @@ public partial class WildMagic : Node2D
     }
     public void TriggerWildMagic()
     {
+        animatedSpriteWild.Play("default");
+        audio.Play();
         GD.Randomize();
         int Randomnr = (int)GD.Randi() % 9 + 1;
         if (Randomnr == 2)
