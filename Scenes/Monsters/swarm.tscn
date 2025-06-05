@@ -1,8 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://dg3ggtus58bvx"]
+[gd_scene load_steps=9 format=3 uid="uid://dg3ggtus58bvx"]
 
 [ext_resource type="Texture2D" uid="uid://xex7fva1mhde" path="res://Sprites/Monsters/Swarm.png" id="1_2cbes"]
 [ext_resource type="Script" uid="uid://prav0f5pi6od" path="res://Scripts/swarm.gd" id="1_irohx"]
 [ext_resource type="Resource" uid="uid://xptb46p7hlwg" path="res://Resource/swarm.tres" id="2_ccoei"]
+[ext_resource type="AudioStream" uid="uid://bgwmp61uoq55s" path="res://Sprites/SFX/Hit_Hurt6.wav" id="4_xj785"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_en8iw"]
+atlas = ExtResource("1_2cbes")
+region = Rect2(0, 0, 72, 72)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_irohx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_en8iw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ccoei"]
 radius = 15.0
@@ -12,17 +28,17 @@ height = 46.0
 radius = 18.0
 height = 52.0
 
-[node name="Swarm" type="CharacterBody2D"]
+[node name="Swarm" type="CharacterBody2D" node_paths=PackedStringArray("audio")]
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
+motion_mode = 1
 script = ExtResource("1_irohx")
 stats = ExtResource("2_ccoei")
+audio = NodePath("AudioStreamPlayer2D")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -21)
-texture = ExtResource("1_2cbes")
-hframes = 4
-vframes = 5
+sprite_frames = SubResource("SpriteFrames_irohx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -21)
@@ -36,6 +52,10 @@ shape = SubResource("CapsuleShape2D_ccoei")
 position = Vector2(0, -20)
 shape = SubResource("CapsuleShape2D_xj785")
 debug_color = Color(0.86792, 0.326735, 0.359164, 0.42)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_xj785")
+volume_db = -25.0
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]

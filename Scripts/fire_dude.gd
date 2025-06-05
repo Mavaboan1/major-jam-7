@@ -23,6 +23,7 @@ signal health_changed(new_health: float, max_health: float)
 const BIG_WILD_SHARD = preload("res://Scenes/big_wild_shard.tscn")
 const BIG_EXP_SHARD = preload("res://Scenes/big_exp_shard.tscn")
 const SMALL_FIRE_BALL = preload("res://Scenes/small_fire_ball.tscn")
+const HEALING_SHARD = preload("res://Scenes/healing_shard.tscn")
 
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 
@@ -112,6 +113,12 @@ func shard_drop():
 	var wild_shard = BIG_WILD_SHARD.instantiate()
 	wild_shard.global_position = global_position + Vector2.UP * 30
 	current_scene.add_child(wild_shard)
+	
+	var heal_shard = HEALING_SHARD.instantiate()
+	var drop_heal = randf()
+	if drop_heal <= 0.05:
+		heal_shard.global_position = global_position + Vector2.UP * 30
+		get_tree().current_scene.add_child(heal_shard)
 
 func apply_knockback(force: Vector2):
 	knockback_timer = KNOCKBACK_DURATION

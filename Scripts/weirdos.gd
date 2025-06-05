@@ -8,6 +8,7 @@ extends CharacterBody2D
 
 const SMALL_EXP_SHARD = preload("res://Scenes/small_exp_shard.tscn")
 const SMALL_WILD_SHARD = preload("res://Scenes/small_wild_shard.tscn")
+const HEALING_SHARD = preload("res://Scenes/healing_shard.tscn")
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -93,3 +94,9 @@ func shard_drop():
 	var wild_shard = SMALL_WILD_SHARD.instantiate()
 	wild_shard.global_position = global_position + Vector2.UP * 30
 	get_tree().current_scene.add_child(wild_shard)
+	
+	var heal_shard = HEALING_SHARD.instantiate()
+	var drop_heal = randf()
+	if drop_heal <= 0.05:
+		heal_shard.global_position = global_position + Vector2.UP * 30
+		get_tree().current_scene.add_child(heal_shard)

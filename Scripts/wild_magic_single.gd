@@ -56,13 +56,12 @@ func monster_size():
 		randi()
 func exp_explosion():
 	print("EXP TRIGGERED")
-	
+
 	for i in range(randi_range(5, 15)):
 		var exp_shard = SMALL_EXP_SHARD.instantiate()
 		exp_shard.global_position.x = player.global_position.x + randi_range(-60,60)
 		exp_shard.global_position.y = player.global_position.y + randi_range(-60,60)
 		get_tree().current_scene.add_child(exp_shard)
-	
 
 func hallucinations():
 	pass

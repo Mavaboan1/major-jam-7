@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dbvjxm1dp8u16"]
 
-[ext_resource type="Script" uid="uid://doayjju6rxods" path="res://Scenes/Waves/swarm_wave_1.gd" id="1_bkbwm"]
+[ext_resource type="Script" path="res://Scenes/Waves/swarm_wave_1.gd" id="1_bkbwm"]
 [ext_resource type="PackedScene" uid="uid://dg3ggtus58bvx" path="res://Scenes/Monsters/swarm.tscn" id="1_g2psc"]
 
 [node name="SwarmWave2" type="Node2D"]
