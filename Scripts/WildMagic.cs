@@ -15,7 +15,6 @@ public partial class WildMagic : Node2D
 
     public override void _Process(double delta)
     {
-        GetWild(1);
         if (WildMagicBar.Value == WildMagicBar.MaxValue)
         {
             TriggerWildMagic();
@@ -29,7 +28,7 @@ public partial class WildMagic : Node2D
     public void TriggerWildMagic()
     {
         GD.Randomize();
-        int Randomnr = (int)GD.Randi() % 1 + 1;
+        int Randomnr = (int)GD.Randi() % 9 + 1;
         if (Randomnr == 2)
         {
             invert();

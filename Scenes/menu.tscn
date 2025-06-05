@@ -61,6 +61,29 @@ text = "SpellStorm"
 fit_content = true
 horizontal_alignment = 1
 
+[node name="Controls" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 96.0
+offset_right = 181.0
+offset_bottom = 229.0
+text = "Controls:"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Controls"]
+layout_mode = 0
+offset_top = 21.0
+offset_right = 178.0
+offset_bottom = 123.0
+theme_override_font_sizes/normal_font_size = 11
+text = "Wasd / Arrow keys  to move
+Mouse to Aim
+
+
+
+Green orbs give EXP
+Purple orbs trigger Wild Magic
+Survive 15 Minutes to win"
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Endless" to="." method="_on_endless_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
