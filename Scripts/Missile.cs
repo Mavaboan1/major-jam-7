@@ -82,7 +82,7 @@ public partial class Missile : Area2D
         QueueFree();
         if (body.HasMethod("takeDamage") != false)
         {
-            body.Call("takeDamage", 3);
+            body.Call("takeDamage", 2);
 
         }
     }

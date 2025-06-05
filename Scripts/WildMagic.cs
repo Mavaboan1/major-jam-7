@@ -33,12 +33,9 @@ public partial class WildMagic : Node2D
         animatedSpriteWild.Play("default");
         audio.Play();
         GD.Randomize();
-        int Randomnr = GD.RandRange(1, 9);
-        if (Randomnr == 2)
-        {
-            invert();
-        }
-        else if (Randomnr == 3)
+        int Randomnr = GD.RandRange(1, 8);
+        
+        if (Randomnr == 3)
         {
             Slow();
         }
@@ -62,7 +59,7 @@ public partial class WildMagic : Node2D
         {
             wildSingleton.Call("monster_speed");
         }
-        else if (Randomnr == 9)
+        else if (Randomnr == 2)
         {
             wildSingleton.Call("monster_size");
         }

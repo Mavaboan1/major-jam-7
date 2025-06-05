@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bxa871tqes7es"]
+[gd_scene load_steps=11 format=3 uid="uid://bxa871tqes7es"]
 
 [ext_resource type="Script" uid="uid://bwg243s6su2us" path="res://Scripts/main.gd" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://yn8e3bs3pk8t" path="res://Scenes/background.tscn" id="2_8gbba"]
@@ -13,6 +13,14 @@ _data = {
 }
 point_count = 5
 
+[sub_resource type="Gradient" id="Gradient_21xkr"]
+colors = PackedColorArray(0, 0, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6bp64"]
+gradient = SubResource("Gradient_21xkr")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_344ge"]
+
 [node name="Main" type="Node2D"]
 
 [node name="Background" parent="." instance=ExtResource("2_8gbba")]
@@ -24,7 +32,7 @@ script = ExtResource("1_jjgbg")
 gameTime = NodePath("../Character/gameTime")
 
 [node name="Character" parent="." instance=ExtResource("3_jjvhh")]
-position = Vector2(349, 242)
+collision_mask = 193
 
 [node name="Path2D" type="Path2D" parent="Character"]
 position = Vector2(-258.5, -158)
@@ -66,3 +74,71 @@ scale = Vector2(0.5, 0.5)
 [node name="Timer" type="Timer" parent="."]
 
 [node name="treeSpawner" parent="." instance=ExtResource("10_hptm8")]
+
+[node name="Wall Vert 1" type="RigidBody2D" parent="."]
+position = Vector2(-4000, 0)
+scale = Vector2(1, 500)
+collision_layer = 64
+mass = 1e+07
+gravity_scale = 0.0
+lock_rotation = true
+freeze = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Wall Vert 1"]
+position = Vector2(0.000282526, 0)
+scale = Vector2(0.312505, 500)
+texture = SubResource("GradientTexture2D_6bp64")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall Vert 1"]
+scale = Vector2(1, 500)
+shape = SubResource("RectangleShape2D_344ge")
+
+[node name="Wall Vert 2" type="RigidBody2D" parent="."]
+position = Vector2(4000, 0)
+scale = Vector2(1, 500)
+collision_layer = 64
+mass = 1e+07
+gravity_scale = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Wall Vert 2"]
+position = Vector2(0.000282526, 0)
+scale = Vector2(0.312505, 500)
+texture = SubResource("GradientTexture2D_6bp64")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall Vert 2"]
+scale = Vector2(1, 500)
+shape = SubResource("RectangleShape2D_344ge")
+
+[node name="Wall horiz 3" type="RigidBody2D" parent="."]
+position = Vector2(0, 4000)
+rotation = 1.5708
+scale = Vector2(1, 500)
+collision_layer = 64
+mass = 1e+07
+gravity_scale = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Wall horiz 3"]
+position = Vector2(0.000282526, 0)
+scale = Vector2(0.312505, 500)
+texture = SubResource("GradientTexture2D_6bp64")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall horiz 3"]
+scale = Vector2(1, 500)
+shape = SubResource("RectangleShape2D_344ge")
+
+[node name="Wall Vert 4" type="RigidBody2D" parent="."]
+position = Vector2(0, -4000)
+rotation = 1.5708
+scale = Vector2(1, 500)
+collision_layer = 64
+mass = 1e+07
+gravity_scale = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Wall Vert 4"]
+position = Vector2(0.000282526, 0)
+scale = Vector2(0.312505, 500)
+texture = SubResource("GradientTexture2D_6bp64")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall Vert 4"]
+scale = Vector2(1, 500)
+shape = SubResource("RectangleShape2D_344ge")

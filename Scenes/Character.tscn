@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://dr8hfsa1hj1bi"]
+[gd_scene load_steps=68 format=3 uid="uid://dr8hfsa1hj1bi"]
 
 [ext_resource type="Script" uid="uid://tco7a8nnpsmj" path="res://Scripts/Character.cs" id="1_jo2ib"]
 [ext_resource type="Resource" uid="uid://crkxqx07utcve" path="res://Resource/slime_stats.tres" id="2_4b18b"]
@@ -31,6 +31,14 @@ bg_color = Color(0.537255, 0.627451, 0.545098, 0.0941176)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_peemv"]
 bg_color = Color(0.388235, 0.690196, 0.25098, 0.470588)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uis85"]
+bg_color = Color(0.6, 0.6, 0.6, 0.0980392)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.572549, 0.0588235, 0.494118, 0.14902)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p3cti"]
 bg_color = Color(0.677019, 0.000363002, 0.681733, 1)
@@ -379,7 +387,8 @@ offset_left = -160.0
 offset_top = -62.0
 offset_right = -42.0
 offset_bottom = -54.0
-theme_override_styles/background = SubResource("StyleBoxFlat_4b18b")
+scale = Vector2(1.00371, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_uis85")
 theme_override_styles/fill = SubResource("StyleBoxFlat_p3cti")
 show_percentage = false
 
