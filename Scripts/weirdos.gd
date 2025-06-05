@@ -103,3 +103,7 @@ func shard_drop():
 	if drop_heal <= 0.05:
 		heal_shard.global_position = global_position + Vector2.UP * 30
 		get_tree().current_scene.add_child(heal_shard)
+
+
+func _on_death_timer_timeout() -> void:
+	queue_free()

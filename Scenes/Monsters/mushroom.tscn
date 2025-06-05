@@ -221,5 +221,9 @@ debug_color = Color(0.911023, 0.211643, 0.524521, 0.42)
 stream = ExtResource("4_aeljw")
 volume_db = -25.0
 
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 120.0
+
 [connection signal="body_entered" from="DangeZone" to="." method="_on_dange_zone_body_entered"]
 [connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

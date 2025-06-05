@@ -198,3 +198,8 @@ rotation = -2.3417
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_typ2f")
 volume_db = -25.0
+
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 120.0
+
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

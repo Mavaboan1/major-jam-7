@@ -93,3 +93,7 @@ func show_damage_feedback() -> void:
 		tween.tween_property(sprite_2d, "modulate", Color.WHITE, 0.1)
 	
 	audio.play()
+
+
+func _on_death_timer_timeout() -> void:
+	queue_free()

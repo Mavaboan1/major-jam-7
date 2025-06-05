@@ -159,3 +159,7 @@ func _on_danger_zone_body_exited(body: Node2D) -> void:
 func _on_timer_timeout() -> void:
 	if is_in_danger_zone and is_instance_valid(player):
 		shoot()
+
+
+func _on_death_timer_timeout() -> void:
+	queue_free()

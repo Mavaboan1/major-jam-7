@@ -290,3 +290,7 @@ func _on_dange_zone_body_entered(body: Node2D) -> void:
 func _on_hurt_box_body_entered(body: Node2D) -> void:
 	if body.has_method("takePlayerDamage"):
 		pass
+
+
+func _on_death_timer_timeout() -> void:
+	queue_free()
