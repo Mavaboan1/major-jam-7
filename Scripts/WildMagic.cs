@@ -45,7 +45,7 @@ public partial class WildMagic : Node2D
         }
         else if (Randomnr == 5)
         {
-            Flip();
+            invert();
         }
         else if (Randomnr == 6)
         {
