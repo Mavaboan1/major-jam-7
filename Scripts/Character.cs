@@ -44,6 +44,8 @@ public partial class Character : CharacterBody2D
 
 	public override void _Process(double delta)
 	{
+		EmitSignal(SignalName.rangeSignal,Range);
+
 		if (isDead) return;
 		expBar.Value = Experience;
 		HealthBar.Value = Health;
@@ -127,7 +129,6 @@ Velocity = input * moveSpeed;
 	public void RangeUp()
 	{
 		Range += 30f;
-		EmitSignal(SignalName.rangeSignal,Range);
 	}
 	public void HealthUp()
 	{
