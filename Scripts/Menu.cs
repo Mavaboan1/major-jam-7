@@ -5,10 +5,11 @@ public partial class Menu : Control
 {
     [Export] public Node signal_bus;
 
-    
+
 
     public void _on_play_pressed()
     {
+        Engine.TimeScale = 1f;
         GetTree().ChangeSceneToFile("res://Scenes/main.tscn");
     }
     public void _on_endless_pressed()

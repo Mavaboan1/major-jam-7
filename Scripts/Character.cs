@@ -190,6 +190,11 @@ Velocity = input * moveSpeed;
 	{
 		Experience += Exp;
 	}
+	public void Heal(int healing)
+	{
+		Health += healing;
+		
+	}
 	public void getWild(int Wild)
 	{
 		wildController.Call("GetWild", Wild);
@@ -202,12 +207,12 @@ Velocity = input * moveSpeed;
 	{
 		if (Slowed == false)
 		{
-			moveSpeed -= 100f;
+			moveSpeed -= 50f;
 			Slowed = true;
 		}
 		else if (Slowed == true)
 		{
-			moveSpeed += 100f;
+			moveSpeed += 50f;
 			Slowed = false;
 		}
 	}
